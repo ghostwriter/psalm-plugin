@@ -2,4 +2,6 @@
 
 declare(strict_types=1);
 
-namespace Ghostwriter\Wip;
+define('BLM', '#BLM');
+
+define('BLACK_LIVES_MATTER', '#BlackLivesMatter');
