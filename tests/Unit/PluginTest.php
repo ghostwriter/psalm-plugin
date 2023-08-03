@@ -11,6 +11,7 @@ use Ghostwriter\PsalmPlugin\Hook\SuppressInternalClassHook;
 use Ghostwriter\PsalmPlugin\Hook\SuppressInternalMethodHook;
 use Ghostwriter\PsalmPlugin\Hook\SuppressInternalPropertyHook;
 use Ghostwriter\PsalmPlugin\Hook\SuppressMissingConstructorHook;
+use Ghostwriter\PsalmPlugin\Hook\SuppressMissingThrowsDocblockHook;
 use Ghostwriter\PsalmPlugin\Hook\SuppressPropertyNotSetInConstructorHook;
 use Ghostwriter\PsalmPlugin\Hook\SuppressUnusedClassHook;
 use Ghostwriter\PsalmPlugin\Plugin;
@@ -24,6 +25,7 @@ use PHPUnit\Framework\TestCase;
 #[CoversClass(AbstractHook::class)]
 #[CoversClass(FixParamNameMismatchHook::class)]
 #[CoversClass(SuppressMissingConstructorHook::class)]
+#[CoversClass(SuppressMissingThrowsDocblockHook::class)]
 #[CoversClass(SuppressUnusedClassHook::class)]
 #[CoversClass(SuppressPropertyNotSetInConstructorHook::class)]
 #[CoversClass(SuppressInternalClassHook::class)]
