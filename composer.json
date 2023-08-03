@@ -1,11 +1,12 @@
 {
-    "name": "ghostwriter/wip",
-    "description": "Here be dragons",
+    "name": "ghostwriter/psalm-plugin",
+    "description": "Provides a plugin for Psalm",
     "license": "BSD-3-Clause",
-    "type": "library",
+    "type": "psalm-plugin",
     "keywords": [
         "ghostwriter",
-        "wip"
+        "psalm",
+        "psalm-plugin"
     ],
     "authors": [
         {
@@ -15,13 +16,13 @@
             "role": "Developer"
         }
     ],
-    "homepage": "https://github.com/ghostwriter/wip",
+    "homepage": "https://github.com/ghostwriter/psalm-plugin",
     "support": {
-        "issues": "https://github.com/ghostwriter/wip/issues",
-        "forum": "https://github.com/ghostwriter/wip/discussions",
-        "source": "https://github.com/ghostwriter/wip",
-        "docs": "https://github.com/ghostwriter/wip",
-        "rss": "https://github.com/ghostwriter/wip/releases.atom"
+        "issues": "https://github.com/ghostwriter/psalm-plugin/issues",
+        "forum": "https://github.com/ghostwriter/psalm-plugin/discussions",
+        "source": "https://github.com/ghostwriter/psalm-plugin",
+        "docs": "https://github.com/ghostwriter/psalm-plugin",
+        "rss": "https://github.com/ghostwriter/psalm-plugin/releases.atom"
     },
     "funding": [
         {
@@ -31,6 +32,7 @@
     ],
     "require": {
         "php": ">=8.1",
+        "ext-simplexml": "*",
         "ghostwriter/collection": "^1.3",
         "ghostwriter/config": "^0.4",
         "ghostwriter/container": "^1.6",
@@ -41,14 +43,14 @@
     },
     "require-dev": {
         "ghostwriter/coding-standard": "dev-main",
-        "ghostwriter/phpunit-psalm-plugin": "dev-main"
+        "ghostwriter/psalm-plugin-tester": "dev-main"
     },
     "replace": {},
     "minimum-stability": "stable",
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Ghostwriter\\Wip\\": "src/"
+            "Ghostwriter\\PsalmPlugin\\": "src/"
         },
         "files": [
             "src/constants.php",
@@ -57,7 +59,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Ghostwriter\\Wip\\Tests\\": "tests/"
+            "Ghostwriter\\PsalmPlugin\\Tests\\": "tests/"
         }
     },
     "bin": [
@@ -73,12 +75,17 @@
         "discard-changes": true,
         "optimize-autoloader": true,
         "platform": {
-            "php": "8.1.99"
+            "php": "8.1.999"
         },
         "preferred-install": "dist",
         "prepend-autoloader": true,
         "process-timeout": 5000,
         "sort-packages": true
+    },
+    "extra": {
+        "psalm": {
+            "pluginClass": "Ghostwriter\\PsalmPlugin\\Plugin"
+        }
     },
     "scripts": {
         "cache:clear": [
@@ -108,12 +115,17 @@
         "missing-returntypes": "psalm --alter --issues=MissingReturnType",
         "normalizer": "composer normalize --no-check-lock",
         "phpunit": "phpunit --colors=always",
-        "psalm": "@psalm:shepherd",
+        "psalm": [
+            "@psalm:shepherd",
+            "@psalm:security",
+            "@psalm:dry-run"
+        ],
         "psalm:baseline": "psalm --no-cache --no-diff --set-baseline=psalm-baseline.xml",
-        "psalm:dry-run": "psalm --alter --issues=all --dry-run",
-        "psalm:missing": "psalm --alter --issues=MissingReturnType",
-        "psalm:security": "psalm --no-cache --taint-analysis",
-        "psalm:shepherd": "psalm --no-diff --no-cache --shepherd --stats",
+        "psalm:dry-run": "psalm --no-cache --alter --issues=all --dry-run",
+        "psalm:fix": "vendor/bin/psalm --no-cache  --alter --issues=MissingReturnType,InvalidReturnType,MismatchingDocblockParamType,LessSpecificReturnType,MissingClosureReturnType,UnnecessaryVarAnnotation,UnusedVariable,MissingParamType --allow-backwards-incompatible-changes=false",
+        "psalm:missing": "psalm --no-cache --alter --issues=MissingReturnType",
+        "psalm:security": "psalm --no-cache --no-diff --taint-analysis",
+        "psalm:shepherd": "psalm --no-cache --no-diff --shepherd --stats",
         "rector": "vendor/bin/rector process",
         "rector:dry-run": "vendor/bin/rector process --dry-run || true",
         "test": [
