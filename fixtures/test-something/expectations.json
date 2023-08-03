@@ -1,0 +1,10 @@
+{
+    "errors": [
+        {
+            "file": "code.php",
+            "message": "PHPUnit\\Framework\\Exception is thrown but not caught - please either catch or add a @throws annotation",
+            "severity": "error",
+            "type": "MissingThrowsDocblock"
+        }
+    ]
+}

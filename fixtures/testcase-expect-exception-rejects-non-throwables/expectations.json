@@ -1,0 +1,16 @@
+{
+    "errors": [
+        {
+            "file": "code.php",
+            "message": "Argument 1 of Vendor\\Package\\MyTestCase::expectException expects class-string<Throwable>, but Vendor\\Package\\MyTestCase::class provided",
+            "severity": "error",
+            "type": "InvalidArgument"
+        },
+        {
+            "file": "code.php",
+            "message": "Cannot find any calls to method Vendor\\Package\\MyTestCase::testSomething",
+            "severity": "error",
+            "type": "PossiblyUnusedMethod"
+        }
+    ]
+}
