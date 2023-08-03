@@ -51,21 +51,13 @@
     "autoload": {
         "psr-4": {
             "Ghostwriter\\PsalmPlugin\\": "src/"
-        },
-        "files": [
-            "src/constants.php",
-            "src/functions.php"
-        ]
+        }
     },
     "autoload-dev": {
         "psr-4": {
             "Ghostwriter\\PsalmPlugin\\Tests\\": "tests/"
         }
     },
-    "bin": [
-        "bin/console",
-        "bin/console.php"
-    ],
     "config": {
         "allow-plugins": {
             "infection/extension-installer": true,
