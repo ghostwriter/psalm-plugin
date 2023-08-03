@@ -13,9 +13,7 @@ return static function (ECSConfig $ecsConfig): void {
     $ecsConfig->import(__DIR__ . '/vendor/ghostwriter/coding-standard/ecs.php');
 
     $ecsConfig->paths([
-        __DIR__ . '/bin',
         __FILE__,
-        __DIR__ . '/README.md',
         __DIR__ . '/rector.php',
         __DIR__ . '/src',
         __DIR__ . '/tests',
