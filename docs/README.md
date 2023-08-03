@@ -1,3 +1,3 @@
-# WIP
+# Psalm plugin
 
 here be dragons...
