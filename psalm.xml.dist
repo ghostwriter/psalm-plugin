@@ -23,7 +23,6 @@
         <directory name="tests"/>
         <ignoreFiles>
             <directory name=".github"/>
-            <directory name="config"/>
             <directory name="docs"/>
             <directory name="fixtures"/>
             <directory name="vendor"/>
@@ -32,6 +31,6 @@
         </ignoreFiles>
     </projectFiles>
     <plugins>
-        <pluginClass class="Ghostwriter\PHPUnitPsalmPlugin\PHPUnitPlugin"/>
+        <pluginClass class="Ghostwriter\PsalmPlugin\Plugin"/>
     </plugins>
 </psalm>
