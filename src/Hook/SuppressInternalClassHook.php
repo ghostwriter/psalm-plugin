@@ -16,12 +16,15 @@ final class SuppressInternalClassHook extends AbstractHook implements BeforeAddI
     {
         $codeIssue = $event->getIssue();
 
-        return match (true) {
-            default => self::CONTINUE ,
-            $codeIssue instanceof InternalClass => match (true) {
-                str_contains($codeIssue->fq_classlike_name, __NAMESPACE__) => self::SUPPRESS,
-                default => self::CONTINUE ,
-            }
-        };
+        if (! $codeIssue instanceof InternalClass) {
+            return self::IGNORE;
+        }
+
+        if (str_contains($codeIssue->fq_classlike_name, __NAMESPACE__))
+        {
+            return self::SUPPRESS;
+        }
+
+        return self::IGNORE;
     }
 }
