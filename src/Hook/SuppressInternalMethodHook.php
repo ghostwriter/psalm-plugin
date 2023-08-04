@@ -20,8 +20,7 @@ final class SuppressInternalMethodHook extends AbstractHook implements BeforeAdd
             return self::IGNORE;
         }
 
-        if (str_contains($codeIssue->message, __NAMESPACE__))
-        {
+        if (str_contains($codeIssue->message, __NAMESPACE__)) {
             return self::SUPPRESS;
         }
 
