@@ -12,7 +12,7 @@ final class Plugin implements PluginEntryPointInterface
 {
     public function __invoke(RegistrationInterface $registration, ?SimpleXMLElement $config = null): void
     {
-        foreach (glob(__DIR__ . '/Hook/*.php') as $file) {
+        foreach (glob(__DIR__ . '/Hook/*.php') ?: [] as $file) {
             /** @var class-string $class */
             $class = __NAMESPACE__ . '\\Hook\\' . basename($file, '.php');
 
