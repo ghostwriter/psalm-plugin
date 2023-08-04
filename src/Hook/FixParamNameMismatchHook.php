@@ -14,6 +14,6 @@ final class FixParamNameMismatchHook extends AbstractHook implements BeforeAddIs
 {
     public static function beforeAddIssue(BeforeAddIssueEvent $event): ?bool
     {
-        return self::CONTINUE;
+        return self::IGNORE;
     }
 }
