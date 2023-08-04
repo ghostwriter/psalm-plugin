@@ -1,3 +1,29 @@
 {
-    "errors": []
+    "pluginClass": "Ghostwriter\\PsalmPlugin\\Plugin",
+    "php": "8.2",
+    "expected": {
+        "errors": [
+            {
+                "file": "code.php",
+                "message": "Class Vendor\\Project\\FooTest is never used",
+                "severity": "error",
+                "type": "UnusedClass"
+            }
+        ]
+    },
+    "actual": {
+        "errors": [
+            {
+                "file": "code.php",
+                "message": "Class Vendor\\Project\\FooTest is never used",
+                "severity": "error",
+                "type": "UnusedClass"
+            }
+        ]
+    },
+    "plugin": {
+        "Ghostwriter\\PsalmPlugin\\Plugin": {
+            "phpVersion": "8.2"
+        }
+    }
 }
