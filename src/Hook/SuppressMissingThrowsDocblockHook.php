@@ -6,7 +6,7 @@ namespace Ghostwriter\PsalmPlugin\Hook;
 
 use Ghostwriter\PsalmPlugin\AbstractHook;
 
-use PHPUnit\Framework\Exception;
+use PHPUnit\Exception;
 use Psalm\Issue\MissingThrowsDocblock;
 use Psalm\Plugin\EventHandler\BeforeAddIssueInterface;
 use Psalm\Plugin\EventHandler\Event\BeforeAddIssueEvent;
@@ -16,14 +16,21 @@ final class SuppressMissingThrowsDocblockHook extends AbstractHook implements Be
     public static function beforeAddIssue(BeforeAddIssueEvent $event): ?bool
     {
         $codeIssue = $event->getIssue();
+
         if (! $codeIssue instanceof MissingThrowsDocblock) {
-            return self::CONTINUE;
+            return self::IGNORE;
         }
 
-        if (! $event->getCodebase()->classExtends($codeIssue->fq_classlike_name, Exception::class)) {
-            return self::CONTINUE;
+        $className = $codeIssue->fq_classlike_name;
+
+        if ($event->getCodebase()->classImplements($codeIssue->fq_classlike_name, Exception::class)) {
+            return self::SUPPRESS;
         }
 
-        return self::SUPPRESS;
+        if ($className === Exception::class) {
+            return self::SUPPRESS;
+        }
+
+        return self::IGNORE;
     }
 }
