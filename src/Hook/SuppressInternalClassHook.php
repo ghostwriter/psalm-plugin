@@ -20,8 +20,7 @@ final class SuppressInternalClassHook extends AbstractHook implements BeforeAddI
             return self::IGNORE;
         }
 
-        if (str_contains($codeIssue->fq_classlike_name, __NAMESPACE__))
-        {
+        if (str_contains($codeIssue->fq_classlike_name, __NAMESPACE__)) {
             return self::SUPPRESS;
         }
 
