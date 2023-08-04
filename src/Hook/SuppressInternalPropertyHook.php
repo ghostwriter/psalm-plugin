@@ -16,12 +16,15 @@ final class SuppressInternalPropertyHook extends AbstractHook implements BeforeA
     {
         $codeIssue = $event->getIssue();
 
-        return match (true) {
-            default => self::CONTINUE ,
-            $codeIssue instanceof InternalProperty => match (true) {
-                str_contains($codeIssue->message, __NAMESPACE__) => self::SUPPRESS,
-                default => self::CONTINUE ,
-            }
-        };
+        if (! $codeIssue instanceof InternalProperty) {
+            return self::IGNORE;
+        }
+
+        if (str_contains($codeIssue->message, __NAMESPACE__))
+        {
+            return self::SUPPRESS;
+        }
+
+        return self::IGNORE;
     }
 }
