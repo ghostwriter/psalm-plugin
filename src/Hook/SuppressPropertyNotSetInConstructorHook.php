@@ -17,7 +17,7 @@ final class SuppressPropertyNotSetInConstructorHook extends AbstractHook impleme
     {
         $codeIssue = $event->getIssue();
         if (! $codeIssue instanceof PropertyNotSetInConstructor) {
-            return self::CONTINUE;
+            return self::IGNORE;
         }
 
         $propertyId = $codeIssue->property_id;
@@ -27,7 +27,7 @@ final class SuppressPropertyNotSetInConstructorHook extends AbstractHook impleme
         $codebase = $event->getCodebase();
 
         if (! $codebase->classExtends($className, TestCase::class)) {
-            return self::CONTINUE;
+            return self::IGNORE;
         }
 
         $classLikeStorage = $codebase->classlikes->getStorageFor($className);
@@ -35,6 +35,6 @@ final class SuppressPropertyNotSetInConstructorHook extends AbstractHook impleme
             return self::SUPPRESS;
         }
 
-        return self::CONTINUE;
+        return self::IGNORE;
     }
 }
