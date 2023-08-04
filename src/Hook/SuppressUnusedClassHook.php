@@ -17,13 +17,19 @@ final class SuppressUnusedClassHook extends AbstractHook implements BeforeAddIss
     {
         $codeIssue = $event->getIssue();
         if (! $codeIssue instanceof UnusedClass) {
-            return self::CONTINUE;
+            return self::IGNORE;
         }
 
-        return match (true) {
-            default => self::CONTINUE,
-            str_contains($codeIssue->fq_classlike_name, __NAMESPACE__),
-            $event->getCodebase()->classExtends($codeIssue->fq_classlike_name, TestCase::class) => self::SUPPRESS
-        };
+        if (str_starts_with($codeIssue->fq_classlike_name, __NAMESPACE__))
+        {
+            return self::SUPPRESS;
+        }
+
+        if ($event->getCodebase()->classExtends($codeIssue->fq_classlike_name, TestCase::class))
+        {
+            return self::SUPPRESS;
+        }
+
+        return self::IGNORE;
     }
 }
