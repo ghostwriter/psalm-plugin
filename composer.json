@@ -33,17 +33,17 @@
     "require": {
         "php": ">=8.1",
         "ext-simplexml": "*",
-        "ghostwriter/collection": "^1.3",
-        "ghostwriter/config": "^0.4",
+        "ghostwriter/collection": "^1.3.2",
+        "ghostwriter/config": "^0.4.1",
         "ghostwriter/container": "^1.6",
         "ghostwriter/event-dispatcher": "^1.5",
         "ghostwriter/json": "^1.1",
-        "ghostwriter/option": "^1.5",
+        "ghostwriter/option": "^1.5.1",
         "ghostwriter/result": "^1.3"
     },
     "require-dev": {
         "ghostwriter/coding-standard": "dev-main",
-        "ghostwriter/psalm-plugin-tester": "dev-main"
+        "ghostwriter/psalm-plugin-tester": "^0.2.0"
     },
     "replace": {},
     "minimum-stability": "stable",
