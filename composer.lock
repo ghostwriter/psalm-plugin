@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f6f16ca0a921ba6e6de76002ffcdf015",
+    "content-hash": "21ff509040ce191bb085a8e8089f28c1",
     "packages": [
         {
             "name": "ghostwriter/collection",
@@ -1525,16 +1525,16 @@
         },
         {
             "name": "ghostwriter/psalm-plugin-tester",
-            "version": "dev-main",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ghostwriter/psalm-plugin-tester.git",
-                "reference": "d6d738458a8f9f2a029034ad95df2b25b5053e9a"
+                "reference": "ef2dba667220bc613ceb63fdced72efe7f61eb2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ghostwriter/psalm-plugin-tester/zipball/d6d738458a8f9f2a029034ad95df2b25b5053e9a",
-                "reference": "d6d738458a8f9f2a029034ad95df2b25b5053e9a",
+                "url": "https://api.github.com/repos/ghostwriter/psalm-plugin-tester/zipball/ef2dba667220bc613ceb63fdced72efe7f61eb2c",
+                "reference": "ef2dba667220bc613ceb63fdced72efe7f61eb2c",
                 "shasum": ""
             },
             "require": {
@@ -1555,7 +1555,6 @@
                 "ghostwriter/coding-standard": "dev-main",
                 "ghostwriter/psalm-plugin": "0.1.x-dev"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -1593,7 +1592,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-08-04T20:04:48+00:00"
+            "time": "2023-08-04T20:40:20+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -5555,8 +5554,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "ghostwriter/coding-standard": 20,
-        "ghostwriter/psalm-plugin-tester": 20
+        "ghostwriter/coding-standard": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
