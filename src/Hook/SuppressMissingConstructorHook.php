@@ -13,6 +13,6 @@ final class SuppressMissingConstructorHook extends AbstractHook implements Befor
 {
     public static function beforeAddIssue(BeforeAddIssueEvent $event): ?bool
     {
-        return self::CONTINUE;
+        return self::IGNORE;
     }
 }
