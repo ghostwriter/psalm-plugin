@@ -1,10 +1,29 @@
 {
-    "errors": [
-        {
-            "file": "code.php",
-            "message": "PHPUnit\\Framework\\Exception is thrown but not caught - please either catch or add a @throws annotation",
-            "severity": "error",
-            "type": "MissingThrowsDocblock"
+    "pluginClass": "Ghostwriter\\PsalmPlugin\\Plugin",
+    "php": "8.2",
+    "expected": {
+        "errors": [
+            {
+                "file": "code.php",
+                "message": "Class Ghostwriter\\ExamplePsalmPlugin\\Tests\\Unit\\ObjectTest is never used",
+                "severity": "error",
+                "type": "UnusedClass"
+            }
+        ]
+    },
+    "actual": {
+        "errors": [
+            {
+                "file": "code.php",
+                "message": "Class Ghostwriter\\ExamplePsalmPlugin\\Tests\\Unit\\ObjectTest is never used",
+                "severity": "error",
+                "type": "UnusedClass"
+            }
+        ]
+    },
+    "plugin": {
+        "Ghostwriter\\PsalmPlugin\\Plugin": {
+            "phpVersion": "8.2"
         }
-    ]
+    }
 }
