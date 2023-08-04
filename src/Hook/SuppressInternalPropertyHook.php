@@ -20,8 +20,7 @@ final class SuppressInternalPropertyHook extends AbstractHook implements BeforeA
             return self::IGNORE;
         }
 
-        if (str_contains($codeIssue->message, __NAMESPACE__))
-        {
+        if (str_contains($codeIssue->message, __NAMESPACE__)) {
             return self::SUPPRESS;
         }
 
