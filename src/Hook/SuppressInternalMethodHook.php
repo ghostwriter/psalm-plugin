@@ -16,12 +16,15 @@ final class SuppressInternalMethodHook extends AbstractHook implements BeforeAdd
     {
         $codeIssue = $event->getIssue();
 
-        return match (true) {
-            default => self::CONTINUE ,
-            $codeIssue instanceof InternalMethod => match (true) {
-                str_contains($codeIssue->message, __NAMESPACE__) => self::SUPPRESS,
-                default => self::CONTINUE ,
-            }
-        };
+        if (! $codeIssue instanceof InternalMethod) {
+            return self::IGNORE;
+        }
+
+        if (str_contains($codeIssue->message, __NAMESPACE__))
+        {
+            return self::SUPPRESS;
+        }
+
+        return self::IGNORE;
     }
 }
