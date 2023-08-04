@@ -6,9 +6,9 @@ namespace Ghostwriter\PsalmPlugin;
 
 abstract class AbstractHook
 {
-    final public const CONTINUE = null;
+    final public const IGNORE = null;
 
-    final public const KEEP = true;
+    final public const REPORT = true;
 
     final public const SUPPRESS = false;
 }
