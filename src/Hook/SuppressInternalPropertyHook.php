@@ -12,6 +12,9 @@ use Psalm\Plugin\EventHandler\Event\BeforeAddIssueEvent;
 
 final class SuppressInternalPropertyHook extends AbstractHook implements BeforeAddIssueInterface
 {
+    /**
+     * @return null|false
+     */
     public static function beforeAddIssue(BeforeAddIssueEvent $event): ?bool
     {
         $codeIssue = $event->getIssue();

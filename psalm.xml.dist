@@ -16,6 +16,7 @@
     ignoreInternalFunctionFalseReturn="false"
     ignoreInternalFunctionNullReturn="false"
     memoizeMethodCallResults="true"
+    phpVersion="8.1"
     strictBinaryOperands="true"
 >
     <projectFiles>
