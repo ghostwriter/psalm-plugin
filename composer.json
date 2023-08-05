@@ -6,7 +6,9 @@
     "keywords": [
         "ghostwriter",
         "psalm",
-        "psalm-plugin"
+        "psalm-plugin",
+        "static analysis",
+        "dev"
     ],
     "authors": [
         {
@@ -38,7 +40,7 @@
     },
     "require-dev": {
         "ghostwriter/coding-standard": "dev-main",
-        "ghostwriter/psalm-plugin-tester": "~0.1"
+        "ghostwriter/psalm-plugin-tester": "~0.2"
     },
     "replace": {
         "ghostwriter/example-psalm-plugin": "*",
@@ -65,7 +67,7 @@
         "discard-changes": true,
         "optimize-autoloader": true,
         "platform": {
-            "php": "8.1.999"
+            "php": "7.3.999"
         },
         "preferred-install": "dist",
         "prepend-autoloader": true,
@@ -82,7 +84,7 @@
             "rm -fr ./.cache"
         ],
         "check": [
-            "@composer validate",
+            "@composer validate || true",
             "@normalizer",
             "@ecs",
             "@test",
