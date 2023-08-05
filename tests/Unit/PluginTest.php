@@ -40,7 +40,9 @@ final class PluginTest extends TestCase
         $this->pluginTester = new PluginTester();
     }
 
-    /** @return Generator<string,Fixture> */
+    /**
+     * @return Generator<string,Fixture>
+     */
     public static function fixtureDataProvider(): Generator
     {
         yield from PluginTester::yieldFixtures(

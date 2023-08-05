@@ -12,15 +12,19 @@ return static function (RectorConfig $rectorConfig): void {
 
     $rectorConfig->phpVersion(PhpVersion::PHP_81);
 
-    $rectorConfig->paths([
-        __DIR__ . '/src', __DIR__ . '/tests', __DIR__ . '/ecs.php', __DIR__ . '/rector.php',
-    ]);
+    $rectorConfig->paths(
+        [
+            __DIR__ . '/src', __DIR__ . '/tests', __DIR__ . '/ecs.php', __DIR__ . '/rector.php',
+        ]
+    );
 
-    $rectorConfig->skip([
-        RenameParamToMatchTypeRector::class,
-        __DIR__ . '/fixtures/*',
-        __DIR__ . '*/vendor/*',
-    ]);
+    $rectorConfig->skip(
+        [
+            RenameParamToMatchTypeRector::class,
+            __DIR__ . '/fixtures/*',
+            __DIR__ . '*/vendor/*',
+        ]
+    );
 
     $rectorConfig->rule(RenameVariableToMatchMethodCallReturnTypeRector::class);
 };

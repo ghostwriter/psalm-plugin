@@ -14,7 +14,9 @@ final class FooTest extends TestCase
         yield from ['foo' => ['bar']];
     }
 
-    /** @dataProvider singleQuotes */
+    /**
+     * @dataProvider singleQuotes 
+     */
     public function testFixture(string $fixture): void
     {
         self::assertSame('bar', $fixture);
