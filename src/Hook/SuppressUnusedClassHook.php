@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace Ghostwriter\PsalmPlugin\Hook;
 
-use Ghostwriter\PsalmPlugin\AbstractHook;
+use Ghostwriter\PsalmPlugin\AbstractBeforeAddIssueEventHook;
 
 use PHPUnit\Framework\TestCase;
 use Psalm\Issue\UnusedClass;
-use Psalm\Plugin\EventHandler\BeforeAddIssueInterface;
 use Psalm\Plugin\EventHandler\Event\BeforeAddIssueEvent;
 
-final class SuppressUnusedClassHook extends AbstractHook implements BeforeAddIssueInterface
+final class SuppressUnusedClassHook extends AbstractBeforeAddIssueEventHook
 {
     /**
      * @return null|false
@@ -23,7 +22,10 @@ final class SuppressUnusedClassHook extends AbstractHook implements BeforeAddIss
             return self::IGNORE;
         }
 
-        if (str_starts_with($codeIssue->fq_classlike_name, __NAMESPACE__)) {
+        $className = $codeIssue->fq_classlike_name;
+
+        if (str_contains($className, __NAMESPACE__)) {
+            // Hooks are autoloaded
             return self::SUPPRESS;
         }
 
