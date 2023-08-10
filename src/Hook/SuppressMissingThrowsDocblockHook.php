@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace Ghostwriter\PsalmPlugin\Hook;
 
-use Ghostwriter\PsalmPlugin\AbstractHook;
+use Ghostwriter\PsalmPlugin\AbstractBeforeAddIssueEventHook;
 
 use PHPUnit\Exception;
 use Psalm\Issue\MissingThrowsDocblock;
-use Psalm\Plugin\EventHandler\BeforeAddIssueInterface;
 use Psalm\Plugin\EventHandler\Event\BeforeAddIssueEvent;
 
-final class SuppressMissingThrowsDocblockHook extends AbstractHook implements BeforeAddIssueInterface
+final class SuppressMissingThrowsDocblockHook extends AbstractBeforeAddIssueEventHook
 {
     /**
      * @return null|false
