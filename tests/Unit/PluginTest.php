@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Ghostwriter\PsalmPlugin\Tests\Unit;
 
 use Generator;
+use Ghostwriter\PsalmPlugin\AbstractBeforeAddIssueEventHook;
 use Ghostwriter\PsalmPlugin\AbstractHook;
 use Ghostwriter\PsalmPlugin\Hook\FixParamNameMismatchHook;
 use Ghostwriter\PsalmPlugin\Hook\SuppressInternalClassHook;
@@ -12,6 +13,7 @@ use Ghostwriter\PsalmPlugin\Hook\SuppressInternalMethodHook;
 use Ghostwriter\PsalmPlugin\Hook\SuppressInternalPropertyHook;
 use Ghostwriter\PsalmPlugin\Hook\SuppressMissingConstructorHook;
 use Ghostwriter\PsalmPlugin\Hook\SuppressMissingThrowsDocblockHook;
+use Ghostwriter\PsalmPlugin\Hook\SuppressPossiblyUnusedMethodHook;
 use Ghostwriter\PsalmPlugin\Hook\SuppressPropertyNotSetInConstructorHook;
 use Ghostwriter\PsalmPlugin\Hook\SuppressUnusedClassHook;
 use Ghostwriter\PsalmPlugin\Plugin;
@@ -22,6 +24,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(Plugin::class)]
+#[CoversClass(AbstractBeforeAddIssueEventHook::class)]
 #[CoversClass(AbstractHook::class)]
 #[CoversClass(FixParamNameMismatchHook::class)]
 #[CoversClass(SuppressMissingConstructorHook::class)]
@@ -30,6 +33,7 @@ use PHPUnit\Framework\TestCase;
 #[CoversClass(SuppressPropertyNotSetInConstructorHook::class)]
 #[CoversClass(SuppressInternalClassHook::class)]
 #[CoversClass(SuppressInternalMethodHook::class)]
+#[CoversClass(SuppressPossiblyUnusedMethodHook::class)]
 #[CoversClass(SuppressInternalPropertyHook::class)]
 final class PluginTest extends TestCase
 {
