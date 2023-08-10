@@ -42,6 +42,9 @@ final class SuppressPropertyNotSetInConstructorHook extends AbstractBeforeAddIss
             return self::IGNORE;
         }
 
+        /**
+         * @var array<Node> $statements
+         */
         $statements = self::getStatements($codeIssue->getFilePath(), $codebase);
 
         $nodeFinder = new NodeFinder();
@@ -74,6 +77,9 @@ final class SuppressPropertyNotSetInConstructorHook extends AbstractBeforeAddIss
         );
     }
 
+    /**
+     * @param array<Node>|Node $classMethodNodes
+     */
     private static function hasClassMethodDocBlockTag(string $tagName, NodeFinder $nodeFinder, Node|array $classMethodNodes): bool
     {
         return $nodeFinder->findFirst(
@@ -94,6 +100,9 @@ final class SuppressPropertyNotSetInConstructorHook extends AbstractBeforeAddIss
         ) instanceof Node;
     }
 
+    /**
+     * @param array<Node>|Node $classMethodNodes
+     */
     private static function hasClassMethodDocBlockTagPropertyAssignment(string $tagName, string $propertyName, NodeFinder $nodeFinder, Node|array $classMethodNodes): bool
     {
         $classMethodNode = $nodeFinder->findFirst(
@@ -120,6 +129,9 @@ final class SuppressPropertyNotSetInConstructorHook extends AbstractBeforeAddIss
         return self::hasClassMethodPropertyAssignment($classMethodNode->name->__toString(), $propertyName, $nodeFinder, $classMethodNode);
     }
 
+    /**
+     * @param array<Node>|Node $classMethodNodes
+     */
     private static function hasClassMethodPHPAttributePropertyAssignment(string $attributeName, string $propertyName, NodeFinder $nodeFinder, Node|array $classMethodNodes): bool
     {
         $classMethodNode = $nodeFinder->findFirst(
@@ -152,6 +164,9 @@ final class SuppressPropertyNotSetInConstructorHook extends AbstractBeforeAddIss
         return self::hasClassMethodPropertyAssignment($classMethodNode->name->__toString(), $propertyName, $nodeFinder, $classMethodNode);
     }
 
+    /**
+     * @param array<Node>|Node $classMethodNodes
+     */
     private static function hasClassMethodPropertyAssignment(string $methodName, string $propertyName, NodeFinder $nodeFinder, Node|array $classMethodNodes): bool
     {
         /** @var null|ClassMethod $classMethodNode */
