@@ -18,6 +18,11 @@ abstract class AbstractHook
 
     final public const SUPPRESS = false;
 
+    public static function fullyQualifiedClassName(string $className, Codebase $codebase): string
+    {
+        return $codebase->classlikes->getUnAliasedName($className);
+    }
+
     public static function hasFullyQualifiedClassName(string $className, Codebase $codebase): bool
     {
         return $codebase->classlikes->hasFullyQualifiedClassName($className);
@@ -38,10 +43,5 @@ abstract class AbstractHook
         }
 
         return DocComment::parsePreservingLength($doc);
-    }
-
-    public static function fullyQualifiedClassName(string $className, Codebase $codebase): string
-    {
-        return $codebase->classlikes->getUnAliasedName($className);
     }
 }
