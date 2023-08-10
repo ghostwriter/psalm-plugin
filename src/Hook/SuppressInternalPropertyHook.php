@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace Ghostwriter\PsalmPlugin\Hook;
 
-use Ghostwriter\PsalmPlugin\AbstractHook;
+use Ghostwriter\PsalmPlugin\AbstractBeforeAddIssueEventHook;
 
 use Psalm\Issue\InternalProperty;
-use Psalm\Plugin\EventHandler\BeforeAddIssueInterface;
 use Psalm\Plugin\EventHandler\Event\BeforeAddIssueEvent;
 
-final class SuppressInternalPropertyHook extends AbstractHook implements BeforeAddIssueInterface
+final class SuppressInternalPropertyHook extends AbstractBeforeAddIssueEventHook
 {
     /**
      * @return null|false
@@ -23,7 +22,7 @@ final class SuppressInternalPropertyHook extends AbstractHook implements BeforeA
             return self::IGNORE;
         }
 
-        if (str_contains($codeIssue->message, __NAMESPACE__)) {
+        if (str_contains($codeIssue->message, 'Ghostwriter\\PsalmPlugin')) {
             return self::SUPPRESS;
         }
 
