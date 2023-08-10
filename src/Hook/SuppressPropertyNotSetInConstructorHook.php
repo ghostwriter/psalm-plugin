@@ -43,7 +43,7 @@ final class SuppressPropertyNotSetInConstructorHook extends AbstractBeforeAddIss
         }
 
         /** @var array<Node> $statements */
-        $statements = self::getStatements($codeIssue->getFilePath(), $codebase);
+        $statements = $codebase->getStatementsForFile($codeIssue->getFilePath());
 
         $nodeFinder = new NodeFinder();
 
