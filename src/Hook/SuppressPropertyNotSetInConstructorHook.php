@@ -198,7 +198,6 @@ final class SuppressPropertyNotSetInConstructorHook extends AbstractBeforeAddIss
 
                 $name = $var->name;
                 if (! $name instanceof Identifier) {
-                    self::dump($name, $var, $expr, $node);
                     return false;
                 }
 
