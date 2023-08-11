@@ -6,7 +6,7 @@ namespace Ghostwriter\PsalmPlugin\Hook;
 
 use Ghostwriter\PsalmPlugin\AbstractBeforeAddIssueEventHook;
 
-use PHPUnit\Exception;
+use PHPUnit\Framework\TestCase;
 use Psalm\Issue\MissingThrowsDocblock;
 use Psalm\Plugin\EventHandler\Event\BeforeAddIssueEvent;
 
@@ -23,13 +23,23 @@ final class SuppressMissingThrowsDocblockHook extends AbstractBeforeAddIssueEven
             return self::IGNORE;
         }
 
-        $className = $codeIssue->fq_classlike_name;
+        $codeLocation = $codeIssue->code_location;
 
-        if ($event->getCodebase()->classImplements($codeIssue->fq_classlike_name, Exception::class)) {
-            return self::SUPPRESS;
-        }
+        $codebase = $event->getCodebase();
 
-        if ($className === Exception::class) {
+        foreach ($codebase->classlike_storage_provider->getAll() as $storage) {
+            if ($storage->location === null) {
+                continue;
+            }
+
+            if ($storage->location->file_path !== $codeLocation->file_path) {
+                continue;
+            }
+
+            if (! $codebase->classExtends($storage->name, TestCase::class)) {
+                continue;
+            }
+
             return self::SUPPRESS;
         }
 
