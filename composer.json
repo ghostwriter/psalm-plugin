@@ -33,10 +33,10 @@
         }
     ],
     "require": {
-        "php": ">=7.3",
+        "php": ">=8.1",
         "ext-simplexml": "*",
-        "phpunit/phpunit": "*",
-        "vimeo/psalm": "*"
+        "phpunit/phpunit": "~9.6.0 || ~10.1.0 || ~10.2.0 || ~10.3.0",
+        "vimeo/psalm": "^5.0 || ~6.0.0"
     },
     "require-dev": {
         "ghostwriter/coding-standard": "dev-main",
@@ -67,7 +67,7 @@
         "discard-changes": true,
         "optimize-autoloader": true,
         "platform": {
-            "php": "7.3.999"
+            "php": "8.1.999"
         },
         "preferred-install": "dist",
         "prepend-autoloader": true,
