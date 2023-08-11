@@ -18,6 +18,12 @@ abstract class AbstractHook
 
     final public const SUPPRESS = false;
 
+    public static function dump(): void
+    {
+        array_map(static fn ($arg) => is_object($arg) ? var_export($arg) : var_dump($arg), func_get_args());
+        die(42);
+    }
+
     public static function fullyQualifiedClassName(string $className, Codebase $codebase): string
     {
         return $codebase->classlikes->getUnAliasedName($className);
