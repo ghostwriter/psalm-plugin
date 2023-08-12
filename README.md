@@ -8,7 +8,7 @@
 [![Latest Version on Packagist](https://badgen.net/packagist/v/ghostwriter/psalm-plugin)](https://packagist.org/packages/ghostwriter/psalm-plugin)
 [![Downloads](https://badgen.net/packagist/dt/ghostwriter/psalm-plugin?color=blue)](https://packagist.org/packages/ghostwriter/psalm-plugin)
 
-Provides a plugin for [`Psalm`](https://github.com/vimeo/psalm)
+Provides an ALL IN ONE plugin for [`Psalm`](https://github.com/vimeo/psalm)
 
 ## Usage
 
