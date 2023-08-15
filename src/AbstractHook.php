@@ -20,7 +20,11 @@ abstract class AbstractHook
 
     public static function dump(): void
     {
-        array_map(static fn ($arg) => is_object($arg) ? var_export($arg) : var_dump($arg), func_get_args());
+        array_map(static fn ($arg) => match (true) {
+            is_array($arg) => self::dump($arg),
+            is_object($arg) => var_export($arg),
+            default => var_dump($arg),
+        }, func_get_args());
         die(42);
     }
 
