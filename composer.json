@@ -35,8 +35,8 @@
     "require": {
         "php": ">=8.1",
         "ext-simplexml": "*",
-        "phpunit/phpunit": "~9.6.0 || ~10.1.0 || ~10.2.0 || ~10.3.0",
-        "vimeo/psalm": "^5.0 || ~6.0.0"
+        "phpunit/phpunit": ">=9.6 <10.4",
+        "vimeo/psalm": ">=5.0 <6.0"
     },
     "require-dev": {
         "ghostwriter/coding-standard": "dev-main",
