@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7a58f369410de6706b836b1b327d64b7",
+    "content-hash": "7896fb94551ab7ad2b0018630fb0d750",
     "packages": [
         {
             "name": "amphp/amp",
@@ -2081,16 +2081,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ghostwriter/coding-standard.git",
-                "reference": "8694293c78da4d30c6213d4f0b29f90f17789d94"
+                "reference": "a7e3c88d5a84d3fc495bd34b32fe54f4c2b6382a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ghostwriter/coding-standard/zipball/8694293c78da4d30c6213d4f0b29f90f17789d94",
-                "reference": "8694293c78da4d30c6213d4f0b29f90f17789d94",
+                "url": "https://api.github.com/repos/ghostwriter/coding-standard/zipball/a7e3c88d5a84d3fc495bd34b32fe54f4c2b6382a",
+                "reference": "a7e3c88d5a84d3fc495bd34b32fe54f4c2b6382a",
                 "shasum": ""
             },
             "require": {
-                "ghostwriter/psalm-plugin": "^0.1.1",
+                "ghostwriter/psalm-plugin": "0.1.x-dev",
                 "php": ">=8.1",
                 "rector/rector": "^0.17",
                 "symplify/easy-coding-standard": "^12.0"
@@ -2140,7 +2140,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-08-15T16:54:02+00:00"
+            "time": "2023-08-16T02:47:30+00:00"
         },
         {
             "name": "ghostwriter/collection",
