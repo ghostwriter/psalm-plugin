@@ -15,12 +15,16 @@ use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Expression;
 use PhpParser\NodeFinder;
 use PHPUnit\Framework\TestCase;
+use Psalm\Codebase;
 use Psalm\Internal\Scanner\ParsedDocblock;
 use Psalm\Issue\PropertyNotSetInConstructor;
 use Psalm\Plugin\EventHandler\Event\BeforeAddIssueEvent;
+use Psalm\Storage\MethodStorage;
 
 final class SuppressPropertyNotSetInConstructorHook extends AbstractBeforeAddIssueEventHook
 {
+    private static ?NodeFinder $nodeFinder = null;
+
     /**
      * @return null|false
      */
@@ -32,109 +36,55 @@ final class SuppressPropertyNotSetInConstructorHook extends AbstractBeforeAddIss
             return self::IGNORE;
         }
 
-        $propertyId = $codeIssue->property_id;
-
-        [$className, $propertyName] = explode('::$', $propertyId);
-
-        $codebase = $event->getCodebase();
-
-        if (! $codebase->classExtends($className, TestCase::class)) {
+        if (! self::isPropertySetInConstructor($codeIssue, $event->getCodebase())) {
             return self::IGNORE;
         }
 
-        /** @var array<Node> $statements */
-        $statements = $codebase->getStatementsForFile($codeIssue->getFilePath());
+        return self::SUPPRESS;
+    }
 
-        $nodeFinder = new NodeFinder();
-
-        /** @var list<ClassMethod> $classMethodNodes */
-        $classMethodNodes = $nodeFinder->findInstanceOf($statements, ClassMethod::class);
-        if ($classMethodNodes === []) {
-            return self::IGNORE;
-        }
-
-        return match (true) {
-            self::hasClassMethodPropertyAssignment('setUp', $propertyName, $nodeFinder, $classMethodNodes),
-            self::hasClassMethodPropertyAssignment('setupBeforeClass', $propertyName, $nodeFinder, $classMethodNodes),
-            self::hasClassMethodDocBlockTagPropertyAssignment('before', $propertyName, $nodeFinder, $classMethodNodes),
-            self::hasClassMethodDocBlockTagPropertyAssignment('beforeClass', $propertyName, $nodeFinder, $classMethodNodes),
-            self::hasClassMethodPHPAttributePropertyAssignment('Before', $propertyName, $nodeFinder, $classMethodNodes),
-            self::hasClassMethodPHPAttributePropertyAssignment('BeforeClass', $propertyName, $nodeFinder, $classMethodNodes) => self::SUPPRESS,
-            default => self::IGNORE,
-        };
+    public static function getNodeFinder(): NodeFinder
+    {
+        return self::$nodeFinder ??= new NodeFinder();
     }
 
     /**
      * @param array<Node>|Node $classMethodNodes
      */
-    private static function findFirstMethod(string $methodName, NodeFinder $nodeFinder, Node|array $classMethodNodes): ?Node
+    private static function hasClassMethodWithDocBlockTagAndPropertyAssignment(string $tagName, string $propertyName, Node|array $classMethodNodes): bool
     {
-        return $nodeFinder->findFirst(
+        return self::getNodeFinder()->findFirst(
             $classMethodNodes,
-            static fn (Node $node): bool => $node instanceof ClassMethod && $node->name->toLowerString() === mb_strtolower($methodName)
-        );
-    }
-
-    /**
-     * @param array<Node>|Node $classMethodNodes
-     */
-    private static function hasClassMethodDocBlockTag(string $tagName, NodeFinder $nodeFinder, Node|array $classMethodNodes): bool
-    {
-        return $nodeFinder->findFirst(
-            $classMethodNodes,
-            static function (Node $node) use ($tagName): bool {
+            static function (Node $node) use ($tagName, $propertyName): bool {
                 if (! $node instanceof ClassMethod) {
                     return false;
                 }
 
                 $parsedDocBlock = self::parseDocComment($node);
-
                 if (! $parsedDocBlock instanceof ParsedDocblock) {
                     return false;
                 }
 
-                return array_key_exists($tagName, $parsedDocBlock->tags);
+                if (! array_key_exists($tagName, $parsedDocBlock->tags)) {
+                    return false;
+                }
+
+                return self::hasPropertyAssignment($propertyName, $node);
             }
-        ) instanceof Node;
+        ) instanceof ClassMethod;
     }
 
     /**
      * @param array<Node>|Node $classMethodNodes
      */
-    private static function hasClassMethodDocBlockTagPropertyAssignment(string $tagName, string $propertyName, NodeFinder $nodeFinder, Node|array $classMethodNodes): bool
-    {
-        $classMethodNode = $nodeFinder->findFirst(
+    private static function hasClassMethodWithPHPAttributeAndPropertyAssignment(
+        string $attributeName,
+        string $propertyName,
+        Node|array $classMethodNodes
+    ): bool {
+        return self::getNodeFinder()->findFirst(
             $classMethodNodes,
-            static function (Node $node) use ($tagName): bool {
-                if (! $node instanceof ClassMethod) {
-                    return false;
-                }
-
-                $parsedDocBlock = self::parseDocComment($node);
-
-                if (! $parsedDocBlock instanceof ParsedDocblock) {
-                    return false;
-                }
-
-                return array_key_exists($tagName, $parsedDocBlock->tags);
-            }
-        );
-
-        if (! $classMethodNode instanceof ClassMethod) {
-            return false;
-        }
-
-        return self::hasClassMethodPropertyAssignment($classMethodNode->name->__toString(), $propertyName, $nodeFinder, $classMethodNode);
-    }
-
-    /**
-     * @param array<Node>|Node $classMethodNodes
-     */
-    private static function hasClassMethodPHPAttributePropertyAssignment(string $attributeName, string $propertyName, NodeFinder $nodeFinder, Node|array $classMethodNodes): bool
-    {
-        $classMethodNode = $nodeFinder->findFirst(
-            $classMethodNodes,
-            static function (Node $node) use ($attributeName): bool {
+            static function (Node $node) use ($attributeName, $propertyName): bool {
                 if (! $node instanceof ClassMethod) {
                     return false;
                 }
@@ -145,41 +95,41 @@ final class SuppressPropertyNotSetInConstructorHook extends AbstractBeforeAddIss
                             continue;
                         }
 
-                        if ($attr->name->toLowerString() === mb_strtolower($attributeName)) {
-                            return true;
+                        if ($attr->name->toString() === $attributeName) {
+                            return self::hasPropertyAssignment($propertyName, $node);
                         }
                     }
                 }
 
                 return false;
             }
-        );
-
-        if (! $classMethodNode instanceof ClassMethod) {
-            return false;
-        }
-
-        return self::hasClassMethodPropertyAssignment($classMethodNode->name->__toString(), $propertyName, $nodeFinder, $classMethodNode);
+        ) instanceof ClassMethod;
     }
 
     /**
      * @param array<Node>|Node $classMethodNodes
      */
-    private static function hasClassMethodPropertyAssignment(string $methodName, string $propertyName, NodeFinder $nodeFinder, Node|array $classMethodNodes): bool
+    private static function hasClassMethodWithPropertyAssignment(string $methodName, string $propertyName, Node|array $classMethodNodes): bool
     {
-        /** @var null|ClassMethod $classMethodNode */
-        $classMethodNode = self::findFirstMethod($methodName, $nodeFinder, $classMethodNodes);
+        return self::getNodeFinder()->findFirst(
+            $classMethodNodes,
+            static function (Node $node) use ($methodName, $propertyName): bool {
+                if (! $node instanceof ClassMethod) {
+                    return false;
+                }
 
-        if (! $classMethodNode instanceof ClassMethod) {
-            return false;
-        }
+                if ($node->name->toString() !== $methodName) {
+                    return false;
+                }
 
-        return self::hasPropertyAssignment($propertyName, $nodeFinder, $classMethodNode);
+                return self::hasPropertyAssignment($propertyName, $node);
+            }
+        ) instanceof ClassMethod;
     }
 
-    private static function hasPropertyAssignment(string $propertyName, NodeFinder $nodeFinder, ClassMethod $classMethodNode): bool
+    private static function hasPropertyAssignment(string $propertyName, ClassMethod $classMethodNode): bool
     {
-        return $nodeFinder->findFirst(
+        return self::getNodeFinder()->findFirst(
             $classMethodNode,
             static function (Node $node) use ($propertyName): bool {
                 if (! $node instanceof Expression) {
@@ -201,8 +151,63 @@ final class SuppressPropertyNotSetInConstructorHook extends AbstractBeforeAddIss
                     return false;
                 }
 
-                return mb_strtolower($name->name) === mb_strtolower($propertyName);
+                return $name->toString() === $propertyName;
             }
-        ) instanceof Node;
+        ) instanceof Expression;
+    }
+
+    private static function isPropertySetInConstructor(
+        PropertyNotSetInConstructor $propertyNotSetInConstructor,
+        Codebase $codebase
+    ): bool {
+        $propertyId = $propertyNotSetInConstructor->property_id;
+
+        [$className, $propertyName] = explode('::$', $propertyId);
+
+        if (! $codebase->classExtends($className, TestCase::class)) {
+            return false;
+        }
+
+        $classStorage = $codebase->classlike_storage_provider->get($className);
+
+        $methodStoragesWithPropertyMutations = array_filter(
+            $classStorage->methods,
+            static fn (
+                MethodStorage $methodStorage
+            ): bool => array_key_exists($propertyName, $methodStorage->this_property_mutations ?? [])
+        );
+
+        if ($methodStoragesWithPropertyMutations === []) {
+            return false;
+        }
+
+        /** @var array<Node> $statements */
+        $statements = $codebase->getStatementsForFile($propertyNotSetInConstructor->getFilePath());
+
+        /** @var list<ClassMethod> $classMethodNodes */
+        $classMethodNodes = self::getNodeFinder()->findInstanceOf($statements, ClassMethod::class);
+
+        $protectedStaticSetupMethodNames = ['setUp', 'setupBeforeClass'];
+        foreach ($protectedStaticSetupMethodNames as $methodName) {
+            if (self::hasClassMethodWithPropertyAssignment($methodName, $propertyName, $classMethodNodes)) {
+                return true;
+            }
+        }
+
+        $beforeDocBlockTagNames = ['before', 'beforeClass'];
+        foreach ($beforeDocBlockTagNames as $tagName) {
+            if (self::hasClassMethodWithDocBlockTagAndPropertyAssignment($tagName, $propertyName, $classMethodNodes)) {
+                return true;
+            }
+        }
+
+        $beforePHPAttributeNames = ['Before', 'BeforeClass'];
+        foreach ($beforePHPAttributeNames as $attributeName) {
+            if (self::hasClassMethodWithPHPAttributeAndPropertyAssignment($attributeName, $propertyName, $classMethodNodes)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
