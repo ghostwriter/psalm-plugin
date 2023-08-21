@@ -13,7 +13,7 @@ class MyTestCase extends TestCase
      */
     public function provide()
     {
-        yield "data set name" => [1];
+        yield 'data set name' => [1];
     }
 
     /**

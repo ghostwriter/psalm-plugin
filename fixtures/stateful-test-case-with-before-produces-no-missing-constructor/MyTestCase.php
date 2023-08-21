@@ -14,6 +14,7 @@ class MyTestCaseBefore extends TestCase
 
     /**
      * @before
+     *
      * @return void
      */
     public function myInit()

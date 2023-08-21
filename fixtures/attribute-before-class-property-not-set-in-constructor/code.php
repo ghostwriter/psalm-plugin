@@ -1,7 +1,9 @@
-<?php declare(strict_types=1);
-use PHPUnit\Framework\TestCase;
-use PHPUnit\Framework\Attributes\BeforeClass;
+<?php
+
+declare(strict_types=1);
 use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Attributes\BeforeClass;
+use PHPUnit\Framework\TestCase;
 
 final class MyTest extends TestCase
 {

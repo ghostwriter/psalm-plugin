@@ -10,8 +10,11 @@ class MyTestCase extends TestCase
 {
     /**
      * @param mixed $int
+     *
      * @return void
+     *
      * @psalm-suppress UnusedMethod
+     *
      * @dataProvider provide
      */
     public function testSomething($int)

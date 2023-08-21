@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ghostwriter\ExamplePsalmPlugin\Tests\Unit;
+namespace Vendor\Package;
 
 use PHPUnit\Framework\TestCase;
 
@@ -11,6 +11,11 @@ final class ObjectTest extends TestCase
     private \stdClass $subject;
 
     protected function setUp(): void
+    {
+        $this->configure();
+    }
+
+    private function configure(): void
     {
         $this->subject = new \stdClass();
     }

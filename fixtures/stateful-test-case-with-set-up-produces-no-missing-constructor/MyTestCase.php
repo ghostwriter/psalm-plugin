@@ -12,7 +12,6 @@ class MyTestCaseSetup extends TestCase
     /** @var MockObject&I */
     private $i;
 
-    /** @return void */
     public function setUp(): void
     {
         $this->i = $this->createMock(I::class);
