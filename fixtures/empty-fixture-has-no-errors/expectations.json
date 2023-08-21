@@ -1,0 +1,16 @@
+{
+    "pluginClass": "Ghostwriter\\PsalmPlugin\\Plugin",
+    "php": "8.2",
+    "expected": {
+        "errors": []
+    },
+    "actual": {
+        "errors": []
+    },
+    "plugin": {
+        "Ghostwriter\\PsalmPlugin\\Plugin": {
+            "phpVersion": "8.2"
+        }
+    },
+    "TypeInferenceSummary": "No files analyzed\nPsalm was unable to infer types in the codebase"
+}

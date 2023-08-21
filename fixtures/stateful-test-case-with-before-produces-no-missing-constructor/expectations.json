@@ -1,0 +1,54 @@
+{
+    "pluginClass": "Ghostwriter\\PsalmPlugin\\Plugin",
+    "php": "8.2",
+    "expected": {
+        "errors": [
+            {
+                "file": "MyTestCase.php",
+                "message": "Cannot call method on int variable $this->i->work()",
+                "severity": "error",
+                "type": "InvalidMethodCall"
+            },
+            {
+                "file": "MyTestCase.php",
+                "message": "Unable to determine the type that $i is being assigned to",
+                "severity": "error",
+                "type": "MixedAssignment"
+            },
+            {
+                "file": "MyTestCase.php",
+                "message": "Cannot determine the type of $i when calling method work",
+                "severity": "error",
+                "type": "MixedMethodCall"
+            }
+        ]
+    },
+    "actual": {
+        "errors": [
+            {
+                "file": "MyTestCase.php",
+                "message": "Cannot call method on int variable $this->i->work()",
+                "severity": "error",
+                "type": "InvalidMethodCall"
+            },
+            {
+                "file": "MyTestCase.php",
+                "message": "Unable to determine the type that $i is being assigned to",
+                "severity": "error",
+                "type": "MixedAssignment"
+            },
+            {
+                "file": "MyTestCase.php",
+                "message": "Cannot determine the type of $i when calling method work",
+                "severity": "error",
+                "type": "MixedMethodCall"
+            }
+        ]
+    },
+    "plugin": {
+        "Ghostwriter\\PsalmPlugin\\Plugin": {
+            "phpVersion": "8.2"
+        }
+    },
+    "TypeInferenceSummary": "Psalm was able to infer types for 80.0000% of the codebase"
+}

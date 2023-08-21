@@ -1,0 +1,16 @@
+{
+    "pluginClass": "Ghostwriter\\PsalmPlugin\\Plugin",
+    "php": "8.2",
+    "expected": {
+        "errors": []
+    },
+    "actual": {
+        "errors": []
+    },
+    "plugin": {
+        "Ghostwriter\\PsalmPlugin\\Plugin": {
+            "phpVersion": "8.2"
+        }
+    },
+    "TypeInferenceSummary": "Psalm was able to infer types for 100% of the codebase"
+}
