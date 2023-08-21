@@ -163,7 +163,10 @@ final class SuppressPropertyNotSetInConstructorHook extends AbstractBeforeAddIss
                                 return false;
                             }
 
-                            if ($node->name->toString() !== $expr->name->toString()) {
+                            /** @var Identifier $name */
+                            $name = $expr->name;
+
+                            if ($node->name->toString() !== $name->toString()) {
                                 return false;
                             }
 
@@ -174,96 +177,7 @@ final class SuppressPropertyNotSetInConstructorHook extends AbstractBeforeAddIss
                     return true;
                 }
 
-                self::dump(
-                    $propertyName,
-                    $node,
-                    $expr->name,
-                    self::getNode($classMethodNodes, static function (Node $node) use ($expr): bool {
-                        if (!$node instanceof ClassMethod) {
-                            return false;
-                        }
-
-                        if ($node->name->toString() !== $expr->name->toString()) {
-                            return false;
-                        }
-
-                        return true;
-                    })
-
-                    // self::hasPropertyAssignmentExpression(
-                    //     $propertyName,
-                    //     self::getNode($classMethodNodes, static function (Node $node) use ($propertyName): void {
-                    //         return $node->name === $expr->name;
-                    //     })
-                    // )
-                    // self::getNode($classMethodNodes, static function (Node $node) use ($propertyName): void{
-                    //     self::dump($propertyName, $node);
-                    // })
-                );
-
-                $var = $expr->var;
-                if (!$var instanceof PropertyFetch) {
-                    return false;
-                }
-
-                $name = $var->name;
-                if (!$name instanceof Identifier) {
-                    return false;
-                }
-
-                return $name->toString() === $propertyName;
-            }
-        );
-    }
-
-    /**
-     * @param array<ClassMethod> $classMethodNodes
-     */
-    private static function hasMethodCallToPropertyAssignmentExpression2(
-        string $propertyName,
-        ClassMethod $classMethodNode,
-        array $classMethodNodes
-    ): bool {
-        return self::hasNode(
-            $classMethodNode,
-            static function (Node $node) use ($propertyName): bool {
-                if (!$node instanceof Expression) {
-                    return false;
-                }
-
-                $expr = $node->expr;
-
-                if (!$expr instanceof MethodCall) {
-                    return false;
-                }
-
-                // self::dump(
-                //     $propertyName,
-                //     $node,
-                //     $expr->name,
-                //     self::getNode($classMethodNodes, static function (Node $node) use ($propertyName): void {
-                //         self::dump($propertyName, $node);
-                //     })
-                // );
-
-                // self::dump(
-                //     $propertyName,
-                //     $node,
-                //     $expr->name,
-                //     $classMethodNodes
-                // );
-
-                $var = $expr->var;
-                if (!$var instanceof PropertyFetch) {
-                    return false;
-                }
-
-                $name = $var->name;
-                if (!$name instanceof Identifier) {
-                    return false;
-                }
-
-                return $name->toString() === $propertyName;
+                return false;
             }
         );
     }
