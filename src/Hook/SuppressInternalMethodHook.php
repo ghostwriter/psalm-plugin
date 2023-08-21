@@ -5,20 +5,19 @@ declare(strict_types=1);
 namespace Ghostwriter\PsalmPlugin\Hook;
 
 use Ghostwriter\PsalmPlugin\AbstractBeforeAddIssueEventHook;
-
 use Psalm\Issue\InternalMethod;
 use Psalm\Plugin\EventHandler\Event\BeforeAddIssueEvent;
 
 final class SuppressInternalMethodHook extends AbstractBeforeAddIssueEventHook
 {
     /**
-     * @return null|false
+     * @return false|null
      */
     public static function beforeAddIssue(BeforeAddIssueEvent $event): ?bool
     {
         $codeIssue = $event->getIssue();
 
-        if (! $codeIssue instanceof InternalMethod) {
+        if (!$codeIssue instanceof InternalMethod) {
             return self::IGNORE;
         }
 
