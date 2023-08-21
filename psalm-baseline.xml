@@ -1,26 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.14.1@b9d355e0829c397b9b3b47d0c0ed042a8a70284d">
-  <file src="src/AbstractHook.php">
-    <ForbiddenCode>
-      <code>var_dump($arg)</code>
-    </ForbiddenCode>
-  </file>
-  <file src="src/Hook/SuppressPropertyNotSetInConstructorHook.php">
-    <ParadoxicalCondition>
-      <code><![CDATA[self::hasClassMethodPropertyAssignment('setUp', $propertyName, $nodeFinder, $classMethodNodes),
-            self::hasClassMethodPropertyAssignment('setupBeforeClass', $propertyName, $nodeFinder, $classMethodNodes),
-            self::hasClassMethodDocBlockTagPropertyAssignment('before', $propertyName, $nodeFinder, $classMethodNodes),
-            self::hasClassMethodDocBlockTagPropertyAssignment('beforeClass', $propertyName, $nodeFinder, $classMethodNodes),
-            self::hasClassMethodPHPAttributePropertyAssignment('Before', $propertyName, $nodeFinder, $classMethodNodes),
-            self::hasClassMethodPHPAttributePropertyAssignment('BeforeClass', $propertyName, $nodeFinder, $classMethodNodes) => self::SUPPRESS]]></code>
-    </ParadoxicalCondition>
-    <UnusedMethod>
-      <code>hasClassMethodDocBlockTag</code>
-    </UnusedMethod>
-  </file>
-  <file src="tests/Unit/PluginTest.php">
-    <InvalidReturnType>
-      <code><![CDATA[Generator<string,Fixture>]]></code>
-    </InvalidReturnType>
-  </file>
-</files>
+<files psalm-version="5.15.0@5c774aca4746caf3d239d9c8cadb9f882ca29352"/>
