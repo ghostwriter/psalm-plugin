@@ -30,11 +30,10 @@ abstract class AbstractHook
     {
         echo PHP_EOL.PHP_EOL.'DUMP'.PHP_EOL.PHP_EOL;
 
-        /* @psalm-suppress ForbiddenCode */
+        /** @psalm-suppress ForbiddenCode */
         \var_dump(
             \array_map(
-                static fn (mixed $arg): mixed => $arg,
-                // is_object($arg) ? Json::encode(var_export($arg, true), Json::PRETTY) :
+                static fn (mixed $arg): mixed => is_object($arg) ? var_export($arg, true) : $arg,
                 \func_get_args()
             )
         );
