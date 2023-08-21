@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Ghostwriter\PsalmPlugin\Tests\Unit;
 
-use Generator;
 use Ghostwriter\PsalmPlugin\AbstractBeforeAddIssueEventHook;
 use Ghostwriter\PsalmPlugin\AbstractHook;
 use Ghostwriter\PsalmPlugin\Hook\FixParamNameMismatchHook;
@@ -45,12 +44,12 @@ final class PluginTest extends TestCase
     }
 
     /**
-     * @return Generator<string,Fixture>
+     * @return \Generator<string,list<Fixture>>
      */
-    public static function fixtureDataProvider(): Generator
+    public static function fixtureDataProvider(): \Generator
     {
         yield from PluginTester::yieldFixtures(
-            dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . 'fixtures'
+            dirname(__DIR__, 2).DIRECTORY_SEPARATOR.'fixtures'
         );
     }
 
