@@ -14,7 +14,7 @@ final class SuppressPossiblyUnusedMethodHook extends AbstractBeforeAddIssueEvent
     {
         $codeIssue = $event->getIssue();
 
-        if (! $codeIssue instanceof PossiblyUnusedMethod) {
+        if (!$codeIssue instanceof PossiblyUnusedMethod) {
             return self::IGNORE;
         }
 
