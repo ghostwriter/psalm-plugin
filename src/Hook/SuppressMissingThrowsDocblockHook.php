@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Ghostwriter\PsalmPlugin\Hook;
 
 use Ghostwriter\PsalmPlugin\AbstractBeforeAddIssueEventHook;
-
 use PHPUnit\Framework\TestCase;
 use Psalm\Issue\MissingThrowsDocblock;
 use Psalm\Plugin\EventHandler\Event\BeforeAddIssueEvent;
@@ -13,13 +12,13 @@ use Psalm\Plugin\EventHandler\Event\BeforeAddIssueEvent;
 final class SuppressMissingThrowsDocblockHook extends AbstractBeforeAddIssueEventHook
 {
     /**
-     * @return null|false
+     * @return false|null
      */
     public static function beforeAddIssue(BeforeAddIssueEvent $event): ?bool
     {
         $codeIssue = $event->getIssue();
 
-        if (! $codeIssue instanceof MissingThrowsDocblock) {
+        if (!$codeIssue instanceof MissingThrowsDocblock) {
             return self::IGNORE;
         }
 
@@ -28,7 +27,7 @@ final class SuppressMissingThrowsDocblockHook extends AbstractBeforeAddIssueEven
         $codebase = $event->getCodebase();
 
         foreach ($codebase->classlike_storage_provider->getAll() as $storage) {
-            if ($storage->location === null) {
+            if (null === $storage->location) {
                 continue;
             }
 
@@ -36,7 +35,7 @@ final class SuppressMissingThrowsDocblockHook extends AbstractBeforeAddIssueEven
                 continue;
             }
 
-            if (! $codebase->classExtends($storage->name, TestCase::class)) {
+            if (!$codebase->classExtends($storage->name, TestCase::class)) {
                 continue;
             }
 
