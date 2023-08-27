@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "258205b98412161ec5caf4c0bc069fe3",
+    "content-hash": "37f7a4032a38550c80c1487323ec8e4c",
     "packages": [],
     "packages-dev": [
         {
@@ -939,21 +939,21 @@
         },
         {
             "name": "ghostwriter/json",
-            "version": "1.2.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ghostwriter/json.git",
-                "reference": "b00252cb2e1b11916b660654cd0f50945f0cf28d"
+                "reference": "154e982cbb4049dcd976d89fe9bdc9c7915e8cc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ghostwriter/json/zipball/b00252cb2e1b11916b660654cd0f50945f0cf28d",
-                "reference": "b00252cb2e1b11916b660654cd0f50945f0cf28d",
+                "url": "https://api.github.com/repos/ghostwriter/json/zipball/154e982cbb4049dcd976d89fe9bdc9c7915e8cc2",
+                "reference": "154e982cbb4049dcd976d89fe9bdc9c7915e8cc2",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "php": ">=8.2"
+                "php": ">=8.1,<8.3"
             },
             "require-dev": {
                 "ghostwriter/coding-standard": "dev-main"
@@ -995,7 +995,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-08-16T02:37:05+00:00"
+            "time": "2023-01-17T03:26:10+00:00"
         },
         {
             "name": "ghostwriter/option",
@@ -4122,11 +4122,11 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=8.2"
+        "php": ">=8.1"
     },
     "platform-dev": [],
     "platform-overrides": {
-        "php": "8.2.999"
+        "php": "8.1.999"
     },
     "plugin-api-version": "2.3.0"
 }
