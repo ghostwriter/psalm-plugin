@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ghostwriter\PsalmPlugin\Hook;
+namespace Ghostwriter\PsalmPlugin\Hook\Ghostwriter\PsalmPlug;
 
 use Ghostwriter\PsalmPlugin\AbstractBeforeAddIssueEventHook;
 use Psalm\Issue\InternalMethod;
