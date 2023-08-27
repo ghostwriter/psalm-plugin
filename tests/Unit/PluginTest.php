@@ -4,20 +4,19 @@ declare(strict_types=1);
 
 namespace Ghostwriter\PsalmPlugin\Tests\Unit;
 
-use CallbackFilterIterator;
 use FilesystemIterator;
 use Generator;
 use Ghostwriter\PsalmPlugin\AbstractBeforeAddIssueEventHook;
 use Ghostwriter\PsalmPlugin\AbstractHook;
 use Ghostwriter\PsalmPlugin\Hook\FixParamNameMismatchHook;
-use Ghostwriter\PsalmPlugin\Hook\SuppressInternalClassHook;
-use Ghostwriter\PsalmPlugin\Hook\SuppressInternalMethodHook;
-use Ghostwriter\PsalmPlugin\Hook\SuppressInternalPropertyHook;
-use Ghostwriter\PsalmPlugin\Hook\SuppressMissingConstructorHook;
-use Ghostwriter\PsalmPlugin\Hook\SuppressMissingThrowsDocblockHook;
-use Ghostwriter\PsalmPlugin\Hook\SuppressPossiblyUnusedMethodHook;
-use Ghostwriter\PsalmPlugin\Hook\SuppressPropertyNotSetInConstructorHook;
-use Ghostwriter\PsalmPlugin\Hook\SuppressUnusedClassHook;
+use Ghostwriter\PsalmPlugin\Hook\Ghostwriter\PsalmPlug\SuppressInternalClassHook;
+use Ghostwriter\PsalmPlugin\Hook\Ghostwriter\PsalmPlug\SuppressInternalMethodHook;
+use Ghostwriter\PsalmPlugin\Hook\Ghostwriter\PsalmPlug\SuppressInternalPropertyHook;
+use Ghostwriter\PsalmPlugin\Hook\Ghostwriter\PsalmPlug\SuppressPossiblyUnusedMethodHook;
+use Ghostwriter\PsalmPlugin\Hook\PHPUnit\Framework\TestCase\SuppressMissingThrowsDocblockHook;
+use Ghostwriter\PsalmPlugin\Hook\PHPUnit\Framework\TestCase\SuppressPropertyNotSetInConstructorHook;
+use Ghostwriter\PsalmPlugin\Hook\PHPUnit\Framework\TestCase\SuppressUnusedClassHook;
+use Ghostwriter\PsalmPlugin\Hook\Psr\Container\ContainerInterface\GetMethodAfterMethodCallAnalysisHook;
 use Ghostwriter\PsalmPlugin\Plugin;
 use Ghostwriter\PsalmPluginTester\Fixture;
 use Ghostwriter\PsalmPluginTester\PluginTester;
@@ -34,7 +33,6 @@ use function realpath;
 #[CoversClass(AbstractBeforeAddIssueEventHook::class)]
 #[CoversClass(AbstractHook::class)]
 #[CoversClass(FixParamNameMismatchHook::class)]
-#[CoversClass(SuppressMissingConstructorHook::class)]
 #[CoversClass(SuppressMissingThrowsDocblockHook::class)]
 #[CoversClass(SuppressUnusedClassHook::class)]
 #[CoversClass(SuppressPropertyNotSetInConstructorHook::class)]
@@ -42,6 +40,7 @@ use function realpath;
 #[CoversClass(SuppressInternalMethodHook::class)]
 #[CoversClass(SuppressPossiblyUnusedMethodHook::class)]
 #[CoversClass(SuppressInternalPropertyHook::class)]
+#[CoversClass(GetMethodAfterMethodCallAnalysisHook::class)]
 final class PluginTest extends TestCase
 {
     private PluginTester $pluginTester;
