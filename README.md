@@ -50,12 +50,6 @@ vendor/bin/psalm
 - [ ] `Strict Types`
 - [ ] [**`[Request a Feature]`**](https://github.com/ghostwriter/psalm-plugin/issues/new)
 
-### Testing
-
-``` bash
-composer test
-```
-
 ### Changelog
 
 Please see [CHANGELOG.md](./CHANGELOG.md) for more information on what has changed recently.
