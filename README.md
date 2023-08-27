@@ -11,8 +11,10 @@
 Provides an `ALL-IN-ONE` plugin for [`Psalm`](https://github.com/vimeo/psalm)
 
 ## Feature
+
 - `PHPUnit` (wip)
-- `PSR/*` (tbd)
+- `PSR Container` (wip)
+- `Psr/*` (tbd)
 - `Strict Types/Finalization/Privatization` (tbd)
 - [`[Request a Feature]`](https://github.com/ghostwriter/psalm-plugin/issues/new) (tbd)
 
