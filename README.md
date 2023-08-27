@@ -8,11 +8,30 @@
 [![Latest Version on Packagist](https://badgen.net/packagist/v/ghostwriter/psalm-plugin)](https://packagist.org/packages/ghostwriter/psalm-plugin)
 [![Downloads](https://badgen.net/packagist/dt/ghostwriter/psalm-plugin?color=blue)](https://packagist.org/packages/ghostwriter/psalm-plugin)
 
-Provides an `ALL-IN-ONE` plugin for [`Psalm`](https://github.com/vimeo/psalm)
+Provides an **`ALL-IN-ONE`** plugin for [`Psalm`](https://github.com/vimeo/psalm)
 
-## Feature
+## Usage
 
-- [ ] [`[Request a Feature]`](https://github.com/ghostwriter/psalm-plugin/issues/new)
+``` bash
+composer require ghostwriter/psalm-plugin --dev
+vendor/bin/psalm enable ghostwriter/psalm-plugin
+```
+
+```php
+vendor/bin/psalm
+```
+
+### Feature
+
+- [ ] [`PHP Standards Recommendations`](https://www.php-fig.org/psr/)
+  - [ ] `Cache`
+  - [x] `Container`
+    - [x] Resolve return type for the `get` method.
+  - [ ] `Clock`
+  - [ ] `Event Dispatcher`
+  - [ ] `Link`
+  - [ ] `Log`
+  - [ ] `Http`
 - [ ] `PHPUnit`
   - [x] Suppress `MissingThrowsDocblock` for classes that extending `TestCase`
   - [x] Suppress `UnusedClass` for classes that extending `TestCase`
@@ -28,56 +47,28 @@ Provides an `ALL-IN-ONE` plugin for [`Psalm`](https://github.com/vimeo/psalm)
   - [ ] `Finalize every class that has no children`
   - [ ] `Change protected class method to private if possible`
   - [ ] `Change protected class property to private if possible`
-- [ ] `PSR/*`
-  - [ ] `Cache`
-  - [x] `Container`
-    - [x] Resolve return type for the `get` method.
-  - [ ] `Clock`
-  - [ ] `Event Dispatcher`
-  - [ ] `Link`
-  - [ ] `Log`
-  - [ ] `Http`
 - [ ] `Strict Types`
+- [ ] [**`[Request a Feature]`**](https://github.com/ghostwriter/psalm-plugin/issues/new)
 
-## Usage
-
-### Step 1: Install
-
-``` bash
-composer require ghostwriter/psalm-plugin --dev
-```
-
-### Step 2: Enable
-
-``` bash
-vendor/bin/psalm-plugin enable ghostwriter/psalm-plugin
-```
-
-### Step 3: ???! PROFIT
-
-```php
-vendor/bin/psalm
-```
-
-## Testing
+### Testing
 
 ``` bash
 composer test
 ```
 
-## Changelog
+### Changelog
 
 Please see [CHANGELOG.md](./CHANGELOG.md) for more information on what has changed recently.
 
-## Security
+### Security
 
 If you discover any security-related issues, please use [`Security Advisories`](https://github.com/ghostwriter/psalm-plugin/security/advisories/new) instead of using the issue tracker.
 
-## Credits
+### Credits
 
 - [Nathanael Esayeas](https://github.com/ghostwriter)
 - [All Contributors](https://github.com/ghostwriter/psalm-plugin/contributors)
 
-## License
+### License
 
 The BSD-3-Clause. Please see [License File](./LICENSE) for more information.
