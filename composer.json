@@ -88,7 +88,6 @@
             "@xdebug",
             "vendor/ghostwriter/coding-standard/tools/infection --verbose"
         ],
-        "missing-returntypes": "vendor/ghostwriter/coding-standard/tools/psalm --alter --issues=MissingReturnType",
         "phpunit": "vendor/ghostwriter/coding-standard/tools/phpunit --colors=always --do-not-cache-result",
         "psalm": [
             "@psalm:shepherd",
