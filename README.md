@@ -14,7 +14,7 @@ Provides an **`ALL-IN-ONE`** plugin for [`Psalm`](https://github.com/vimeo/psalm
 
 ``` bash
 composer require ghostwriter/psalm-plugin --dev
-vendor/bin/psalm enable ghostwriter/psalm-plugin
+vendor/bin/psalm-plugin enable ghostwriter/psalm-plugin
 ```
 
 ```php
