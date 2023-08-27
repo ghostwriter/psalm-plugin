@@ -36,13 +36,14 @@ vendor/bin/psalm
   - [x] Suppress `MissingThrowsDocblock` for classes that extending `TestCase`
   - [x] Suppress `UnusedClass` for classes that extending `TestCase`
   - [x] Suppress `PropertyNotSetInConstructor` for classes that extending `TestCase`
+    - [ ] Using `assertPreConditions` method
     - [x] Using `setUp` method
     - [x] Using `setUpBeforeClass` method
     - [x] Using `@before` docblock
     - [x] Using `@beforeClass` docblock
     - [x] Using `#[Before]` attribute
     - [x] Using `#[BeforeClass]` attribute
-  - [ ] Other
+    - [ ] Using `#[PreCondition]` attribute
 - [ ] `Privatization`
   - [ ] `Finalize every class that has no children`
   - [ ] `Change protected class method to private if possible`
