@@ -2,8 +2,8 @@
 
 [![Compliance](https://github.com/ghostwriter/psalm-plugin/actions/workflows/compliance.yml/badge.svg)](https://github.com/ghostwriter/psalm-plugin/actions/workflows/compliance.yml)
 [![Supported PHP Version](https://badgen.net/packagist/php/ghostwriter/psalm-plugin?color=8892bf)](https://www.php.net/supported-versions)
-[![Mutation Coverage](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fghostwriter%2Fwip%2Fmain)](https://dashboard.stryker-mutator.io/reports/github.com/ghostwriter/psalm-plugin/main)
-[![Code Coverage](https://codecov.io/gh/ghostwriter/psalm-plugin/branch/main/graph/badge.svg?token=UPDATE_TOKEN)](https://codecov.io/gh/ghostwriter/psalm-plugin)
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/ghostwriter?label=Sponsor+@ghostwriter/psalm-plugin&logo=GitHub+Sponsors)](https://github.com/sponsors/ghostwriter)
+[![Code Coverage](https://codecov.io/gh/ghostwriter/psalm-plugin/graph/badge.svg)](https://codecov.io/gh/ghostwriter/psalm-plugin)
 [![Type Coverage](https://shepherd.dev/github/ghostwriter/psalm-plugin/coverage.svg)](https://shepherd.dev/github/ghostwriter/psalm-plugin)
 [![Latest Version on Packagist](https://badgen.net/packagist/v/ghostwriter/psalm-plugin)](https://packagist.org/packages/ghostwriter/psalm-plugin)
 [![Downloads](https://badgen.net/packagist/dt/ghostwriter/psalm-plugin?color=blue)](https://packagist.org/packages/ghostwriter/psalm-plugin)
@@ -12,11 +12,32 @@ Provides an `ALL-IN-ONE` plugin for [`Psalm`](https://github.com/vimeo/psalm)
 
 ## Feature
 
-- `PHPUnit` (wip)
-- `PSR Container` (wip)
-- `Psr/*` (tbd)
-- `Strict Types/Finalization/Privatization` (tbd)
-- [`[Request a Feature]`](https://github.com/ghostwriter/psalm-plugin/issues/new) (tbd)
+- [ ] [`[Request a Feature]`](https://github.com/ghostwriter/psalm-plugin/issues/new)
+- [ ] `PHPUnit`
+  - [x] Suppress `MissingThrowsDocblock` for classes that extending `TestCase`
+  - [x] Suppress `UnusedClass` for classes that extending `TestCase`
+  - [x] Suppress `PropertyNotSetInConstructor` for classes that extending `TestCase`
+    - [x] Using `setUp` method
+    - [x] Using `setUpBeforeClass` method
+    - [x] Using `@before` docblock
+    - [x] Using `@beforeClass` docblock
+    - [x] Using `#[Before]` attribute
+    - [x] Using `#[BeforeClass]` attribute
+  - [ ] Other
+- [ ] `Privatization`
+  - [ ] `Finalize every class that has no children`
+  - [ ] `Change protected class method to private if possible`
+  - [ ] `Change protected class property to private if possible`
+- [ ] `PSR/*`
+  - [ ] `Cache`
+  - [x] `Container`
+    - [x] Resolve return type for the `get` method.
+  - [ ] `Clock`
+  - [ ] `Event Dispatcher`
+  - [ ] `Link`
+  - [ ] `Log`
+  - [ ] `Http`
+- [ ] `Strict Types`
 
 ## Usage
 
@@ -52,14 +73,9 @@ Please see [CHANGELOG.md](./CHANGELOG.md) for more information on what has chang
 
 If you discover any security-related issues, please use [`Security Advisories`](https://github.com/ghostwriter/psalm-plugin/security/advisories/new) instead of using the issue tracker.
 
-## Support
-
-[[`Become a GitHub Sponsor`](https://github.com/sponsors/ghostwriter)]
-
 ## Credits
 
 - [Nathanael Esayeas](https://github.com/ghostwriter)
-- [vimeo/psalm](https://github.com/vimeo/psalm)
 - [All Contributors](https://github.com/ghostwriter/psalm-plugin/contributors)
 
 ## License
