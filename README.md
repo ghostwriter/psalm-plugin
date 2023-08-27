@@ -45,7 +45,8 @@ vendor/bin/psalm
     - [x] Using `#[BeforeClass]` attribute
     - [ ] Using `#[PreCondition]` attribute
 - [ ] `Privatization`
-  - [ ] `Finalize every class that has no children`
+  - [ ] `Finalize every class that has no children` (!isAbstract && !isAnonymous)
+  - [ ] `Finalize every class method on an abstract class if possible` (!isAbstract && !isPrivate)
   - [ ] `Change protected class method to private if possible`
   - [ ] `Change protected class property to private if possible`
 - [ ] `Strict Types`
