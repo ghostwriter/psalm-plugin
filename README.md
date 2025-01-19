@@ -4,7 +4,6 @@
 [![Supported PHP Version](https://badgen.net/packagist/php/ghostwriter/psalm-plugin?color=8892bf)](https://www.php.net/supported-versions)
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/ghostwriter?label=Sponsor+@ghostwriter/psalm-plugin&logo=GitHub+Sponsors)](https://github.com/sponsors/ghostwriter)
 [![Code Coverage](https://codecov.io/gh/ghostwriter/psalm-plugin/graph/badge.svg)](https://codecov.io/gh/ghostwriter/psalm-plugin)
-[![Type Coverage](https://shepherd.dev/github/ghostwriter/psalm-plugin/coverage.svg)](https://shepherd.dev/github/ghostwriter/psalm-plugin)
 [![Latest Version on Packagist](https://badgen.net/packagist/v/ghostwriter/psalm-plugin)](https://packagist.org/packages/ghostwriter/psalm-plugin)
 [![Downloads](https://badgen.net/packagist/dt/ghostwriter/psalm-plugin?color=blue)](https://packagist.org/packages/ghostwriter/psalm-plugin)
 
