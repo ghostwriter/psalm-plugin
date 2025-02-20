@@ -21,10 +21,9 @@
     "homepage": "https://github.com/ghostwriter/psalm-plugin",
     "support": {
         "issues": "https://github.com/ghostwriter/psalm-plugin/issues",
-        "forum": "https://github.com/ghostwriter/psalm-plugin/discussions",
         "source": "https://github.com/ghostwriter/psalm-plugin",
-        "docs": "https://github.com/ghostwriter/psalm-plugin",
-        "rss": "https://github.com/ghostwriter/psalm-plugin/releases.atom"
+        "rss": "https://github.com/ghostwriter/psalm-plugin/releases.atom",
+        "security": "https://github.com/ghostwriter/psalm-plugin/security/advisories/new"
     },
     "funding": [
         {
@@ -32,18 +31,26 @@
             "url": "https://github.com/sponsors/ghostwriter"
         }
     ],
+    "_comment": [
+        "#BlackLivesMatter",
+        "#FreePalestine",
+        "#StandWithUkraine"
+    ],
     "require": {
-        "php": ">=8.1"
+        "php": ">=8.4",
+        "ghostwriter/container": "^4.0.5",
+        "ghostwriter/event-dispatcher": "^5.0.2",
+        "ghostwriter/filesystem": "^0.1.1",
+        "vimeo/psalm": ">=6.0 <7.0"
     },
     "require-dev": {
-        "ghostwriter/coding-standard": "dev-main",
-        "ghostwriter/psalm-plugin-tester": "^0.2.1",
-        "psr/container": "^2.0.2",
-        "vimeo/psalm": "^5.26.1"
+        "ghostwriter/coding-standard": "dev-main"
     },
     "replace": {
         "ghostwriter/example-psalm-plugin": "*",
-        "ghostwriter/phpunit-psalm-plugin": "*"
+        "ghostwriter/phpunit-psalm-plugin": "*",
+        "ghostwriter/psalm-plugin-tester": "*",
+        "ghostwriter/psalm-sandbox": "*"
     },
     "minimum-stability": "stable",
     "prefer-stable": true,
@@ -54,20 +61,31 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Ghostwriter\\PsalmPlugin\\Tests\\": "tests/"
-        }
+            "Tests\\Unit\\": "tests/unit/"
+        },
+        "files": [
+            "tests/bootstrap.php"
+        ],
+        "exclude-from-classmap": [
+            "tests/fixture/"
+        ]
     },
     "config": {
-        "classmap-authoritative": true,
+        "allow-plugins": {
+            "ghostwriter/coding-standard": true
+        },
+        "classmap-authoritative": false,
         "discard-changes": true,
         "optimize-autoloader": true,
         "platform": {
             "php": "8.4.999"
         },
+        "platform-check": true,
         "preferred-install": "dist",
         "prepend-autoloader": true,
         "process-timeout": 5000,
-        "sort-packages": true
+        "sort-packages": true,
+        "use-parent-dir": false
     },
     "extra": {
         "psalm": {
@@ -75,40 +93,42 @@
         }
     },
     "scripts": {
-        "cache:clear": [
-            "rm -fr .cache"
-        ],
+        "bin_composer": "vendor/ghostwriter/coding-standard/tools/composer",
+        "bin_ecs": "ecs check --clear-cache --no-interaction",
+        "bin_infection": "vendor/ghostwriter/coding-standard/tools/infection --ansi --min-covered-msi=0 --min-msi=0 --show-mutations --threads=max",
+        "bin_normalize": "vendor/ghostwriter/coding-standard/tools/composer-normalize",
+        "bin_phive": "vendor/ghostwriter/coding-standard/tools/phive",
+        "bin_phpunit": "vendor/ghostwriter/coding-standard/tools/phpunit --do-not-cache-result --colors=always",
+        "bin_rector": "rector process --clear-cache --no-ansi",
+        "cache:clear": "rm -rf ./.cache/*",
         "check": [
             "@cache:clear",
-            "@composer validate --strict",
+            "@bin_composer validate",
             "@composer-normalize",
+            "@ecs",
             "@test"
         ],
-        "composer-normalize": "vendor/ghostwriter/coding-standard/tools/composer-normalize --no-check-lock",
+        "composer-normalize": "@bin_normalize --no-cache --diff --no-check-lock --no-scripts --no-plugins",
+        "ecs": "@bin_ecs --fix",
+        "git:submodule:update": "git submodule update --depth=1 --init --recursive --recommend-shallow --remote",
         "infection": [
             "@xdebug",
-            "vendor/ghostwriter/coding-standard/tools/infection --verbose"
+            "@bin_infection"
         ],
-        "phpunit": "vendor/ghostwriter/coding-standard/tools/phpunit --colors=always --do-not-cache-result",
-        "psalm": [
-            "@psalm:shepherd",
-            "@psalm:security",
-            "@psalm:dry-run"
-        ],
-        "psalm:baseline": "vendor/ghostwriter/coding-standard/tools/psalm --no-cache --no-diff --set-baseline=psalm-baseline.xml",
-        "psalm:dry-run": "vendor/ghostwriter/coding-standard/tools/psalm --no-cache --alter --issues=all --allow-backwards-incompatible-changes=false --dry-run",
-        "psalm:fix": "vendor/ghostwriter/coding-standard/tools/psalm --no-cache  --alter --issues=MissingReturnType,InvalidReturnType,MismatchingDocblockParamType,LessSpecificReturnType,MissingClosureReturnType,UnnecessaryVarAnnotation,UnusedVariable,MissingParamType --allow-backwards-incompatible-changes=false",
-        "psalm:missing": "vendor/ghostwriter/coding-standard/tools/psalm --no-cache --alter --issues=MissingReturnType",
-        "psalm:security": "vendor/ghostwriter/coding-standard/tools/psalm --no-cache --no-diff --taint-analysis",
-        "psalm:shepherd": "vendor/ghostwriter/coding-standard/tools/psalm --no-cache --no-diff --shepherd --stats",
-        "test": [
+        "phpunit": [
             "@xdebug",
+            "@bin_phpunit"
+        ],
+        "phpunit:migrate": [
+            "@xdebug",
+            "@bin_phpunit --migrate-configuration"
+        ],
+        "rector": "@bin_rector",
+        "rector:dry-run": "@rector --dry-run",
+        "test": [
             "@phpunit",
-            "@psalm",
             "@infection"
         ],
-        "xdebug": [
-            "@putenv XDEBUG_MODE=coverage"
-        ]
+        "xdebug": "@putenv XDEBUG_MODE=coverage"
     }
 }
