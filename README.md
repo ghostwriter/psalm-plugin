@@ -1,4 +1,4 @@
-# PsalmPlugin
+# Psalm Plugin
 
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/ghostwriter?label=Sponsor+@ghostwriter/psalm-plugin&logo=GitHub+Sponsors)](https://github.com/sponsors/ghostwriter)
 [![Automation](https://github.com/ghostwriter/psalm-plugin/actions/workflows/automation.yml/badge.svg)](https://github.com/ghostwriter/psalm-plugin/actions/workflows/automation.yml)
