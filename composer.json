@@ -41,7 +41,7 @@
         "ghostwriter/container": "^5.0.0",
         "ghostwriter/event-dispatcher": "^5.0.3",
         "ghostwriter/filesystem": "^0.1.1",
-        "vimeo/psalm": "^6.8.8"
+        "vimeo/psalm": "^6.8.9"
     },
     "require-dev": {
         "ghostwriter/coding-standard": "dev-main"
