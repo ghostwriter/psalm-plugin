@@ -45,7 +45,7 @@
     "require-dev": {
         "ghostwriter/coding-standard": "dev-main",
         "mockery/mockery": "~1.6.12",
-        "phpunit/phpunit": "~12.1.4"
+        "phpunit/phpunit": "~12.1.5"
     },
     "replace": {
         "ghostwriter/example-psalm-plugin": "*",
