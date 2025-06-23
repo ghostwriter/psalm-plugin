@@ -1,16 +1,16 @@
 {
-    "$schema": "vendor/infection/infection/resources/schema.json",
-    "phpUnit": {
-        "customPath": "vendor\/ghostwriter\/coding-standard\/tools\/phpunit"
-    },
+    "$schema": "https://raw.githubusercontent.com/infection/infection/0.29.14/resources/schema.json",
     "source": {
         "directories": [
             "src"
         ],
         "excludes": [
-            "tests/Fixture",
+            "tests",
             "vendor"
         ]
+    },
+    "phpUnit": {
+        "customPath": "vendor/ghostwriter/coding-standard/tools/phpunit"
     },
     "mutators": {
         "@default": true
@@ -23,6 +23,6 @@
         "text": "php:\/\/stderr",
         "github": true
     },
-    "minMsi": 0,
-    "minCoveredMsi": 0
+    "minMsi": 100,
+    "minCoveredMsi": 100
 }
