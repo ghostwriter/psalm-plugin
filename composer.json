@@ -34,7 +34,8 @@
     "_comment": [
         "#BlackLivesMatter",
         "#FreePalestine",
-        "#StandWithUkraine"
+        "#StandWithUkraine",
+        "#StopGenocide"
     ],
     "require": {
         "php": "^8.4",
