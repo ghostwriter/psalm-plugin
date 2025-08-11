@@ -3,7 +3,6 @@
   "description": "Provides a plugin for Psalm"
   "homepage": "https://github.com/ghostwriter/psalm-plugin"
   "topics": "dev, ghostwriter, php, psalm, psalm-plugin, psalm-plugin-tester, static analysis"
-  "private": false
   "has_issues": true
   "has_projects": false
   "has_wiki": false
