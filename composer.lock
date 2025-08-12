@@ -2011,12 +2011,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ghostwriter/coding-standard.git",
-                "reference": "46042b79c1e15d688b911c319d2cfb0a8c7b6a84"
+                "reference": "855597e78c41dbe780ff66faaaef5b8fe47cb0e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ghostwriter/coding-standard/zipball/46042b79c1e15d688b911c319d2cfb0a8c7b6a84",
-                "reference": "46042b79c1e15d688b911c319d2cfb0a8c7b6a84",
+                "url": "https://api.github.com/repos/ghostwriter/coding-standard/zipball/855597e78c41dbe780ff66faaaef5b8fe47cb0e7",
+                "reference": "855597e78c41dbe780ff66faaaef5b8fe47cb0e7",
                 "shasum": ""
             },
             "require": {
@@ -2060,10 +2060,10 @@
             },
             "require-dev": {
                 "ext-xdebug": "*",
-                "mockery/mockery": "~1.6.12",
+                "mockery/mockery": "^1.6.12",
                 "nikic/php-parser": "~5.6.0",
-                "phpunit/phpunit": "~12.3.3",
-                "symfony/var-dumper": "~7.3.2",
+                "phpunit/phpunit": "^12.3.4",
+                "symfony/var-dumper": "^7.3.2",
                 "vimeo/psalm": "~6.13.1"
             },
             "default-branch": true,
@@ -2161,7 +2161,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-08-11T09:23:05+00:00"
+            "time": "2025-08-12T16:38:19+00:00"
         },
         {
             "name": "ghostwriter/json",
@@ -4379,16 +4379,16 @@
         },
         {
             "name": "sebastian/environment",
-            "version": "8.0.2",
+            "version": "8.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "d364b9e5d0d3b18a2573351a1786fbf96b7e0792"
+                "reference": "24a711b5c916efc6d6e62aa65aa2ec98fef77f68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/d364b9e5d0d3b18a2573351a1786fbf96b7e0792",
-                "reference": "d364b9e5d0d3b18a2573351a1786fbf96b7e0792",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/24a711b5c916efc6d6e62aa65aa2ec98fef77f68",
+                "reference": "24a711b5c916efc6d6e62aa65aa2ec98fef77f68",
                 "shasum": ""
             },
             "require": {
@@ -4431,7 +4431,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/environment/issues",
                 "security": "https://github.com/sebastianbergmann/environment/security/policy",
-                "source": "https://github.com/sebastianbergmann/environment/tree/8.0.2"
+                "source": "https://github.com/sebastianbergmann/environment/tree/8.0.3"
             },
             "funding": [
                 {
@@ -4451,7 +4451,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-05-21T15:05:44+00:00"
+            "time": "2025-08-12T14:11:56+00:00"
         },
         {
             "name": "sebastian/exporter",
