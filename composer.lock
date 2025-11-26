@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5a3dc41054441a85953161a6e3135003",
+    "content-hash": "3898c3a5d8efee9c1e7de92e331a5691",
     "packages": [
         {
             "name": "amphp/amp",
@@ -3702,16 +3702,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.9.1",
+            "version": "2.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "35cb6d47d03b0cae52dc12d686f941365b20f08b"
+                "reference": "8d5358f147c63a3a681b002076deff8c90e0b19d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/35cb6d47d03b0cae52dc12d686f941365b20f08b",
-                "reference": "35cb6d47d03b0cae52dc12d686f941365b20f08b",
+                "url": "https://api.github.com/repos/composer/composer/zipball/8d5358f147c63a3a681b002076deff8c90e0b19d",
+                "reference": "8d5358f147c63a3a681b002076deff8c90e0b19d",
                 "shasum": ""
             },
             "require": {
@@ -3736,6 +3736,7 @@
                 "symfony/polyfill-php73": "^1.24",
                 "symfony/polyfill-php80": "^1.24",
                 "symfony/polyfill-php81": "^1.24",
+                "symfony/polyfill-php84": "^1.30",
                 "symfony/process": "^5.4.47 || ^6.4.25 || ^7.1.10 || ^8.0"
             },
             "require-dev": {
@@ -3798,7 +3799,7 @@
                 "irc": "ircs://irc.libera.chat:6697/composer",
                 "issues": "https://github.com/composer/composer/issues",
                 "security": "https://github.com/composer/composer/security/policy",
-                "source": "https://github.com/composer/composer/tree/2.9.1"
+                "source": "https://github.com/composer/composer/tree/2.9.2"
             },
             "funding": [
                 {
@@ -3810,7 +3811,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-11-13T15:10:38+00:00"
+            "time": "2025-11-19T20:57:25+00:00"
         },
         {
             "name": "composer/metadata-minifier",
@@ -3967,18 +3968,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ghostwriter/coding-standard.git",
-                "reference": "ac076177d2077c34bc35f96aac9b41d78742e21f"
+                "reference": "c7002bdc5e79550e32de8e7672e6cfcfe21a3f25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ghostwriter/coding-standard/zipball/ac076177d2077c34bc35f96aac9b41d78742e21f",
-                "reference": "ac076177d2077c34bc35f96aac9b41d78742e21f",
+                "url": "https://api.github.com/repos/ghostwriter/coding-standard/zipball/c7002bdc5e79550e32de8e7672e6cfcfe21a3f25",
+                "reference": "c7002bdc5e79550e32de8e7672e6cfcfe21a3f25",
                 "shasum": ""
             },
             "require": {
-                "composer-plugin-api": "~2.6.0",
+                "composer-plugin-api": "~2.9.0",
                 "composer-runtime-api": "~2.2.2",
-                "composer/composer": "^2.9.1",
+                "composer/composer": "^2.9.2",
                 "ext-ctype": "*",
                 "ext-curl": "*",
                 "ext-dom": "*",
@@ -4011,7 +4012,7 @@
                 "ext-xdebug": "*",
                 "mockery/mockery": "^1.6.12",
                 "nikic/php-parser": "^5.6.2",
-                "phpunit/phpunit": "^12.4.3",
+                "phpunit/phpunit": "^12.4.4",
                 "symfony/var-dumper": "^7.3.5"
             },
             "default-branch": true,
@@ -4116,7 +4117,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-11-13T15:45:57+00:00"
+            "time": "2025-11-25T23:44:16+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
@@ -6678,5 +6679,5 @@
     "platform-overrides": {
         "php": "8.4.999"
     },
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.9.0"
 }
