@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3898c3a5d8efee9c1e7de92e331a5691",
+    "content-hash": "78d359d39ec63fd3ec668cbff5e21404",
     "packages": [
         {
             "name": "amphp/amp",
@@ -1517,25 +1517,37 @@
         },
         {
             "name": "ghostwriter/shell",
-            "version": "0.1.0",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ghostwriter/shell.git",
-                "reference": "6a8eae4c14490180b99cdd1260cf767072a6ff83"
+                "reference": "c50dccf80a93d257557de76cf25e6f2be7fbc3b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ghostwriter/shell/zipball/6a8eae4c14490180b99cdd1260cf767072a6ff83",
-                "reference": "6a8eae4c14490180b99cdd1260cf767072a6ff83",
+                "url": "https://api.github.com/repos/ghostwriter/shell/zipball/c50dccf80a93d257557de76cf25e6f2be7fbc3b9",
+                "reference": "c50dccf80a93d257557de76cf25e6f2be7fbc3b9",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.3"
+                "php": "~8.4.0 || ~8.5.0"
             },
             "require-dev": {
-                "ghostwriter/coding-standard": "dev-main"
+                "ext-xdebug": "*",
+                "ghostwriter/coding-standard": "dev-main",
+                "ghostwriter/container": "^6.0.1",
+                "mockery/mockery": "^1.6.12",
+                "phpunit/phpunit": "^12.4.4",
+                "symfony/var-dumper": "^7.3.5"
             },
             "type": "library",
+            "extra": {
+                "ghostwriter": {
+                    "container": {
+                        "definition": "Ghostwriter\\Shell\\Container\\ShellDefinition"
+                    }
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Ghostwriter\\Shell\\": "src"
@@ -1543,7 +1555,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3-Clause"
+                "BSD-4-Clause"
             ],
             "authors": [
                 {
@@ -1561,8 +1573,6 @@
                 "shell"
             ],
             "support": {
-                "docs": "https://github.com/ghostwriter/shell",
-                "forum": "https://github.com/ghostwriter/shell/discussions",
                 "issues": "https://github.com/ghostwriter/shell/issues",
                 "rss": "https://github.com/ghostwriter/shell/releases.atom",
                 "security": "https://github.com/ghostwriter/shell/security/advisories/new",
@@ -1574,7 +1584,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-06-22T22:15:04+00:00"
+            "time": "2025-11-25T19:01:49+00:00"
         },
         {
             "name": "kelunik/certificate",
