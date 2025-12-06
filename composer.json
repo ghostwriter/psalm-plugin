@@ -99,8 +99,8 @@
             "pluginClass": "Ghostwriter\\PsalmPlugin\\Plugin"
         },
         "thanks": {
-            "url": "https://github.com/ghostwriter/psalm-plugin",
-            "name": "ghostwriter/psalm-plugin"
+            "name": "ghostwriter/psalm-plugin",
+            "url": "https://github.com/ghostwriter/psalm-plugin"
         }
     },
     "scripts": {
