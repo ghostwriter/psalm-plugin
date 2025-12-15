@@ -21,51 +21,49 @@ use Psalm\Codebase;
 use Psalm\Internal\Scanner\ParsedDocblock;
 use Psalm\Issue\PropertyNotSetInConstructor;
 use Psalm\Plugin\EventHandler\Event\BeforeAddIssueEvent;
-use Psalm\Storage\MethodStorage;
 
 use function array_key_exists;
+use function explode;
+use function in_array;
+use function mb_substr;
 
 final class SuppressPropertyNotSetInConstructorHook extends AbstractBeforeAddIssueEventHook
 {
-    /**
-     * @return false|null
-     */
+    /** @return null|false */
     public static function beforeAddIssue(BeforeAddIssueEvent $event): ?bool
     {
         $codeIssue = $event->getIssue();
 
-        if (!$codeIssue instanceof PropertyNotSetInConstructor) {
+        if (! $codeIssue instanceof PropertyNotSetInConstructor) {
             return self::IGNORE;
         }
 
-        if (!self::isPropertySetInConstructor($codeIssue, $event->getCodebase())) {
+        if (! self::isPropertySetInConstructor($codeIssue, $event->getCodebase())) {
             return self::IGNORE;
         }
 
         return self::SUPPRESS;
     }
 
-    /**
-     * @param array<ClassMethod> $classMethodNodes
-     */
+    /** @param list<ClassMethod> $classMethodNodes */
     private static function hasClassMethodStatementWithDocBlockTagAndPropertyAssignmentExpression(
         string $tagName,
         string $propertyName,
-        Node|array $classMethodNodes
+        array|Node $classMethodNodes
     ): bool {
         return self::hasNode(
             $classMethodNodes,
             static function (Node $node) use ($tagName, $propertyName): bool {
-                if (!$node instanceof ClassMethod) {
+                if (! $node instanceof ClassMethod) {
                     return false;
                 }
 
                 $parsedDocBlock = self::parseDocCommentNode($node);
-                if (!$parsedDocBlock instanceof ParsedDocblock) {
+                if (! $parsedDocBlock instanceof ParsedDocblock) {
                     return false;
                 }
 
-                if (!\array_key_exists($tagName, $parsedDocBlock->tags)) {
+                if (! array_key_exists($tagName, $parsedDocBlock->tags)) {
                     return false;
                 }
 
@@ -74,9 +72,7 @@ final class SuppressPropertyNotSetInConstructorHook extends AbstractBeforeAddIss
         );
     }
 
-    /**
-     * @param array<ClassMethod> $classMethodNodes
-     */
+    /** @param list<ClassMethod> $classMethodNodes */
     private static function hasClassMethodStatementWithPHPAttributeAndPropertyAssignmentExpression(
         string $attributeName,
         string $propertyName,
@@ -85,13 +81,13 @@ final class SuppressPropertyNotSetInConstructorHook extends AbstractBeforeAddIss
         return self::hasNode(
             $classMethodNodes,
             static function (Node $node) use ($attributeName, $propertyName): bool {
-                if (!$node instanceof ClassMethod) {
+                if (! $node instanceof ClassMethod) {
                     return false;
                 }
 
                 foreach ($node->attrGroups as $attributeGroup) {
                     foreach ($attributeGroup->attrs as $attribute) {
-                        if (!$attribute instanceof Attribute) {
+                        if (! $attribute instanceof Attribute) {
                             continue;
                         }
 
@@ -108,9 +104,7 @@ final class SuppressPropertyNotSetInConstructorHook extends AbstractBeforeAddIss
         );
     }
 
-    /**
-     * @param array<ClassMethod> $classMethodNodes
-     */
+    /** @param list<ClassMethod> $classMethodNodes */
     private static function hasClassMethodStatementWithPropertyAssignmentExpression(
         string $methodName,
         string $propertyName,
@@ -119,7 +113,7 @@ final class SuppressPropertyNotSetInConstructorHook extends AbstractBeforeAddIss
         return self::hasNode(
             $classMethodNodes,
             static function (Node $node) use ($methodName, $propertyName, $classMethodNodes): bool {
-                if (!$node instanceof ClassMethod) {
+                if (! $node instanceof ClassMethod) {
                     return false;
                 }
 
@@ -129,14 +123,16 @@ final class SuppressPropertyNotSetInConstructorHook extends AbstractBeforeAddIss
 
                 return
                     self::hasPropertyAssignmentExpression($propertyName, $node)
-                    || self::hasMethodCallExpressionWithPropertyAssignmentExpression($propertyName, $node, $classMethodNodes);
+                    || self::hasMethodCallExpressionWithPropertyAssignmentExpression(
+                        $propertyName,
+                        $node,
+                        $classMethodNodes
+                    );
             }
         );
     }
 
-    /**
-     * @param array<ClassMethod> $classMethodNodes
-     */
+    /** @param list<ClassMethod> $classMethodNodes */
     private static function hasMethodCallExpressionWithPropertyAssignmentExpression(
         string $propertyName,
         ClassMethod $classMethodNode,
@@ -145,39 +141,35 @@ final class SuppressPropertyNotSetInConstructorHook extends AbstractBeforeAddIss
         return self::hasNode(
             $classMethodNode,
             static function (Node $node) use ($classMethodNodes, $propertyName): bool {
-                if (!$node instanceof Expression) {
+                if (! $node instanceof Expression) {
                     return false;
                 }
 
                 $expr = $node->expr;
 
-                if (!$expr instanceof MethodCall) {
+                if (! $expr instanceof MethodCall) {
                     return false;
                 }
 
-                if (
+                return (bool) (
                     self::hasPropertyAssignmentExpression(
                         $propertyName,
                         self::getClassMethodNode($classMethodNodes, static function (Node $node) use ($expr): bool {
-                            if (!$node instanceof ClassMethod) {
+                            if (! $node instanceof ClassMethod) {
                                 return false;
                             }
 
                             /** @var Identifier $name */
                             $name = $expr->name;
 
-                            if ($node->name->toString() !== $name->toString()) {
-                                return false;
-                            }
+                            return ! ($node->name->toString() !== $name->toString())
 
-                            return true;
+                            ;
                         })
                     )
-                ) {
-                    return true;
-                }
+                )
 
-                return false;
+                ;
             }
         );
     }
@@ -189,22 +181,22 @@ final class SuppressPropertyNotSetInConstructorHook extends AbstractBeforeAddIss
         return self::hasNode(
             $classMethodNode,
             static function (Node $node) use ($propertyName): bool {
-                if (!$node instanceof Expression) {
+                if (! $node instanceof Expression) {
                     return false;
                 }
 
                 $expr = $node->expr;
-                if (!$expr instanceof Assign) {
+                if (! $expr instanceof Assign) {
                     return false;
                 }
 
                 $var = $expr->var;
-                if (!$var instanceof PropertyFetch) {
+                if (! $var instanceof PropertyFetch) {
                     return false;
                 }
 
                 $name = $var->name;
-                if (!$name instanceof Identifier) {
+                if (! $name instanceof Identifier) {
                     return false;
                 }
 
@@ -219,9 +211,9 @@ final class SuppressPropertyNotSetInConstructorHook extends AbstractBeforeAddIss
     ): bool {
         $propertyId = $propertyNotSetInConstructor->property_id;
 
-        [$className, $propertyName] = \explode('::$', $propertyId);
+        [$className, $propertyName] = explode('::$', $propertyId);
 
-        if (!$codebase->classExtends($className, TestCase::class)) {
+        if (! $codebase->classExtends($className, TestCase::class)) {
             return false;
         }
 
@@ -229,29 +221,39 @@ final class SuppressPropertyNotSetInConstructorHook extends AbstractBeforeAddIss
 
         /** @var list<ClassMethod> $classMethodNodes */
         $classMethodNodes = self::getNodeFinder()->findInstanceOf(
-            $codebase->getStatementsForFile(
-                $propertyNotSetInConstructor->getFilePath()
-            ),
+            $codebase->getStatementsForFile($propertyNotSetInConstructor->getFilePath()),
             ClassMethod::class
         );
 
         $protectedSetupMethodNames = ['setUp', 'setupBeforeClass', 'assertPreConditions'];
         foreach ($protectedSetupMethodNames as $methodName) {
-            if (self::hasClassMethodStatementWithPropertyAssignmentExpression($methodName, $propertyName, $classMethodNodes)) {
+            if (self::hasClassMethodStatementWithPropertyAssignmentExpression(
+                $methodName,
+                $propertyName,
+                $classMethodNodes
+            )) {
                 return true;
             }
         }
 
         $beforeDocBlockTagNames = ['before', 'beforeClass'];
         foreach ($beforeDocBlockTagNames as $tagName) {
-            if (self::hasClassMethodStatementWithDocBlockTagAndPropertyAssignmentExpression($tagName, $propertyName, $classMethodNodes)) {
+            if (self::hasClassMethodStatementWithDocBlockTagAndPropertyAssignmentExpression(
+                $tagName,
+                $propertyName,
+                $classMethodNodes
+            )) {
                 return true;
             }
         }
 
         $beforeAttributeNames = [Before::class, BeforeClass::class];
         foreach ($beforeAttributeNames as $attributeName) {
-            if (self::hasClassMethodStatementWithPHPAttributeAndPropertyAssignmentExpression($attributeName, $propertyName, $classMethodNodes)) {
+            if (self::hasClassMethodStatementWithPHPAttributeAndPropertyAssignmentExpression(
+                $attributeName,
+                $propertyName,
+                $classMethodNodes
+            )) {
                 return true;
             }
         }
@@ -262,7 +264,7 @@ final class SuppressPropertyNotSetInConstructorHook extends AbstractBeforeAddIss
                 continue;
             }
 
-            if (!\array_key_exists($propertyName, $thisPropertyMutations)) {
+            if (! array_key_exists($propertyName, $thisPropertyMutations)) {
                 continue;
             }
 
@@ -275,7 +277,7 @@ final class SuppressPropertyNotSetInConstructorHook extends AbstractBeforeAddIss
             foreach ($methodStorage->getAttributeStorages() as $attributeStorage) {
                 $attributeName = $attributeStorage->fq_class_name;
 
-                if (!in_array($attributeName, $beforeAttributeNames, true)) {
+                if (! in_array($attributeName, $beforeAttributeNames, true)) {
                     continue;
                 }
 
@@ -311,13 +313,20 @@ final class SuppressPropertyNotSetInConstructorHook extends AbstractBeforeAddIss
             // $tags = array_keys($docs->tags);
 
             foreach ($beforeDocBlockTagNames as $tagName) {
-                if (self::hasClassMethodStatementWithDocBlockTagAndPropertyAssignmentExpression($tagName, $propertyName, $classMethodNodes)) {
+                if (self::hasClassMethodStatementWithDocBlockTagAndPropertyAssignmentExpression(
+                    $tagName,
+                    $propertyName,
+                    $classMethodNodes
+                )) {
                     return true;
                 }
             }
 
-
-            if (self::hasClassMethodStatementWithPropertyAssignmentExpression($methodName, $propertyName, $classMethodNodes)) {
+            if (self::hasClassMethodStatementWithPropertyAssignmentExpression(
+                $methodName,
+                $propertyName,
+                $classMethodNodes
+            )) {
                 return true;
             }
         }

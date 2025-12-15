@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Ghostwriter\PsalmPlugin;
 
-use Ghostwriter\Json\Json;
 use PhpParser\Comment\Doc;
 use PhpParser\Node;
 use PhpParser\Node\Stmt\ClassMethod;
@@ -12,9 +11,9 @@ use PhpParser\NodeFinder;
 use Psalm\Codebase;
 use Psalm\DocComment;
 use Psalm\Internal\Scanner\ParsedDocblock;
+use RuntimeException;
 
-use function is_object;
-use function var_export;
+use function mb_strtolower;
 
 abstract class AbstractHook
 {
@@ -24,28 +23,13 @@ abstract class AbstractHook
 
     final public const SUPPRESS = false;
 
-    private static ?NodeFinder $nodeFinder = null;
-
-    public static function dump(): void
-    {
-        echo PHP_EOL.PHP_EOL.'DUMP'.PHP_EOL.PHP_EOL;
-
-        /** @psalm-suppress ForbiddenCode */
-        \var_dump(
-            \array_map(
-                static fn (mixed $arg): mixed => is_object($arg) ? var_export($arg, true) : $arg,
-                \func_get_args()
-            )
-        );
-
-        exit(42);
-    }
+    private static NodeFinder $nodeFinder;
 
     /**
      * @param Node|Node[]         $nodes
      * @param callable(Node):bool $filter
      */
-    public static function findFirst(Node|array $nodes, callable $filter): ?Node
+    public static function findFirst(array|Node $nodes, callable $filter): ?Node
     {
         return self::getNodeFinder()->findFirst($nodes, $filter);
     }
@@ -53,6 +37,36 @@ abstract class AbstractHook
     public static function fullyQualifiedClassName(string $className, Codebase $codebase): string
     {
         return $codebase->classlikes->getUnAliasedName($className);
+    }
+
+    /**
+     * @param Node|Node[]         $nodes
+     * @param callable(Node):bool $filter
+     */
+    public static function getClassMethodNode(array|Node $nodes, callable $filter): ClassMethod
+    {
+        $node = self::findFirst($nodes, $filter);
+
+        if (! $node instanceof ClassMethod) {
+            throw new RuntimeException('ClassMethod not found');
+        }
+
+        return $node;
+    }
+
+    /**
+     * @param Node|Node[]         $nodes
+     * @param callable(Node):bool $filter
+     */
+    public static function getNode(array|Node $nodes, callable $filter): Node
+    {
+        $node = self::findFirst($nodes, $filter);
+
+        if (! $node instanceof Node) {
+            throw new RuntimeException('Node not found');
+        }
+
+        return $node;
     }
 
     public static function getNodeFinder(): NodeFinder
@@ -69,49 +83,19 @@ abstract class AbstractHook
      * @param Node|Node[]         $nodes
      * @param callable(Node):bool $filter
      */
-    public static function hasNode(Node|array $nodes, callable $filter): bool
+    public static function hasNode(array|Node $nodes, callable $filter): bool
     {
         return self::findFirst($nodes, $filter) instanceof Node;
-    }
-
-    /**
-     * @param Node|Node[]         $nodes
-     * @param callable(Node):bool $filter
-     */
-    public static function getNode(Node|array $nodes, callable $filter): Node
-    {
-        $node = self::findFirst($nodes, $filter);
-
-        if (!$node instanceof Node) {
-            throw new \RuntimeException('Node not found');
-        }
-
-        return $node;
-    }
-
-    /**
-     * @param Node|Node[]         $nodes
-     * @param callable(Node):bool $filter
-     */
-    public static function getClassMethodNode(Node|array $nodes, callable $filter): ClassMethod
-    {
-        $node = self::findFirst($nodes, $filter);
-
-        if (!$node instanceof ClassMethod) {
-            throw new \RuntimeException('ClassMethod not found');
-        }
-
-        return $node;
     }
 
     public static function isClassReferenced(string $className, Codebase $codebase): bool
     {
         $fullyQualifiedClassName = self::fullyQualifiedClassName($className, $codebase);
 
-        return $codebase->file_reference_provider->isClassReferenced(\mb_strtolower($fullyQualifiedClassName));
+        return $codebase->file_reference_provider->isClassReferenced(mb_strtolower($fullyQualifiedClassName));
     }
 
-    public static function parseDocComment(Doc $doc): ?ParsedDocblock
+    public static function parseDocComment(Doc $doc): ParsedDocblock
     {
         return DocComment::parsePreservingLength($doc);
     }
@@ -119,7 +103,7 @@ abstract class AbstractHook
     public static function parseDocCommentNode(Node $node): ?ParsedDocblock
     {
         $doc = $node->getDocComment();
-        if (!$doc instanceof Doc) {
+        if (! $doc instanceof Doc) {
             return null;
         }
 

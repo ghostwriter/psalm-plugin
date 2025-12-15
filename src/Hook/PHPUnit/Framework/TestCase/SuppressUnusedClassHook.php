@@ -9,15 +9,15 @@ use PHPUnit\Framework\TestCase;
 use Psalm\Issue\UnusedClass;
 use Psalm\Plugin\EventHandler\Event\BeforeAddIssueEvent;
 
+use function str_contains;
+
 final class SuppressUnusedClassHook extends AbstractBeforeAddIssueEventHook
 {
-    /**
-     * @return false|null
-     */
+    /** @return null|false */
     public static function beforeAddIssue(BeforeAddIssueEvent $event): ?bool
     {
         $codeIssue = $event->getIssue();
-        if (!$codeIssue instanceof UnusedClass) {
+        if (! $codeIssue instanceof UnusedClass) {
             return self::IGNORE;
         }
 

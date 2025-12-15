@@ -64,7 +64,10 @@
     "autoload": {
         "psr-4": {
             "Ghostwriter\\PsalmPlugin\\": "src/"
-        }
+        },
+        "files": [
+            "functions.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
