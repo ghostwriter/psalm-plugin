@@ -1,7 +1,7 @@
 {
     "name": "ghostwriter/psalm-plugin",
     "description": "Provides a plugin for Psalm",
-    "license": "BSD-4-Clause",
+    "license": "BSD-3-Clause",
     "type": "psalm-plugin",
     "keywords": [
         "ghostwriter",
