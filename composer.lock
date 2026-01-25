@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0cf88324ad3f8b19a17793c439bd6a31",
+    "content-hash": "e45bdbdc21972ca70309ea84b62f9be3",
     "packages": [
         {
             "name": "amphp/amp",
@@ -1556,16 +1556,16 @@
         },
         {
             "name": "ghostwriter/shell",
-            "version": "0.1.1",
+            "version": "0.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ghostwriter/shell.git",
-                "reference": "c50dccf80a93d257557de76cf25e6f2be7fbc3b9"
+                "reference": "e6367b96cd6be790291bc23c1e5d3aa607335109"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ghostwriter/shell/zipball/c50dccf80a93d257557de76cf25e6f2be7fbc3b9",
-                "reference": "c50dccf80a93d257557de76cf25e6f2be7fbc3b9",
+                "url": "https://api.github.com/repos/ghostwriter/shell/zipball/e6367b96cd6be790291bc23c1e5d3aa607335109",
+                "reference": "e6367b96cd6be790291bc23c1e5d3aa607335109",
                 "shasum": ""
             },
             "require": {
@@ -1576,11 +1576,15 @@
                 "ghostwriter/coding-standard": "dev-main",
                 "ghostwriter/container": "^6.0.1",
                 "mockery/mockery": "^1.6.12",
-                "phpunit/phpunit": "^12.4.4",
-                "symfony/var-dumper": "^7.3.5"
+                "phpunit/phpunit": "^12.5.7",
+                "symfony/var-dumper": "^8.0.3"
             },
             "type": "library",
             "extra": {
+                "thanks": {
+                    "url": "https://github.com/ghostwriter/shell",
+                    "name": "ghostwriter/shell"
+                },
                 "ghostwriter": {
                     "container": {
                         "definition": "Ghostwriter\\Shell\\Container\\ShellDefinition"
@@ -1594,7 +1598,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-4-Clause"
+                "BSD-3-Clause"
             ],
             "authors": [
                 {
@@ -1623,7 +1627,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-11-25T19:01:49+00:00"
+            "time": "2026-01-25T08:43:34+00:00"
         },
         {
             "name": "kelunik/certificate",
