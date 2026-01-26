@@ -11,14 +11,12 @@ use Psalm\Plugin\EventHandler\Event\BeforeAddIssueEvent;
 
 final class SuppressMissingThrowsDocblockHook extends AbstractBeforeAddIssueEventHook
 {
-    /**
-     * @return false|null
-     */
+    /** @return null|false */
     public static function beforeAddIssue(BeforeAddIssueEvent $event): ?bool
     {
         $codeIssue = $event->getIssue();
 
-        if (!$codeIssue instanceof MissingThrowsDocblock) {
+        if (! $codeIssue instanceof MissingThrowsDocblock) {
             return self::IGNORE;
         }
 
@@ -35,7 +33,7 @@ final class SuppressMissingThrowsDocblockHook extends AbstractBeforeAddIssueEven
                 continue;
             }
 
-            if (!$codebase->classExtends($storage->name, TestCase::class)) {
+            if (! $codebase->classExtends($storage->name, TestCase::class)) {
                 continue;
             }
 

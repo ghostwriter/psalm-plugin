@@ -8,16 +8,16 @@ use Ghostwriter\PsalmPlugin\AbstractBeforeAddIssueEventHook;
 use Psalm\Issue\InternalProperty;
 use Psalm\Plugin\EventHandler\Event\BeforeAddIssueEvent;
 
+use function str_contains;
+
 final class SuppressInternalPropertyHook extends AbstractBeforeAddIssueEventHook
 {
-    /**
-     * @return false|null
-     */
+    /** @return null|false */
     public static function beforeAddIssue(BeforeAddIssueEvent $event): ?bool
     {
         $codeIssue = $event->getIssue();
 
-        if (!$codeIssue instanceof InternalProperty) {
+        if (! $codeIssue instanceof InternalProperty) {
             return self::IGNORE;
         }
 

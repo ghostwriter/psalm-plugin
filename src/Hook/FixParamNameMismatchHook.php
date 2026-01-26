@@ -6,6 +6,4 @@ namespace Ghostwriter\PsalmPlugin\Hook;
 
 use Ghostwriter\PsalmPlugin\AbstractBeforeAddIssueEventHook;
 
-final class FixParamNameMismatchHook extends AbstractBeforeAddIssueEventHook
-{
-}
+final class FixParamNameMismatchHook extends AbstractBeforeAddIssueEventHook {}
