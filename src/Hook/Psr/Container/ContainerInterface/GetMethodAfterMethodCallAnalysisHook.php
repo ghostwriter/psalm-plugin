@@ -23,21 +23,28 @@ final class GetMethodAfterMethodCallAnalysisHook implements AfterMethodCallAnaly
 {
     public static function afterMethodCallAnalysis(AfterMethodCallAnalysisEvent $event): void
     {
+        if ($event->getReturnTypeCandidate() === null) {
+            return;
+        }
+
         $expr = $event->getExpr();
 
-        if (! $expr instanceof MethodCall || $event->getReturnTypeCandidate() === null) {
+        if (! $expr instanceof MethodCall) {
             return;
         }
 
         [$className, $methodName] = explode('::', $event->getDeclaringMethodId());
 
-        if ($methodName !== 'get') {
+        if ('get' !== $methodName) {
             return;
         }
 
         $codebase = $event->getCodebase();
 
-        if ($className !== ContainerInterface::class && ! $codebase->classImplements($className, ContainerInterface::class)) {
+        if (ContainerInterface::class !== $className && ! $codebase->classImplements(
+            $className,
+            ContainerInterface::class
+        )) {
             return;
         }
 
@@ -47,7 +54,7 @@ final class GetMethodAfterMethodCallAnalysisHook implements AfterMethodCallAnaly
         }
 
         $type = $event->getStatementsSource()->getNodeTypeProvider()->getType($arg->value);
-        if ($type === null) {
+        if (null === $type) {
             return;
         }
 
@@ -76,19 +83,18 @@ final class GetMethodAfterMethodCallAnalysisHook implements AfterMethodCallAnaly
                 continue;
             }
 
-
             if (! $atomicType instanceof TClassString) {
                 continue;
             }
 
-            if ($atomicType->as_type === null) {
+            if (null === $atomicType->as_type) {
                 continue;
             }
 
             $returnTypeCandidates[] = $atomicType->as_type;
         }
 
-        if ($returnTypeCandidates === []) {
+        if (empty($returnTypeCandidates)) {
             return;
         }
 

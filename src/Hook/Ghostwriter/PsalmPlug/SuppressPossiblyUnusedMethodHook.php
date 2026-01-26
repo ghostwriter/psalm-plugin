@@ -8,13 +8,15 @@ use Ghostwriter\PsalmPlugin\AbstractBeforeAddIssueEventHook;
 use Psalm\Issue\PossiblyUnusedMethod;
 use Psalm\Plugin\EventHandler\Event\BeforeAddIssueEvent;
 
+use function str_contains;
+
 final class SuppressPossiblyUnusedMethodHook extends AbstractBeforeAddIssueEventHook
 {
     public static function beforeAddIssue(BeforeAddIssueEvent $event): ?bool
     {
         $codeIssue = $event->getIssue();
 
-        if (!$codeIssue instanceof PossiblyUnusedMethod) {
+        if (! $codeIssue instanceof PossiblyUnusedMethod) {
             return self::IGNORE;
         }
 

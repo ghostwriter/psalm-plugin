@@ -1,0 +1,22 @@
+{
+    "$schema": "https://raw.githubusercontent.com/infection/infection/0.32.0/resources/schema.json",
+    "source": {
+        "directories": [
+            "src"
+        ],
+        "excludes": [
+            "tests",
+            "vendor"
+        ]
+    },
+    "mutators": {
+        "@default": true
+    },
+    "timeout": 10,
+    "logs": {
+        "text": "php:\/\/stderr",
+        "github": true
+    },
+    "minMsi": 100,
+    "minCoveredMsi": 100
+}

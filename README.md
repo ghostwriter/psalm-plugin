@@ -1,11 +1,8 @@
-# Psalm plugin
+# Psalm Plugin
 
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/ghostwriter?label=Sponsor+@ghostwriter/psalm-plugin&logo=GitHub+Sponsors)](https://github.com/sponsors/ghostwriter)
 [![Automation](https://github.com/ghostwriter/psalm-plugin/actions/workflows/automation.yml/badge.svg)](https://github.com/ghostwriter/psalm-plugin/actions/workflows/automation.yml)
 [![Supported PHP Version](https://badgen.net/packagist/php/ghostwriter/psalm-plugin?color=8892bf)](https://www.php.net/supported-versions)
-[![GitHub Sponsors](https://img.shields.io/github/sponsors/ghostwriter?label=Sponsor+@ghostwriter/psalm-plugin&logo=GitHub+Sponsors)](https://github.com/sponsors/ghostwriter)
-[![Code Coverage](https://codecov.io/gh/ghostwriter/psalm-plugin/graph/badge.svg)](https://codecov.io/gh/ghostwriter/psalm-plugin)
-[![Type Coverage](https://shepherd.dev/github/ghostwriter/psalm-plugin/coverage.svg)](https://shepherd.dev/github/ghostwriter/psalm-plugin)
-[![Latest Version on Packagist](https://badgen.net/packagist/v/ghostwriter/psalm-plugin)](https://packagist.org/packages/ghostwriter/psalm-plugin)
 [![Downloads](https://badgen.net/packagist/dt/ghostwriter/psalm-plugin?color=blue)](https://packagist.org/packages/ghostwriter/psalm-plugin)
 
 Provides an **`ALL-IN-ONE`** plugin for [`Psalm`](https://github.com/vimeo/psalm)
