@@ -45,7 +45,7 @@
         "ghostwriter/event-dispatcher": "^6.0.2",
         "ghostwriter/filesystem": "^0.1.2",
         "ghostwriter/shell": "^0.1.4",
-        "vimeo/psalm": "^7.0.0"
+        "vimeo/psalm": "^6.15.0"
     },
     "require-dev": {
         "ext-xdebug": "*",
