@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "84178c5ab69924adabbc9d08fb3bd38f",
+    "content-hash": "8221c011a0d3bfb016fe36abf5feabdd",
     "packages": [
         {
             "name": "amphp/amp",
@@ -3490,16 +3490,16 @@
         },
         {
             "name": "vimeo/psalm",
-            "version": "7.0.0-beta14",
+            "version": "6.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vimeo/psalm.git",
-                "reference": "e66ca9901442421cbdec6c571899410922e22ff6"
+                "reference": "204d06619833a297b402cbc66be7f2df74437db4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vimeo/psalm/zipball/e66ca9901442421cbdec6c571899410922e22ff6",
-                "reference": "e66ca9901442421cbdec6c571899410922e22ff6",
+                "url": "https://api.github.com/repos/vimeo/psalm/zipball/204d06619833a297b402cbc66be7f2df74437db4",
+                "reference": "204d06619833a297b402cbc66be7f2df74437db4",
                 "shasum": ""
             },
             "require": {
@@ -3604,7 +3604,7 @@
                 "issues": "https://github.com/vimeo/psalm/issues",
                 "source": "https://github.com/vimeo/psalm"
             },
-            "time": "2025-12-23T17:03:58+00:00"
+            "time": "2026-01-30T13:53:17+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -4079,12 +4079,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ghostwriter/coding-standard.git",
-                "reference": "5a59581fb122db1d8c326626c90fd2b40f0b2f68"
+                "reference": "4ba976f19a7eb3759b780bb7ebd3005fd1bce9a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ghostwriter/coding-standard/zipball/5a59581fb122db1d8c326626c90fd2b40f0b2f68",
-                "reference": "5a59581fb122db1d8c326626c90fd2b40f0b2f68",
+                "url": "https://api.github.com/repos/ghostwriter/coding-standard/zipball/4ba976f19a7eb3759b780bb7ebd3005fd1bce9a2",
+                "reference": "4ba976f19a7eb3759b780bb7ebd3005fd1bce9a2",
                 "shasum": ""
             },
             "require": {
@@ -4259,7 +4259,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-01-29T17:33:39+00:00"
+            "time": "2026-01-30T18:39:13+00:00"
         },
         {
             "name": "ghostwriter/config",
@@ -7035,8 +7035,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "ghostwriter/coding-standard": 20,
-        "vimeo/psalm": 10
+        "ghostwriter/coding-standard": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
