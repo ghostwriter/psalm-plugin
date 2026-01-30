@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4b1353ed53c6da77a25aa700b11f6bfc",
+    "content-hash": "55f075ff0cfc4a625560b9764a9d9a2d",
     "packages": [
         {
             "name": "amphp/amp",
@@ -3490,16 +3490,16 @@
         },
         {
             "name": "vimeo/psalm",
-            "version": "6.14.3",
+            "version": "7.0.0-beta14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vimeo/psalm.git",
-                "reference": "d0b040a91f280f071c1abcb1b77ce3822058725a"
+                "reference": "e66ca9901442421cbdec6c571899410922e22ff6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vimeo/psalm/zipball/d0b040a91f280f071c1abcb1b77ce3822058725a",
-                "reference": "d0b040a91f280f071c1abcb1b77ce3822058725a",
+                "url": "https://api.github.com/repos/vimeo/psalm/zipball/e66ca9901442421cbdec6c571899410922e22ff6",
+                "reference": "e66ca9901442421cbdec6c571899410922e22ff6",
                 "shasum": ""
             },
             "require": {
@@ -3604,7 +3604,7 @@
                 "issues": "https://github.com/vimeo/psalm/issues",
                 "source": "https://github.com/vimeo/psalm"
             },
-            "time": "2025-12-23T15:36:48+00:00"
+            "time": "2025-12-23T17:03:58+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -3813,16 +3813,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.9.4",
+            "version": "2.9.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "d4225153940b7c06f0e825195bdbdc312c67d917"
+                "reference": "72a8f8e653710e18d83e5dd531eb5a71fc3223e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/d4225153940b7c06f0e825195bdbdc312c67d917",
-                "reference": "d4225153940b7c06f0e825195bdbdc312c67d917",
+                "url": "https://api.github.com/repos/composer/composer/zipball/72a8f8e653710e18d83e5dd531eb5a71fc3223e6",
+                "reference": "72a8f8e653710e18d83e5dd531eb5a71fc3223e6",
                 "shasum": ""
             },
             "require": {
@@ -3910,7 +3910,7 @@
                 "irc": "ircs://irc.libera.chat:6697/composer",
                 "issues": "https://github.com/composer/composer/issues",
                 "security": "https://github.com/composer/composer/security/policy",
-                "source": "https://github.com/composer/composer/tree/2.9.4"
+                "source": "https://github.com/composer/composer/tree/2.9.5"
             },
             "funding": [
                 {
@@ -3922,7 +3922,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-01-22T13:08:50+00:00"
+            "time": "2026-01-29T10:40:53+00:00"
         },
         {
             "name": "composer/metadata-minifier",
@@ -4079,18 +4079,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ghostwriter/coding-standard.git",
-                "reference": "4656c4237df29f57c624d5d4d0ad2823c26981f0"
+                "reference": "5a59581fb122db1d8c326626c90fd2b40f0b2f68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ghostwriter/coding-standard/zipball/4656c4237df29f57c624d5d4d0ad2823c26981f0",
-                "reference": "4656c4237df29f57c624d5d4d0ad2823c26981f0",
+                "url": "https://api.github.com/repos/ghostwriter/coding-standard/zipball/5a59581fb122db1d8c326626c90fd2b40f0b2f68",
+                "reference": "5a59581fb122db1d8c326626c90fd2b40f0b2f68",
                 "shasum": ""
             },
             "require": {
                 "composer-plugin-api": "~2.9.0",
                 "composer-runtime-api": "~2.2.2",
-                "composer/composer": "^2.9.4",
+                "composer/composer": "^2.9.5",
                 "ext-apcu": "*",
                 "ext-bcmath": "*",
                 "ext-ctype": "*",
@@ -4259,7 +4259,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-01-28T22:51:15+00:00"
+            "time": "2026-01-29T17:33:39+00:00"
         },
         {
             "name": "ghostwriter/config",
@@ -7035,7 +7035,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "ghostwriter/coding-standard": 20
+        "ghostwriter/coding-standard": 20,
+        "vimeo/psalm": 10
     },
     "prefer-stable": true,
     "prefer-lowest": false,
