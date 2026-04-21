@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report>
+  <item>
+    <link>https://psalm.dev/075</link>
+    <severity>error</severity>
+    <line_from>12</line_from>
+    <line_to>12</line_to>
+    <type>UnusedClass</type>
+    <message>Class Vendor\Project\FooTest is never used</message>
+    <file_name>src/code.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/testcase-with-data-provider-attribute-double-quotes/src/code.php</file_path>
+    <snippet>final class FooTest extends TestCase</snippet>
+    <selected_text>FooTest</selected_text>
+    <from>217</from>
+    <to>224</to>
+    <snippet_from>205</snippet_from>
+    <snippet_to>241</snippet_to>
+    <column_from>13</column_from>
+    <column_to>20</column_to>
+    <shortcode>75</shortcode>
+    <error_level>-2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+</report>
