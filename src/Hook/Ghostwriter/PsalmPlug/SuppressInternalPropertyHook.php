@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Ghostwriter\PsalmPlugin\Hook\Ghostwriter\PsalmPlug;
 
 use Ghostwriter\PsalmPlugin\AbstractBeforeAddIssueEventHook;
+use Override;
 use Psalm\Issue\InternalProperty;
+
 use Psalm\Plugin\EventHandler\Event\BeforeAddIssueEvent;
 
 use function str_contains;
@@ -13,6 +15,7 @@ use function str_contains;
 final class SuppressInternalPropertyHook extends AbstractBeforeAddIssueEventHook
 {
     /** @return null|false */
+    #[Override]
     public static function beforeAddIssue(BeforeAddIssueEvent $event): ?bool
     {
         $codeIssue = $event->getIssue();

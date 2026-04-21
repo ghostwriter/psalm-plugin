@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace Ghostwriter\PsalmPlugin;
 
+use Ghostwriter\Container\Container;
 use PhpParser\Comment\Doc;
 use PhpParser\Node;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\NodeFinder;
 use Psalm\Codebase;
 use Psalm\DocComment;
+use Psalm\Exception\DocblockParseException;
 use Psalm\Internal\Scanner\ParsedDocblock;
 use RuntimeException;
 
@@ -17,13 +19,16 @@ use function mb_strtolower;
 
 abstract class AbstractHook
 {
-    final public const IGNORE = null;
+    final public const null IGNORE = null;
 
-    final public const REPORT = true;
+    final public const true REPORT = true;
 
-    final public const SUPPRESS = false;
+    final public const false SUPPRESS = false;
 
-    private static NodeFinder $nodeFinder;
+    public static function container(): Container
+    {
+        return Container::getInstance();
+    }
 
     /**
      * @param Node|Node[]         $nodes
@@ -71,7 +76,7 @@ abstract class AbstractHook
 
     public static function getNodeFinder(): NodeFinder
     {
-        return self::$nodeFinder ??= new NodeFinder();
+        return self::container()->get(NodeFinder::class);
     }
 
     public static function hasFullyQualifiedClassName(string $className, Codebase $codebase): bool
@@ -95,11 +100,13 @@ abstract class AbstractHook
         return $codebase->file_reference_provider->isClassReferenced(mb_strtolower($fullyQualifiedClassName));
     }
 
+    /** @throws DocblockParseException */
     public static function parseDocComment(Doc $doc): ParsedDocblock
     {
         return DocComment::parsePreservingLength($doc);
     }
 
+    /** @throws DocblockParseException */
     public static function parseDocCommentNode(Node $node): ?ParsedDocblock
     {
         $doc = $node->getDocComment();

@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace Ghostwriter\PsalmPlugin;
 
+use Ghostwriter\Container\Interface\ContainerInterface;
 use Ghostwriter\Filesystem\Interface\FilesystemInterface;
+use Ghostwriter\PsalmPlugin\Path\FixtureDirectory;
 use Ghostwriter\Shell\Interface\ShellInterface;
 use Psalm\Config;
-use Psalm\Internal\Analyzer\ProjectAnalyzer;
 use Psalm\Internal\IncludeCollector;
-use Psalm\Internal\Provider\FileProvider;
-use Psalm\Internal\Provider\ParserCacheProvider;
-use Psalm\Internal\Provider\Providers;
+use Psalm\Plugin\PluginEntryPointInterface;
 use ReflectionClass;
 use SplFileInfo;
 
@@ -30,46 +29,54 @@ final readonly class Psalm
     private const string BIN = 'vendor/bin/psalm';
 
     public function __construct(
+        private ContainerInterface $container,
         private ShellInterface $shell,
         private FilesystemInterface $filesystem,
+        private PluginCollection $pluginCollection,
     ) {}
 
-    public function run(Fixture $fixture, string $class): void
+    public function reset(): void
+    {
+        $this->pluginCollection->reset();
+        $this->container->reset();
+    }
+
+    public function run(FixtureDirectory $fixture): void
     {
         $filesystem = $this->filesystem;
-        $workspace = $fixture->workspace;
-
-//        $files = [
-//            'json-summary.json',
-//            'psalm-summary.json',
-//            'psalm-summary.xml',
-//        ];
-//        foreach ($files as $file) {
-//            $path = $workspace . DIRECTORY_SEPARATOR . $file;
-//            if ($filesystem->missing($path)) {
-//                continue;
-//            }
-//            $filesystem->delete($path);
-//        }
-//        return;
-
-        $vendorDirectory = $fixture->vendorDirectory;
+        $vendorDirectory = $fixture->vendorDirectory()->toString();
+        $workspaceDirectory = $fixture->workspaceDirectory()->toString();
+        $class = Plugin::class;
 
         $filename = (new ReflectionClass($class))->getFileName();
 
         $command = implode(DIRECTORY_SEPARATOR, [$vendorDirectory, 'bin', 'psalm']);
-        $psalmXml = implode(DIRECTORY_SEPARATOR, [$workspace, 'psalm.xml.dist']);
+        $psalmXml = implode(DIRECTORY_SEPARATOR, [$workspaceDirectory, 'psalm.xml.dist']);
+
+        //        $files = [
+        //            'json-summary.json',
+        //            'psalm-summary.json',
+        //            'psalm-summary.xml',
+        //        ];
+        //        foreach ($files as $file) {
+        //            $path = $workspace . DIRECTORY_SEPARATOR . $file;
+        //            if ($filesystem->missing($path)) {
+        //                continue;
+        //            }
+        //            $filesystem->delete($path);
+        //        }
+        //        return;
 
         dump([
-            'command' => $command,
-            'psalmXml' => $psalmXml,
-            'workspace' => $workspace,
-            'pluginFilename' => $filename,
             'class' => $class,
+            'command' => $command,
+            'pluginFilename' => $filename,
+            'psalmXml' => $psalmXml,
             'vendorDirectory' => $vendorDirectory,
+            'workspace' => $workspaceDirectory,
         ]);
 
-        foreach ($this->filesystem->recursiveIterator($workspace) as $file) {
+        foreach ($this->filesystem->regexIterator($workspaceDirectory, '#\.php$#u') as $file) {
             if (! $file instanceof SplFileInfo) {
                 continue;
             }
@@ -87,13 +94,13 @@ final readonly class Psalm
                 continue;
             }
 
-            if (str_contains($sourcePath, $workspace . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR)) {
+            if (str_contains($sourcePath, $workspaceDirectory . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR)) {
                 continue;
             }
 
             $destinationPath = str_replace(
-                $workspace . DIRECTORY_SEPARATOR,
-                $workspace . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR,
+                $workspaceDirectory . DIRECTORY_SEPARATOR,
+                $workspaceDirectory . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR,
                 $sourcePath
             );
 
@@ -122,10 +129,10 @@ final readonly class Psalm
             '</psalm>',
         ]);
 
-        $psalmXml = implode(DIRECTORY_SEPARATOR, [$workspace, 'psalm.xml']);
+        $psalmXml = implode(DIRECTORY_SEPARATOR, [$workspaceDirectory, 'psalm.xml']);
         $this->filesystem->write(path: $psalmXml, contents: $psalmConfigXml);
 
-        $psalmConfig = Config::loadFromXML($workspace, $psalmConfigXml);
+        $psalmConfig = Config::loadFromXML($workspaceDirectory, $psalmConfigXml);
         $psalmConfig->setIncludeCollector(new IncludeCollector());
 
         //        $projectAnalyzer = new ProjectAnalyzer(
@@ -157,10 +164,10 @@ final readonly class Psalm
         $result = $this->shell->execute(
             command: $command,
             arguments: ['--shepherd', '--no-diff', '--no-cache', '--output-format=xml'],
-            workingDirectory: $workspace
+            workingDirectory: $workspaceDirectory
         );
 
-        $filesystem->write($workspace . DIRECTORY_SEPARATOR . 'psalm-summary.xml', $result->stdout());
+        $filesystem->write($workspaceDirectory . DIRECTORY_SEPARATOR . 'psalm-summary.xml', $result->stdout());
 
         //        $result = $this->shell->execute(
         //            command: $command,
@@ -175,10 +182,20 @@ final readonly class Psalm
         //                '--output-format=phpstorm',
         // //                $plugin
         //            ],
-        //            workingDirectory: $workspace
+        //            workingDirectory: $workspaceDirectory
         //        );
 
         //        dump($result);
         $filesystem->delete($psalmXml);
+    }
+
+    /** @param class-string<PluginEntryPointInterface> ...$plugins */
+    public function withPlugins(string ...$plugins): self
+    {
+        foreach ($plugins as $plugin) {
+            $this->pluginCollection->add($plugin);
+        }
+
+        return $this;
     }
 }
