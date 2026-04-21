@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report>
+  <item>
+    <link>https://psalm.dev/075</link>
+    <severity>error</severity>
+    <line_from>9</line_from>
+    <line_to>9</line_to>
+    <type>UnusedClass</type>
+    <message>Class Vendor\Package\MyTestCase is never used</message>
+    <file_name>src/MyTestCase.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/missing-data-provider-is-reported/src/MyTestCase.php</file_path>
+    <snippet>class MyTestCase extends TestCase</snippet>
+    <selected_text>MyTestCase</selected_text>
+    <from>99</from>
+    <to>109</to>
+    <snippet_from>93</snippet_from>
+    <snippet_to>126</snippet_to>
+    <column_from>7</column_from>
+    <column_to>17</column_to>
+    <shortcode>75</shortcode>
+    <error_level>-2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+  <item>
+    <link>https://psalm.dev/361</link>
+    <severity>error</severity>
+    <line_from>9</line_from>
+    <line_to>9</line_to>
+    <type>ClassMustBeFinal</type>
+    <message>Class Vendor\Package\MyTestCase is never extended and is not part of the public API, and thus must be made final.</message>
+    <file_name>src/MyTestCase.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/missing-data-provider-is-reported/src/MyTestCase.php</file_path>
+    <snippet>class MyTestCase extends TestCase</snippet>
+    <selected_text>MyTestCase</selected_text>
+    <from>99</from>
+    <to>109</to>
+    <snippet_from>93</snippet_from>
+    <snippet_to>126</snippet_to>
+    <column_from>7</column_from>
+    <column_to>17</column_to>
+    <shortcode>361</shortcode>
+    <error_level>2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+</report>

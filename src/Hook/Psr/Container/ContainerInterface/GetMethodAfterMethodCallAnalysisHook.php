@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Ghostwriter\PsalmPlugin\Hook\Psr\Container\ContainerInterface;
 
+use Override;
 use PhpParser\Node\Arg;
 use PhpParser\Node\Expr\MethodCall;
 use Psalm\Plugin\EventHandler\AfterMethodCallAnalysisInterface;
@@ -15,12 +16,14 @@ use Psalm\Type\Atomic\TNamedObject;
 use Psalm\Type\Atomic\TTemplateParam;
 use Psalm\Type\Atomic\TTemplateParamClass;
 use Psalm\Type\Union;
+
 use Psr\Container\ContainerInterface;
 
 use function explode;
 
 final class GetMethodAfterMethodCallAnalysisHook implements AfterMethodCallAnalysisInterface
 {
+    #[Override]
     public static function afterMethodCallAnalysis(AfterMethodCallAnalysisEvent $event): void
     {
         if ($event->getReturnTypeCandidate() === null) {
