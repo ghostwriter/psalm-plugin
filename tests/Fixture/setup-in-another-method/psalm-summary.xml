@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report>
+  <item>
+    <link>https://psalm.dev/075</link>
+    <severity>error</severity>
+    <line_from>9</line_from>
+    <line_to>9</line_to>
+    <type>UnusedClass</type>
+    <message>Class Vendor\Package\ObjectTest is never used</message>
+    <file_name>src/code.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/setup-in-another-method/src/code.php</file_path>
+    <snippet>final class ObjectTest extends TestCase</snippet>
+    <selected_text>ObjectTest</selected_text>
+    <from>105</from>
+    <to>115</to>
+    <snippet_from>93</snippet_from>
+    <snippet_to>132</snippet_to>
+    <column_from>13</column_from>
+    <column_to>23</column_to>
+    <shortcode>75</shortcode>
+    <error_level>-2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+  <item>
+    <link>https://psalm.dev/074</link>
+    <severity>error</severity>
+    <line_from>11</line_from>
+    <line_to>11</line_to>
+    <type>PropertyNotSetInConstructor</type>
+    <message>Property Vendor\Package\ObjectTest::$subject is not defined in constructor of Vendor\Package\ObjectTest or in any private or final methods called in the constructor</message>
+    <file_name>src/code.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/setup-in-another-method/src/code.php</file_path>
+    <snippet>    private \stdClass $subject;</snippet>
+    <selected_text>$subject</selected_text>
+    <from>157</from>
+    <to>165</to>
+    <snippet_from>135</snippet_from>
+    <snippet_to>166</snippet_to>
+    <column_from>23</column_from>
+    <column_to>31</column_to>
+    <shortcode>74</shortcode>
+    <error_level>2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+  <item>
+    <link>https://psalm.dev/358</link>
+    <severity>error</severity>
+    <line_from>13</line_from>
+    <line_to>13</line_to>
+    <type>MissingOverrideAttribute</type>
+    <message>Method Vendor\Package\ObjectTest::setup should have the "Override" attribute</message>
+    <file_name>src/code.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/setup-in-another-method/src/code.php</file_path>
+    <snippet>    protected function setUp(): void</snippet>
+    <selected_text>protected function setUp(): void</selected_text>
+    <from>172</from>
+    <to>204</to>
+    <snippet_from>168</snippet_from>
+    <snippet_to>204</snippet_to>
+    <column_from>5</column_from>
+    <column_to>37</column_to>
+    <shortcode>358</shortcode>
+    <error_level>-2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+</report>

@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace Ghostwriter\PsalmPlugin\Hook\PHPUnit\Framework\TestCase;
 
 use Ghostwriter\PsalmPlugin\AbstractBeforeAddIssueEventHook;
+use Override;
 use PHPUnit\Framework\TestCase;
 use Psalm\Issue\UnusedClass;
+
 use Psalm\Plugin\EventHandler\Event\BeforeAddIssueEvent;
 
 use function str_contains;
@@ -14,6 +16,7 @@ use function str_contains;
 final class SuppressUnusedClassHook extends AbstractBeforeAddIssueEventHook
 {
     /** @return null|false */
+    #[Override]
     public static function beforeAddIssue(BeforeAddIssueEvent $event): ?bool
     {
         $codeIssue = $event->getIssue();

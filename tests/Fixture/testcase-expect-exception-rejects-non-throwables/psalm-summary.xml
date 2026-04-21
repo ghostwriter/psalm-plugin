@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report>
+  <item>
+    <link>https://psalm.dev/361</link>
+    <severity>error</severity>
+    <line_from>7</line_from>
+    <line_to>7</line_to>
+    <type>ClassMustBeFinal</type>
+    <message>Class Vendor\Package\MyTestCase is never extended and is not part of the public API, and thus must be made final.</message>
+    <file_name>src/code.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/testcase-expect-exception-rejects-non-throwables/src/code.php</file_path>
+    <snippet>class MyTestCase extends TestCase</snippet>
+    <selected_text>MyTestCase</selected_text>
+    <from>73</from>
+    <to>83</to>
+    <snippet_from>67</snippet_from>
+    <snippet_to>100</snippet_to>
+    <column_from>7</column_from>
+    <column_to>17</column_to>
+    <shortcode>361</shortcode>
+    <error_level>2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+  <item>
+    <link>https://psalm.dev/087</link>
+    <severity>error</severity>
+    <line_from>12</line_from>
+    <line_to>12</line_to>
+    <type>PossiblyUnusedMethod</type>
+    <message>Cannot find any calls to method Vendor\Package\MyTestCase::testSomething</message>
+    <file_name>src/code.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/testcase-expect-exception-rejects-non-throwables/src/code.php</file_path>
+    <snippet>    public function testSomething()</snippet>
+    <selected_text>testSomething</selected_text>
+    <from>159</from>
+    <to>172</to>
+    <snippet_from>139</snippet_from>
+    <snippet_to>174</snippet_to>
+    <column_from>21</column_from>
+    <column_to>34</column_to>
+    <shortcode>87</shortcode>
+    <error_level>-2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+  <item>
+    <link>https://psalm.dev/004</link>
+    <severity>error</severity>
+    <line_from>14</line_from>
+    <line_to>14</line_to>
+    <type>InvalidArgument</type>
+    <message>Argument 1 of Vendor\Package\MyTestCase::expectException expects class-string&lt;Throwable&gt;, but Vendor\Package\MyTestCase::class provided</message>
+    <file_name>src/code.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/testcase-expect-exception-rejects-non-throwables/src/code.php</file_path>
+    <snippet>        $this-&gt;expectException(MyTestCase::class);</snippet>
+    <selected_text>MyTestCase::class</selected_text>
+    <from>212</from>
+    <to>229</to>
+    <snippet_from>181</snippet_from>
+    <snippet_to>231</snippet_to>
+    <column_from>32</column_from>
+    <column_to>49</column_to>
+    <shortcode>4</shortcode>
+    <error_level>6</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+</report>

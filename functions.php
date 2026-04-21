@@ -21,9 +21,9 @@ if (! \function_exists('shell')) {
     }
 }
 
-if (! \function_exists('gwcs')) {
-    function gwcs(string $workspace, string ...$arguments): ResultInterface
+if (! \function_exists('gcs')) {
+    function gcs(string $workspace, string ...$arguments): ResultInterface
     {
-        return \shell()->execute(command: 'gwcs', arguments: $arguments, workingDirectory: $workspace);
+        return \shell()->execute(command: 'gcs', arguments: $arguments, workingDirectory: $workspace);
     }
 }

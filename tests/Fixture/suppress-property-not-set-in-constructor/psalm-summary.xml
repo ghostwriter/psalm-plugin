@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report>
+  <item>
+    <link>https://psalm.dev/075</link>
+    <severity>error</severity>
+    <line_from>9</line_from>
+    <line_to>9</line_to>
+    <type>UnusedClass</type>
+    <message>Class Ghostwriter\PsalmPlugin\Tests\Unit\AssertPreConditionsTest is never used</message>
+    <file_name>src/AssertPreConditionsTest.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/suppress-property-not-set-in-constructor/src/AssertPreConditionsTest.php</file_path>
+    <snippet>final class AssertPreConditionsTest extends TestCase</snippet>
+    <selected_text>AssertPreConditionsTest</selected_text>
+    <from>125</from>
+    <to>148</to>
+    <snippet_from>113</snippet_from>
+    <snippet_to>165</snippet_to>
+    <column_from>13</column_from>
+    <column_to>36</column_to>
+    <shortcode>75</shortcode>
+    <error_level>-2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+  <item>
+    <link>https://psalm.dev/074</link>
+    <severity>error</severity>
+    <line_from>11</line_from>
+    <line_to>11</line_to>
+    <type>PropertyNotSetInConstructor</type>
+    <message>Property Ghostwriter\PsalmPlugin\Tests\Unit\AssertPreConditionsTest::$propertyName is not defined in constructor of Ghostwriter\PsalmPlugin\Tests\Unit\AssertPreConditionsTest or in any private or final methods called in the constructor</message>
+    <file_name>src/AssertPreConditionsTest.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/suppress-property-not-set-in-constructor/src/AssertPreConditionsTest.php</file_path>
+    <snippet>    private \stdClass $propertyName;</snippet>
+    <selected_text>$propertyName</selected_text>
+    <from>190</from>
+    <to>203</to>
+    <snippet_from>168</snippet_from>
+    <snippet_to>204</snippet_to>
+    <column_from>23</column_from>
+    <column_to>36</column_to>
+    <shortcode>74</shortcode>
+    <error_level>2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+  <item>
+    <link>https://psalm.dev/358</link>
+    <severity>error</severity>
+    <line_from>13</line_from>
+    <line_to>13</line_to>
+    <type>MissingOverrideAttribute</type>
+    <message>Method Ghostwriter\PsalmPlugin\Tests\Unit\AssertPreConditionsTest::assertpreconditions should have the "Override" attribute</message>
+    <file_name>src/AssertPreConditionsTest.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/suppress-property-not-set-in-constructor/src/AssertPreConditionsTest.php</file_path>
+    <snippet>    protected function assertPreConditions(): void</snippet>
+    <selected_text>protected function assertPreConditions(): void</selected_text>
+    <from>210</from>
+    <to>256</to>
+    <snippet_from>206</snippet_from>
+    <snippet_to>256</snippet_to>
+    <column_from>5</column_from>
+    <column_to>51</column_to>
+    <shortcode>358</shortcode>
+    <error_level>-2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+  <item>
+    <link>https://psalm.dev/075</link>
+    <severity>error</severity>
+    <line_from>10</line_from>
+    <line_to>10</line_to>
+    <type>UnusedClass</type>
+    <message>Class Ghostwriter\PsalmPlugin\Tests\Unit\AttributesBeforeClassTest is never used</message>
+    <file_name>src/AttributesBeforeClassTest.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/suppress-property-not-set-in-constructor/src/AttributesBeforeClassTest.php</file_path>
+    <snippet>final class AttributesBeforeClassTest extends TestCase</snippet>
+    <selected_text>AttributesBeforeClassTest</selected_text>
+    <from>171</from>
+    <to>196</to>
+    <snippet_from>159</snippet_from>
+    <snippet_to>213</snippet_to>
+    <column_from>13</column_from>
+    <column_to>38</column_to>
+    <shortcode>75</shortcode>
+    <error_level>-2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+  <item>
+    <link>https://psalm.dev/074</link>
+    <severity>error</severity>
+    <line_from>12</line_from>
+    <line_to>12</line_to>
+    <type>PropertyNotSetInConstructor</type>
+    <message>Property Ghostwriter\PsalmPlugin\Tests\Unit\AttributesBeforeClassTest::$propertyName is not defined in constructor of Ghostwriter\PsalmPlugin\Tests\Unit\AttributesBeforeClassTest or in any private or final methods called in the constructor</message>
+    <file_name>src/AttributesBeforeClassTest.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/suppress-property-not-set-in-constructor/src/AttributesBeforeClassTest.php</file_path>
+    <snippet>    private \stdClass $propertyName;</snippet>
+    <selected_text>$propertyName</selected_text>
+    <from>238</from>
+    <to>251</to>
+    <snippet_from>216</snippet_from>
+    <snippet_to>252</snippet_to>
+    <column_from>23</column_from>
+    <column_to>36</column_to>
+    <shortcode>74</shortcode>
+    <error_level>2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+  <item>
+    <link>https://psalm.dev/075</link>
+    <severity>error</severity>
+    <line_from>10</line_from>
+    <line_to>10</line_to>
+    <type>UnusedClass</type>
+    <message>Class Ghostwriter\PsalmPlugin\Tests\Unit\AttributesBeforeTest is never used</message>
+    <file_name>src/AttributesBeforeTest.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/suppress-property-not-set-in-constructor/src/AttributesBeforeTest.php</file_path>
+    <snippet>final class AttributesBeforeTest extends TestCase</snippet>
+    <selected_text>AttributesBeforeTest</selected_text>
+    <from>166</from>
+    <to>186</to>
+    <snippet_from>154</snippet_from>
+    <snippet_to>203</snippet_to>
+    <column_from>13</column_from>
+    <column_to>33</column_to>
+    <shortcode>75</shortcode>
+    <error_level>-2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+  <item>
+    <link>https://psalm.dev/074</link>
+    <severity>error</severity>
+    <line_from>12</line_from>
+    <line_to>12</line_to>
+    <type>PropertyNotSetInConstructor</type>
+    <message>Property Ghostwriter\PsalmPlugin\Tests\Unit\AttributesBeforeTest::$propertyName is not defined in constructor of Ghostwriter\PsalmPlugin\Tests\Unit\AttributesBeforeTest or in any private or final methods called in the constructor</message>
+    <file_name>src/AttributesBeforeTest.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/suppress-property-not-set-in-constructor/src/AttributesBeforeTest.php</file_path>
+    <snippet>    private \stdClass $propertyName;</snippet>
+    <selected_text>$propertyName</selected_text>
+    <from>228</from>
+    <to>241</to>
+    <snippet_from>206</snippet_from>
+    <snippet_to>242</snippet_to>
+    <column_from>23</column_from>
+    <column_to>36</column_to>
+    <shortcode>74</shortcode>
+    <error_level>2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+  <item>
+    <link>https://psalm.dev/075</link>
+    <severity>error</severity>
+    <line_from>9</line_from>
+    <line_to>9</line_to>
+    <type>UnusedClass</type>
+    <message>Class Ghostwriter\PsalmPlugin\Tests\Unit\DocBlocksBeforeClassTest is never used</message>
+    <file_name>src/DocBlocksBeforeClassTest.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/suppress-property-not-set-in-constructor/src/DocBlocksBeforeClassTest.php</file_path>
+    <snippet>final class DocBlocksBeforeClassTest extends TestCase</snippet>
+    <selected_text>DocBlocksBeforeClassTest</selected_text>
+    <from>125</from>
+    <to>149</to>
+    <snippet_from>113</snippet_from>
+    <snippet_to>166</snippet_to>
+    <column_from>13</column_from>
+    <column_to>37</column_to>
+    <shortcode>75</shortcode>
+    <error_level>-2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+  <item>
+    <link>https://psalm.dev/074</link>
+    <severity>error</severity>
+    <line_from>11</line_from>
+    <line_to>11</line_to>
+    <type>PropertyNotSetInConstructor</type>
+    <message>Property Ghostwriter\PsalmPlugin\Tests\Unit\DocBlocksBeforeClassTest::$propertyName is not defined in constructor of Ghostwriter\PsalmPlugin\Tests\Unit\DocBlocksBeforeClassTest or in any private or final methods called in the constructor</message>
+    <file_name>src/DocBlocksBeforeClassTest.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/suppress-property-not-set-in-constructor/src/DocBlocksBeforeClassTest.php</file_path>
+    <snippet>    private \stdClass $propertyName;</snippet>
+    <selected_text>$propertyName</selected_text>
+    <from>191</from>
+    <to>204</to>
+    <snippet_from>169</snippet_from>
+    <snippet_to>205</snippet_to>
+    <column_from>23</column_from>
+    <column_to>36</column_to>
+    <shortcode>74</shortcode>
+    <error_level>2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+  <item>
+    <link>https://psalm.dev/075</link>
+    <severity>error</severity>
+    <line_from>9</line_from>
+    <line_to>9</line_to>
+    <type>UnusedClass</type>
+    <message>Class Ghostwriter\PsalmPlugin\Tests\Unit\DocBlocksBeforeTest is never used</message>
+    <file_name>src/DocBlocksBeforeTest.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/suppress-property-not-set-in-constructor/src/DocBlocksBeforeTest.php</file_path>
+    <snippet>final class DocBlocksBeforeTest extends TestCase</snippet>
+    <selected_text>DocBlocksBeforeTest</selected_text>
+    <from>125</from>
+    <to>144</to>
+    <snippet_from>113</snippet_from>
+    <snippet_to>161</snippet_to>
+    <column_from>13</column_from>
+    <column_to>32</column_to>
+    <shortcode>75</shortcode>
+    <error_level>-2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+  <item>
+    <link>https://psalm.dev/074</link>
+    <severity>error</severity>
+    <line_from>11</line_from>
+    <line_to>11</line_to>
+    <type>PropertyNotSetInConstructor</type>
+    <message>Property Ghostwriter\PsalmPlugin\Tests\Unit\DocBlocksBeforeTest::$propertyName is not defined in constructor of Ghostwriter\PsalmPlugin\Tests\Unit\DocBlocksBeforeTest or in any private or final methods called in the constructor</message>
+    <file_name>src/DocBlocksBeforeTest.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/suppress-property-not-set-in-constructor/src/DocBlocksBeforeTest.php</file_path>
+    <snippet>    private \stdClass $propertyName;</snippet>
+    <selected_text>$propertyName</selected_text>
+    <from>186</from>
+    <to>199</to>
+    <snippet_from>164</snippet_from>
+    <snippet_to>200</snippet_to>
+    <column_from>23</column_from>
+    <column_to>36</column_to>
+    <shortcode>74</shortcode>
+    <error_level>2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+  <item>
+    <link>https://psalm.dev/075</link>
+    <severity>error</severity>
+    <line_from>9</line_from>
+    <line_to>9</line_to>
+    <type>UnusedClass</type>
+    <message>Class Ghostwriter\PsalmPlugin\Tests\Unit\SetupBeforeClassTest is never used</message>
+    <file_name>src/SetupBeforeClassTest.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/suppress-property-not-set-in-constructor/src/SetupBeforeClassTest.php</file_path>
+    <snippet>final class SetupBeforeClassTest extends TestCase</snippet>
+    <selected_text>SetupBeforeClassTest</selected_text>
+    <from>125</from>
+    <to>145</to>
+    <snippet_from>113</snippet_from>
+    <snippet_to>162</snippet_to>
+    <column_from>13</column_from>
+    <column_to>33</column_to>
+    <shortcode>75</shortcode>
+    <error_level>-2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+  <item>
+    <link>https://psalm.dev/358</link>
+    <severity>error</severity>
+    <line_from>13</line_from>
+    <line_to>13</line_to>
+    <type>MissingOverrideAttribute</type>
+    <message>Method Ghostwriter\PsalmPlugin\Tests\Unit\SetupBeforeClassTest::setupbeforeclass should have the "Override" attribute</message>
+    <file_name>src/SetupBeforeClassTest.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/suppress-property-not-set-in-constructor/src/SetupBeforeClassTest.php</file_path>
+    <snippet>    public static function setUpBeforeClass(): void</snippet>
+    <selected_text>public static function setUpBeforeClass(): void</selected_text>
+    <from>214</from>
+    <to>261</to>
+    <snippet_from>210</snippet_from>
+    <snippet_to>261</snippet_to>
+    <column_from>5</column_from>
+    <column_to>52</column_to>
+    <shortcode>358</shortcode>
+    <error_level>-2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+  <item>
+    <link>https://psalm.dev/075</link>
+    <severity>error</severity>
+    <line_from>10</line_from>
+    <line_to>10</line_to>
+    <type>UnusedClass</type>
+    <message>Class Ghostwriter\PsalmPlugin\Tests\Unit\SetupTest is never used</message>
+    <file_name>src/SetupTest.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/suppress-property-not-set-in-constructor/src/SetupTest.php</file_path>
+    <snippet>final class SetupTest extends TestCase</snippet>
+    <selected_text>SetupTest</selected_text>
+    <from>147</from>
+    <to>156</to>
+    <snippet_from>135</snippet_from>
+    <snippet_to>173</snippet_to>
+    <column_from>13</column_from>
+    <column_to>22</column_to>
+    <shortcode>75</shortcode>
+    <error_level>-2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+  <item>
+    <link>https://psalm.dev/074</link>
+    <severity>error</severity>
+    <line_from>12</line_from>
+    <line_to>12</line_to>
+    <type>PropertyNotSetInConstructor</type>
+    <message>Property Ghostwriter\PsalmPlugin\Tests\Unit\SetupTest::$propertyName is not defined in constructor of Ghostwriter\PsalmPlugin\Tests\Unit\SetupTest or in any private or final methods called in the constructor</message>
+    <file_name>src/SetupTest.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/suppress-property-not-set-in-constructor/src/SetupTest.php</file_path>
+    <snippet>    private \stdClass $propertyName;</snippet>
+    <selected_text>$propertyName</selected_text>
+    <from>198</from>
+    <to>211</to>
+    <snippet_from>176</snippet_from>
+    <snippet_to>212</snippet_to>
+    <column_from>23</column_from>
+    <column_to>36</column_to>
+    <shortcode>74</shortcode>
+    <error_level>2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+  <item>
+    <link>https://psalm.dev/358</link>
+    <severity>error</severity>
+    <line_from>14</line_from>
+    <line_to>14</line_to>
+    <type>MissingOverrideAttribute</type>
+    <message>Method Ghostwriter\PsalmPlugin\Tests\Unit\SetupTest::setup should have the "Override" attribute</message>
+    <file_name>src/SetupTest.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/suppress-property-not-set-in-constructor/src/SetupTest.php</file_path>
+    <snippet>    protected function setUp(): void</snippet>
+    <selected_text>protected function setUp(): void</selected_text>
+    <from>218</from>
+    <to>250</to>
+    <snippet_from>214</snippet_from>
+    <snippet_to>250</snippet_to>
+    <column_from>5</column_from>
+    <column_to>37</column_to>
+    <shortcode>358</shortcode>
+    <error_level>-2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+</report>
