@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report>
+  <item>
+    <link>https://psalm.dev/075</link>
+    <severity>error</severity>
+    <line_from>7</line_from>
+    <line_to>7</line_to>
+    <type>UnusedClass</type>
+    <message>Class DatabaseTest is never used</message>
+    <file_name>src/code.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/setup-before-class/src/code.php</file_path>
+    <snippet>final class DatabaseTest extends TestCase</snippet>
+    <selected_text>DatabaseTest</selected_text>
+    <from>78</from>
+    <to>90</to>
+    <snippet_from>66</snippet_from>
+    <snippet_to>107</snippet_to>
+    <column_from>13</column_from>
+    <column_to>25</column_to>
+    <shortcode>75</shortcode>
+    <error_level>-2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+  <item>
+    <link>https://psalm.dev/358</link>
+    <severity>error</severity>
+    <line_from>11</line_from>
+    <line_to>11</line_to>
+    <type>MissingOverrideAttribute</type>
+    <message>Method DatabaseTest::setupbeforeclass should have the "Override" attribute</message>
+    <file_name>src/code.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/setup-before-class/src/code.php</file_path>
+    <snippet>    public static function setUpBeforeClass(): void</snippet>
+    <selected_text>public static function setUpBeforeClass(): void</selected_text>
+    <from>144</from>
+    <to>191</to>
+    <snippet_from>140</snippet_from>
+    <snippet_to>191</snippet_to>
+    <column_from>5</column_from>
+    <column_to>52</column_to>
+    <shortcode>358</shortcode>
+    <error_level>-2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+  <item>
+    <link>https://psalm.dev/358</link>
+    <severity>error</severity>
+    <line_from>16</line_from>
+    <line_to>16</line_to>
+    <type>MissingOverrideAttribute</type>
+    <message>Method DatabaseTest::teardownafterclass should have the "Override" attribute</message>
+    <file_name>src/code.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/setup-before-class/src/code.php</file_path>
+    <snippet>    public static function tearDownAfterClass(): void</snippet>
+    <selected_text>public static function tearDownAfterClass(): void</selected_text>
+    <from>259</from>
+    <to>308</to>
+    <snippet_from>255</snippet_from>
+    <snippet_to>308</snippet_to>
+    <column_from>5</column_from>
+    <column_to>54</column_to>
+    <shortcode>358</shortcode>
+    <error_level>-2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+</report>

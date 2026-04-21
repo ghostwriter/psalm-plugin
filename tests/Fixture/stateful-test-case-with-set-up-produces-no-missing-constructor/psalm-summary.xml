@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report>
+  <item>
+    <link>https://psalm.dev/075</link>
+    <severity>error</severity>
+    <line_from>10</line_from>
+    <line_to>10</line_to>
+    <type>UnusedClass</type>
+    <message>Class Vendor\Package\MyTestCaseSetup is never used</message>
+    <file_name>src/MyTestCase.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/stateful-test-case-with-set-up-produces-no-missing-constructor/src/MyTestCase.php</file_path>
+    <snippet>class MyTestCaseSetup extends TestCase</snippet>
+    <selected_text>MyTestCaseSetup</selected_text>
+    <from>144</from>
+    <to>159</to>
+    <snippet_from>138</snippet_from>
+    <snippet_to>176</snippet_to>
+    <column_from>7</column_from>
+    <column_to>22</column_to>
+    <shortcode>75</shortcode>
+    <error_level>-2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+  <item>
+    <link>https://psalm.dev/361</link>
+    <severity>error</severity>
+    <line_from>10</line_from>
+    <line_to>10</line_to>
+    <type>ClassMustBeFinal</type>
+    <message>Class Vendor\Package\MyTestCaseSetup is never extended and is not part of the public API, and thus must be made final.</message>
+    <file_name>src/MyTestCase.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/stateful-test-case-with-set-up-produces-no-missing-constructor/src/MyTestCase.php</file_path>
+    <snippet>class MyTestCaseSetup extends TestCase</snippet>
+    <selected_text>MyTestCaseSetup</selected_text>
+    <from>144</from>
+    <to>159</to>
+    <snippet_from>138</snippet_from>
+    <snippet_to>176</snippet_to>
+    <column_from>7</column_from>
+    <column_to>22</column_to>
+    <shortcode>361</shortcode>
+    <error_level>2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+  <item>
+    <link>https://psalm.dev/074</link>
+    <severity>error</severity>
+    <line_from>13</line_from>
+    <line_to>13</line_to>
+    <type>PropertyNotSetInConstructor</type>
+    <message>Property Vendor\Package\MyTestCaseSetup::$i is not defined in constructor of Vendor\Package\MyTestCaseSetup or in any private or final methods called in the constructor</message>
+    <file_name>src/MyTestCase.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/stateful-test-case-with-set-up-produces-no-missing-constructor/src/MyTestCase.php</file_path>
+    <snippet>    private $i;</snippet>
+    <selected_text>$i</selected_text>
+    <from>220</from>
+    <to>222</to>
+    <snippet_from>208</snippet_from>
+    <snippet_to>223</snippet_to>
+    <column_from>13</column_from>
+    <column_to>15</column_to>
+    <shortcode>74</shortcode>
+    <error_level>2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+  <item>
+    <link>https://psalm.dev/358</link>
+    <severity>error</severity>
+    <line_from>15</line_from>
+    <line_to>15</line_to>
+    <type>MissingOverrideAttribute</type>
+    <message>Method Vendor\Package\MyTestCaseSetup::setup should have the "Override" attribute</message>
+    <file_name>src/MyTestCase.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/stateful-test-case-with-set-up-produces-no-missing-constructor/src/MyTestCase.php</file_path>
+    <snippet>    public function setUp(): void</snippet>
+    <selected_text>public function setUp(): void</selected_text>
+    <from>229</from>
+    <to>258</to>
+    <snippet_from>225</snippet_from>
+    <snippet_to>258</snippet_to>
+    <column_from>5</column_from>
+    <column_to>34</column_to>
+    <shortcode>358</shortcode>
+    <error_level>-2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+  <item>
+    <link>https://psalm.dev/032</link>
+    <severity>error</severity>
+    <line_from>23</line_from>
+    <line_to>23</line_to>
+    <type>MixedAssignment</type>
+    <message>Unable to determine the type that $i is being assigned to</message>
+    <file_name>src/MyTestCase.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/stateful-test-case-with-set-up-produces-no-missing-constructor/src/MyTestCase.php</file_path>
+    <snippet>        $i = $this-&gt;i-&gt;work()-&gt;willReturn(1);</snippet>
+    <selected_text>$i</selected_text>
+    <from>394</from>
+    <to>396</to>
+    <snippet_from>386</snippet_from>
+    <snippet_to>431</snippet_to>
+    <column_from>9</column_from>
+    <column_to>11</column_to>
+    <shortcode>32</shortcode>
+    <error_level>1</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+  <item>
+    <link>https://psalm.dev/091</link>
+    <severity>error</severity>
+    <line_from>23</line_from>
+    <line_to>23</line_to>
+    <type>InvalidMethodCall</type>
+    <message>Cannot call method on int variable </message>
+    <file_name>src/MyTestCase.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/stateful-test-case-with-set-up-produces-no-missing-constructor/src/MyTestCase.php</file_path>
+    <snippet>        $i = $this-&gt;i-&gt;work()-&gt;willReturn(1);</snippet>
+    <selected_text>willReturn</selected_text>
+    <from>417</from>
+    <to>427</to>
+    <snippet_from>386</snippet_from>
+    <snippet_to>431</snippet_to>
+    <column_from>32</column_from>
+    <column_to>42</column_to>
+    <shortcode>91</shortcode>
+    <error_level>6</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+  <item>
+    <link>https://psalm.dev/015</link>
+    <severity>error</severity>
+    <line_from>24</line_from>
+    <line_to>24</line_to>
+    <type>MixedMethodCall</type>
+    <message>Cannot determine the type of $i when calling method work</message>
+    <file_name>src/MyTestCase.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/stateful-test-case-with-set-up-produces-no-missing-constructor/src/MyTestCase.php</file_path>
+    <snippet>        $this-&gt;assertEquals(1, $i-&gt;work());</snippet>
+    <selected_text>work</selected_text>
+    <from>467</from>
+    <to>471</to>
+    <snippet_from>432</snippet_from>
+    <snippet_to>475</snippet_to>
+    <column_from>36</column_from>
+    <column_to>40</column_to>
+    <shortcode>15</shortcode>
+    <error_level>1</error_level>
+    <taint_trace/>
+    <other_references>
+      <label>The type of work is sourced from here</label>
+      <line_from>23</line_from>
+      <line_to>23</line_to>
+      <file_name>src/MyTestCase.php</file_name>
+      <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/stateful-test-case-with-set-up-produces-no-missing-constructor/src/MyTestCase.php</file_path>
+      <snippet>        $i = $this-&gt;i-&gt;work()-&gt;willReturn(1);</snippet>
+      <from>394</from>
+      <to>396</to>
+      <snippet_from>386</snippet_from>
+      <column_from>9</column_from>
+      <column_to>11</column_to>
+    </other_references>
+  </item>
+</report>
