@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report>
+  <item>
+    <link>https://psalm.dev/075</link>
+    <severity>error</severity>
+    <line_from>7</line_from>
+    <line_to>7</line_to>
+    <type>UnusedClass</type>
+    <message>Class MyTest is never used</message>
+    <file_name>src/code.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/exception-triggers-no-errors-if-expected-and-called-statically/src/code.php</file_path>
+    <snippet>final class MyTest extends TestCase</snippet>
+    <selected_text>MyTest</selected_text>
+    <from>78</from>
+    <to>84</to>
+    <snippet_from>66</snippet_from>
+    <snippet_to>101</snippet_to>
+    <column_from>13</column_from>
+    <column_to>19</column_to>
+    <shortcode>75</shortcode>
+    <error_level>-2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+  <item>
+    <link>https://psalm.dev/011</link>
+    <severity>error</severity>
+    <line_from>9</line_from>
+    <line_to>9</line_to>
+    <type>InvalidReturnType</type>
+    <message>The declared return type 'void' for MyTest::testSomething is incorrect, got 'never'</message>
+    <file_name>src/code.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/exception-triggers-no-errors-if-expected-and-called-statically/src/code.php</file_path>
+    <snippet>    /** @return void */</snippet>
+    <selected_text>void</selected_text>
+    <from>120</from>
+    <to>124</to>
+    <snippet_from>104</snippet_from>
+    <snippet_to>127</snippet_to>
+    <column_from>17</column_from>
+    <column_to>21</column_to>
+    <shortcode>11</shortcode>
+    <error_level>6</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+</report>
