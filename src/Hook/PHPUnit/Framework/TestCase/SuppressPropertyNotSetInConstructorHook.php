@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Ghostwriter\PsalmPlugin\Hook\PHPUnit\Framework\TestCase;
 
 use Ghostwriter\PsalmPlugin\AbstractBeforeAddIssueEventHook;
+use Override;
 use PhpParser\Comment\Doc;
 use PhpParser\Node;
 use PhpParser\Node\Attribute;
@@ -20,6 +21,7 @@ use PHPUnit\Framework\TestCase;
 use Psalm\Codebase;
 use Psalm\Internal\Scanner\ParsedDocblock;
 use Psalm\Issue\PropertyNotSetInConstructor;
+
 use Psalm\Plugin\EventHandler\Event\BeforeAddIssueEvent;
 
 use function array_key_exists;
@@ -30,6 +32,7 @@ use function mb_substr;
 final class SuppressPropertyNotSetInConstructorHook extends AbstractBeforeAddIssueEventHook
 {
     /** @return null|false */
+    #[Override]
     public static function beforeAddIssue(BeforeAddIssueEvent $event): ?bool
     {
         $codeIssue = $event->getIssue();
@@ -151,22 +154,20 @@ final class SuppressPropertyNotSetInConstructorHook extends AbstractBeforeAddIss
                     return false;
                 }
 
-                return (bool) (
-                    self::hasPropertyAssignmentExpression(
-                        $propertyName,
-                        self::getClassMethodNode($classMethodNodes, static function (Node $node) use ($expr): bool {
-                            if (! $node instanceof ClassMethod) {
-                                return false;
-                            }
+                return self::hasPropertyAssignmentExpression(
+                    $propertyName,
+                    self::getClassMethodNode($classMethodNodes, static function (Node $node) use ($expr): bool {
+                        if (! $node instanceof ClassMethod) {
+                            return false;
+                        }
 
-                            /** @var Identifier $name */
-                            $name = $expr->name;
+                        /** @var Identifier $name */
+                        $name = $expr->name;
 
-                            return ! ($node->name->toString() !== $name->toString())
+                        return ! ($node->name->toString() !== $name->toString())
 
-                            ;
-                        })
-                    )
+                        ;
+                    })
                 )
 
                 ;
@@ -302,9 +303,9 @@ final class SuppressPropertyNotSetInConstructorHook extends AbstractBeforeAddIss
                 )
             );
 
-            if (null === $docs) {
-                continue;
-            }
+            //            if (null === $docs) {
+            //                continue;
+            //            }
 
             if ([] === $docs->tags) {
                 continue;

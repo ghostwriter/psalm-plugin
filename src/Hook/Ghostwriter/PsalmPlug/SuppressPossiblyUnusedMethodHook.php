@@ -5,13 +5,16 @@ declare(strict_types=1);
 namespace Ghostwriter\PsalmPlugin\Hook\Ghostwriter\PsalmPlug;
 
 use Ghostwriter\PsalmPlugin\AbstractBeforeAddIssueEventHook;
+use Override;
 use Psalm\Issue\PossiblyUnusedMethod;
+
 use Psalm\Plugin\EventHandler\Event\BeforeAddIssueEvent;
 
 use function str_contains;
 
 final class SuppressPossiblyUnusedMethodHook extends AbstractBeforeAddIssueEventHook
 {
+    #[Override]
     public static function beforeAddIssue(BeforeAddIssueEvent $event): ?bool
     {
         $codeIssue = $event->getIssue();

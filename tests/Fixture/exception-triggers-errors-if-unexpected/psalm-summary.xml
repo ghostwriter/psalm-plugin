@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report>
+  <item>
+    <link>https://psalm.dev/075</link>
+    <severity>error</severity>
+    <line_from>7</line_from>
+    <line_to>7</line_to>
+    <type>UnusedClass</type>
+    <message>Class MyTest is never used</message>
+    <file_name>src/code.php</file_name>
+    <file_path>/Volumes/workspace/ghostwriter/psalm-plugin/tests/Fixture/exception-triggers-errors-if-unexpected/src/code.php</file_path>
+    <snippet>final class MyTest extends TestCase</snippet>
+    <selected_text>MyTest</selected_text>
+    <from>78</from>
+    <to>84</to>
+    <snippet_from>66</snippet_from>
+    <snippet_to>101</snippet_to>
+    <column_from>13</column_from>
+    <column_to>19</column_to>
+    <shortcode>75</shortcode>
+    <error_level>-2</error_level>
+    <taint_trace/>
+    <other_references/>
+  </item>
+</report>
