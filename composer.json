@@ -37,7 +37,7 @@
         "ext-mbstring": "*",
         "ext-simplexml": "*",
         "ghostwriter/config": "^2.1.3",
-        "ghostwriter/console": "^0.2.2",
+        "ghostwriter/console": "^0.2.3",
         "ghostwriter/container": "^7.0.1",
         "ghostwriter/event-dispatcher": "^6.1.1",
         "ghostwriter/filesystem": "^0.2.0",
