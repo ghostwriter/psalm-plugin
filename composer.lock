@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cc17b61e1984b29e899fb27a453b7029",
+    "content-hash": "ed187aae464dc55e28a8ebbf65e56c46",
     "packages": [
         {
             "name": "amphp/amp",
@@ -2865,16 +2865,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v8.0.9",
+            "version": "v8.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "7113778e2e91f4709cb3194a75dfa9c0d028d94d"
+                "reference": "3156577f46a38aa1b9323aad223de7a9cd426782"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/7113778e2e91f4709cb3194a75dfa9c0d028d94d",
-                "reference": "7113778e2e91f4709cb3194a75dfa9c0d028d94d",
+                "url": "https://api.github.com/repos/symfony/console/zipball/3156577f46a38aa1b9323aad223de7a9cd426782",
+                "reference": "3156577f46a38aa1b9323aad223de7a9cd426782",
                 "shasum": ""
             },
             "require": {
@@ -2931,7 +2931,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https://github.com/symfony/console/tree/v8.0.9"
+                "source": "https://github.com/symfony/console/tree/v8.0.11"
             },
             "funding": [
                 {
@@ -2951,7 +2951,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-04-29T15:02:55+00:00"
+            "time": "2026-05-13T12:07:53+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -3026,16 +3026,16 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v8.0.9",
+            "version": "v8.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "d1ec4543d5c6c2dac78503c2fae5ea0b3608ce40"
+                "reference": "224db910898ce1317b892a9a1338f1f8f17eb7c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/d1ec4543d5c6c2dac78503c2fae5ea0b3608ce40",
-                "reference": "d1ec4543d5c6c2dac78503c2fae5ea0b3608ce40",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/224db910898ce1317b892a9a1338f1f8f17eb7c7",
+                "reference": "224db910898ce1317b892a9a1338f1f8f17eb7c7",
                 "shasum": ""
             },
             "require": {
@@ -3072,7 +3072,7 @@
             "description": "Provides basic utilities for the filesystem",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/filesystem/tree/v8.0.9"
+                "source": "https://github.com/symfony/filesystem/tree/v8.0.11"
             },
             "funding": [
                 {
@@ -3092,7 +3092,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-04-18T13:51:42+00:00"
+            "time": "2026-05-11T16:39:47+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -3598,16 +3598,16 @@
         },
         {
             "name": "symfony/string",
-            "version": "v8.0.8",
+            "version": "v8.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
-                "reference": "ae9488f874d7603f9d2dfbf120203882b645d963"
+                "reference": "39be2ad058a3c0bd558edca23e65f009865d75ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/ae9488f874d7603f9d2dfbf120203882b645d963",
-                "reference": "ae9488f874d7603f9d2dfbf120203882b645d963",
+                "url": "https://api.github.com/repos/symfony/string/zipball/39be2ad058a3c0bd558edca23e65f009865d75ff",
+                "reference": "39be2ad058a3c0bd558edca23e65f009865d75ff",
                 "shasum": ""
             },
             "require": {
@@ -3664,7 +3664,7 @@
                 "utf8"
             ],
             "support": {
-                "source": "https://github.com/symfony/string/tree/v8.0.8"
+                "source": "https://github.com/symfony/string/tree/v8.0.11"
             },
             "funding": [
                 {
@@ -3684,7 +3684,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-03-30T15:14:47+00:00"
+            "time": "2026-05-13T12:07:53+00:00"
         },
         {
             "name": "vimeo/psalm",
@@ -3870,16 +3870,16 @@
     "packages-dev": [
         {
             "name": "boundwize/structarmed",
-            "version": "0.5.0",
+            "version": "0.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/boundwize/structarmed.git",
-                "reference": "cd626ff2604e98e045427b7d1a6493632a351156"
+                "reference": "9cae458f50d3633a33f59c1382bcc8cbee17639d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/boundwize/structarmed/zipball/cd626ff2604e98e045427b7d1a6493632a351156",
-                "reference": "cd626ff2604e98e045427b7d1a6493632a351156",
+                "url": "https://api.github.com/repos/boundwize/structarmed/zipball/9cae458f50d3633a33f59c1382bcc8cbee17639d",
+                "reference": "9cae458f50d3633a33f59c1382bcc8cbee17639d",
                 "shasum": ""
             },
             "require": {
@@ -3927,7 +3927,7 @@
             ],
             "support": {
                 "issues": "https://github.com/boundwize/structarmed/issues",
-                "source": "https://github.com/boundwize/structarmed/tree/0.5.0"
+                "source": "https://github.com/boundwize/structarmed/tree/0.5.1"
             },
             "funding": [
                 {
@@ -3935,7 +3935,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-05-13T01:30:23+00:00"
+            "time": "2026-05-13T16:56:25+00:00"
         },
         {
             "name": "ghostwriter/coding-standard",
@@ -3943,16 +3943,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ghostwriter/coding-standard.git",
-                "reference": "9109490996ef84a94bc6882b8aebb553d2e98065"
+                "reference": "2055bbfc6195ae0171f3ed46f328ccd44a54d226"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ghostwriter/coding-standard/zipball/9109490996ef84a94bc6882b8aebb553d2e98065",
-                "reference": "9109490996ef84a94bc6882b8aebb553d2e98065",
+                "url": "https://api.github.com/repos/ghostwriter/coding-standard/zipball/2055bbfc6195ae0171f3ed46f328ccd44a54d226",
+                "reference": "2055bbfc6195ae0171f3ed46f328ccd44a54d226",
                 "shasum": ""
             },
             "require": {
-                "boundwize/structarmed": "^0.5.0",
+                "boundwize/structarmed": "^0.5.1",
                 "ext-apcu": "*",
                 "ext-bcmath": "*",
                 "ext-ctype": "*",
@@ -4063,7 +4063,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-05-13T12:28:54+00:00"
+            "time": "2026-05-13T17:09:25+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
