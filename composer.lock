@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3e8429627083cf65885c24af8aa0d81a",
+    "content-hash": "c4e86b3dfe858d5bb2f1cafa8ea7a85a",
     "packages": [
         {
             "name": "amphp/amp",
@@ -318,16 +318,16 @@
         },
         {
             "name": "amphp/parallel",
-            "version": "v2.3.4",
+            "version": "v2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/amphp/parallel.git",
-                "reference": "3ad45d1cff1bfbfe832c79671e6a4a1017dd9921"
+                "reference": "37f5b2754fadc229c00f9416bd68fb8d04529a81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/amphp/parallel/zipball/3ad45d1cff1bfbfe832c79671e6a4a1017dd9921",
-                "reference": "3ad45d1cff1bfbfe832c79671e6a4a1017dd9921",
+                "url": "https://api.github.com/repos/amphp/parallel/zipball/37f5b2754fadc229c00f9416bd68fb8d04529a81",
+                "reference": "37f5b2754fadc229c00f9416bd68fb8d04529a81",
                 "shasum": ""
             },
             "require": {
@@ -390,7 +390,7 @@
             ],
             "support": {
                 "issues": "https://github.com/amphp/parallel/issues",
-                "source": "https://github.com/amphp/parallel/tree/v2.3.4"
+                "source": "https://github.com/amphp/parallel/tree/v2.4.0"
             },
             "funding": [
                 {
@@ -398,7 +398,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-05-06T19:26:51+00:00"
+            "time": "2026-05-16T16:54:01+00:00"
         },
         {
             "name": "amphp/parser",
@@ -2646,16 +2646,16 @@
         },
         {
             "name": "revolt/event-loop",
-            "version": "v1.0.8",
+            "version": "v1.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/revoltphp/event-loop.git",
-                "reference": "b6fc06dce8e9b523c9946138fa5e62181934f91c"
+                "reference": "44061cf513e53c6200372fc935ac42271566295d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/revoltphp/event-loop/zipball/b6fc06dce8e9b523c9946138fa5e62181934f91c",
-                "reference": "b6fc06dce8e9b523c9946138fa5e62181934f91c",
+                "url": "https://api.github.com/repos/revoltphp/event-loop/zipball/44061cf513e53c6200372fc935ac42271566295d",
+                "reference": "44061cf513e53c6200372fc935ac42271566295d",
                 "shasum": ""
             },
             "require": {
@@ -2665,7 +2665,7 @@
                 "ext-json": "*",
                 "jetbrains/phpstorm-stubs": "^2019.3",
                 "phpunit/phpunit": "^9",
-                "psalm/phar": "^5.15"
+                "psalm/phar": "6.16.*"
             },
             "type": "library",
             "extra": {
@@ -2712,9 +2712,9 @@
             ],
             "support": {
                 "issues": "https://github.com/revoltphp/event-loop/issues",
-                "source": "https://github.com/revoltphp/event-loop/tree/v1.0.8"
+                "source": "https://github.com/revoltphp/event-loop/tree/v1.0.9"
             },
-            "time": "2025-08-27T21:33:23+00:00"
+            "time": "2026-05-16T17:55:38+00:00"
         },
         {
             "name": "sebastian/diff",
@@ -3870,16 +3870,16 @@
     "packages-dev": [
         {
             "name": "boundwize/structarmed",
-            "version": "0.6.3",
+            "version": "0.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/boundwize/structarmed.git",
-                "reference": "b6113f20ea61e6a45da3197e990b15a232658229"
+                "reference": "8d630745f6e26f9c4c4d8886da913ba5264ff47b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/boundwize/structarmed/zipball/b6113f20ea61e6a45da3197e990b15a232658229",
-                "reference": "b6113f20ea61e6a45da3197e990b15a232658229",
+                "url": "https://api.github.com/repos/boundwize/structarmed/zipball/8d630745f6e26f9c4c4d8886da913ba5264ff47b",
+                "reference": "8d630745f6e26f9c4c4d8886da913ba5264ff47b",
                 "shasum": ""
             },
             "require": {
@@ -3928,7 +3928,7 @@
             ],
             "support": {
                 "issues": "https://github.com/boundwize/structarmed/issues",
-                "source": "https://github.com/boundwize/structarmed/tree/0.6.3"
+                "source": "https://github.com/boundwize/structarmed/tree/0.6.4"
             },
             "funding": [
                 {
@@ -3936,7 +3936,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-05-16T16:33:55+00:00"
+            "time": "2026-05-16T17:20:29+00:00"
         },
         {
             "name": "ghostwriter/coding-standard",
@@ -3944,16 +3944,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ghostwriter/coding-standard.git",
-                "reference": "968292530cd54c945f08907d664cfc16c5a4668d"
+                "reference": "2c20193be3316dcd85999c946d35b9051576ae97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ghostwriter/coding-standard/zipball/968292530cd54c945f08907d664cfc16c5a4668d",
-                "reference": "968292530cd54c945f08907d664cfc16c5a4668d",
+                "url": "https://api.github.com/repos/ghostwriter/coding-standard/zipball/2c20193be3316dcd85999c946d35b9051576ae97",
+                "reference": "2c20193be3316dcd85999c946d35b9051576ae97",
                 "shasum": ""
             },
             "require": {
-                "boundwize/structarmed": "^0.6.2",
+                "boundwize/structarmed": "^0.6.4",
                 "ext-apcu": "*",
                 "ext-bcmath": "*",
                 "ext-ctype": "*",
@@ -4064,7 +4064,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-05-16T11:04:23+00:00"
+            "time": "2026-05-16T17:56:23+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
