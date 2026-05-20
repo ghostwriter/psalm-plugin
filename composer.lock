@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f79834fd4d0d6ac644167805c2d0fc47",
+    "content-hash": "4bfa12826450cf981d71036180f54877",
     "packages": [
         {
             "name": "amphp/amp",
@@ -3806,16 +3806,16 @@
         },
         {
             "name": "webmozart/assert",
-            "version": "2.3.0",
+            "version": "2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozarts/assert.git",
-                "reference": "eb0d790f735ba6cff25c683a85a1da0eadeff9e4"
+                "reference": "9007ea6f45ecf352a9422b36644e4bfc039b9155"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozarts/assert/zipball/eb0d790f735ba6cff25c683a85a1da0eadeff9e4",
-                "reference": "eb0d790f735ba6cff25c683a85a1da0eadeff9e4",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/9007ea6f45ecf352a9422b36644e4bfc039b9155",
+                "reference": "9007ea6f45ecf352a9422b36644e4bfc039b9155",
                 "shasum": ""
             },
             "require": {
@@ -3831,7 +3831,11 @@
             },
             "type": "library",
             "extra": {
+                "psalm": {
+                    "pluginClass": "Webmozart\\Assert\\PsalmPlugin"
+                },
                 "branch-alias": {
+                    "dev-master": "2.0-dev",
                     "dev-feature/2-0": "2.0-dev"
                 }
             },
@@ -3862,24 +3866,24 @@
             ],
             "support": {
                 "issues": "https://github.com/webmozarts/assert/issues",
-                "source": "https://github.com/webmozarts/assert/tree/2.3.0"
+                "source": "https://github.com/webmozarts/assert/tree/2.4.0"
             },
-            "time": "2026-04-11T10:33:05+00:00"
+            "time": "2026-05-20T13:07:01+00:00"
         }
     ],
     "packages-dev": [
         {
             "name": "boundwize/structarmed",
-            "version": "0.6.14",
+            "version": "0.6.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/boundwize/structarmed.git",
-                "reference": "74a38efeae3c995586dd16bf5935f98d249ee20d"
+                "reference": "1c9f1eac7058af6117b4581fbecaff001fb38e97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/boundwize/structarmed/zipball/74a38efeae3c995586dd16bf5935f98d249ee20d",
-                "reference": "74a38efeae3c995586dd16bf5935f98d249ee20d",
+                "url": "https://api.github.com/repos/boundwize/structarmed/zipball/1c9f1eac7058af6117b4581fbecaff001fb38e97",
+                "reference": "1c9f1eac7058af6117b4581fbecaff001fb38e97",
                 "shasum": ""
             },
             "require": {
@@ -3928,7 +3932,7 @@
             ],
             "support": {
                 "issues": "https://github.com/boundwize/structarmed/issues",
-                "source": "https://github.com/boundwize/structarmed/tree/0.6.14"
+                "source": "https://github.com/boundwize/structarmed/tree/0.6.15"
             },
             "funding": [
                 {
@@ -3936,7 +3940,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-05-20T03:09:43+00:00"
+            "time": "2026-05-20T13:36:47+00:00"
         },
         {
             "name": "ghostwriter/coding-standard",
@@ -3944,16 +3948,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ghostwriter/coding-standard.git",
-                "reference": "362529f6642af30ab5f9dd8f58b198e96a574614"
+                "reference": "6439cb7c20121d26b48e7798f9ac69fc695ac8ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ghostwriter/coding-standard/zipball/362529f6642af30ab5f9dd8f58b198e96a574614",
-                "reference": "362529f6642af30ab5f9dd8f58b198e96a574614",
+                "url": "https://api.github.com/repos/ghostwriter/coding-standard/zipball/6439cb7c20121d26b48e7798f9ac69fc695ac8ff",
+                "reference": "6439cb7c20121d26b48e7798f9ac69fc695ac8ff",
                 "shasum": ""
             },
             "require": {
-                "boundwize/structarmed": "^0.6.14",
+                "boundwize/structarmed": "^0.6.15",
                 "ext-apcu": "*",
                 "ext-bcmath": "*",
                 "ext-ctype": "*",
@@ -4064,7 +4068,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-05-20T08:56:27+00:00"
+            "time": "2026-05-20T17:12:56+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
