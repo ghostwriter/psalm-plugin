@@ -20,13 +20,6 @@
 "repository":
   "name": "psalm-plugin"
   "description": "Provides a plugin for Psalm"
-  "topics":
-    - "ghostwriter"
-    - "psalm-plugin"
-    - "php"
-    - "psalm"
-    - "static analysis"
-    - "dev"
   "homepage": "https://github.com/ghostwriter/psalm-plugin"
   "default_branch": "0.2.x"
   "allow_auto_merge": true
