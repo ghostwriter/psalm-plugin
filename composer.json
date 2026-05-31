@@ -31,9 +31,15 @@
             "url": "https://github.com/sponsors/ghostwriter"
         }
     ],
-    "_comment": ["#BlackLivesMatter", "#FreePalestine", "#StandWithIran", "#StandWithUkraine", "#StopGenocide"],
+    "_comment": [
+        "#BlackLivesMatter",
+        "#FreePalestine",
+        "#StandWithIran",
+        "#StandWithUkraine",
+        "#StopGenocide"
+    ],
     "require": {
-        "php": "~8.4.0 || ~8.5.0",
+        "php": "~8.4.0 || ~8.5.0 || ~8.6.0",
         "ext-mbstring": "*",
         "ext-simplexml": "*",
         "ghostwriter/config": "^2.1.3",
@@ -92,10 +98,28 @@
             "php": "8.4.999"
         },
         "platform-check": true,
-        "preferred-install": "dist",
+        "policy": {
+            "advisories": {
+                "block": true,
+                "audit": "fail"
+            },
+            "malware": {
+                "block": true,
+                "block-scope": "all",
+                "audit": "fail"
+            },
+            "abandoned": {
+                "block": true,
+                "audit": "fail"
+            }
+        },
+        "preferred-install": {
+            "*": "dist"
+        },
         "prepend-autoloader": true,
         "process-timeout": 5000,
         "sort-packages": true,
+        "strict-psr-autoloader": true,
         "use-parent-dir": false
     },
     "extra": {
@@ -115,30 +139,21 @@
         }
     },
     "scripts": {
+        "bin_psalm1": "vendor/ghostwriter/coding-standard/tools/phar/psalm --no-cache --threads=1",
         "cache:clear": "rm -rf ./.cache/*",
         "check": [
             "@cache:clear",
-            "tools/phar/composer validate",
+            "@composer validate",
             "@test"
         ],
-        "docker": [
-            "@docker:build",
-            "@docker:run"
-        ],
-        "docker:build": "docker buildx build --pull --tag workspace .",
-        "docker:run": "docker run -v $(PWD):/github/workspace -w=/github/workspace -e GITHUB_DEBUG=1 -e GITHUB_WORKSPACE=/github/workspace -e GITHUB_TOKEN=github-token -e SIGNING_SECRET_KEY=secret-key workspace",
-        "git:submodule:update": "git submodule update --depth=1 --init --recursive --recommend-shallow --remote",
         "infection": [
             "@xdebug",
-            "tools/phar/infection --min-covered-msi=0 --min-msi=0 --show-mutations --threads=max"
+            "vendor/ghostwriter/coding-standard/tools/phar/infection --min-covered-msi=0 --min-msi=0 --show-mutations --threads=max"
         ],
-        "phpbench": "tools/phar/phpbench run --report='extends:aggregate,cols:[benchmark,subject,revs,its,mem_peak,mode,rstdev]' --time-unit=milliseconds ./tests/Benchmark",
         "phpunit": [
             "@xdebug",
             "vendor/bin/phpunit --do-not-cache-result --colors=always"
         ],
-        "bin_psalm1": "vendor/ghostwriter/coding-standard/tools/phar/psalm --no-cache --threads=1",
-        "bin_psalm": "vendor/bin/psalm --no-cache --threads=1",
         "psalm": "@bin_psalm --show-info=true --no-diff --shepherd --stats",
         "psalm:alter": "@bin_psalm --alter --allow-backwards-incompatible-changes=false --safe-types",
         "psalm:baseline": "@bin_psalm --no-diff --set-baseline=psalm-baseline.xml",
@@ -150,7 +165,6 @@
             "@phpunit",
             "@infection"
         ],
-        "unused": "tools/phar/composer-unused --no-interaction --ansi",
         "xdebug": "@putenv XDEBUG_MODE=coverage"
     }
 }
