@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a70085c28f5889de178e1f9257ee11e5",
+    "content-hash": "143192ae245c27785c086b4509a3d5e0",
     "packages": [
         {
             "name": "amphp/amp",
@@ -3970,16 +3970,16 @@
     "packages-dev": [
         {
             "name": "boundwize/structarmed",
-            "version": "0.11.3",
+            "version": "0.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/boundwize/structarmed.git",
-                "reference": "42a2520eda670609d701f9e6704b7d31d8d8b697"
+                "reference": "e3b038b0675e0b1e3c056dc8e4ffcbab15b39bf8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/boundwize/structarmed/zipball/42a2520eda670609d701f9e6704b7d31d8d8b697",
-                "reference": "42a2520eda670609d701f9e6704b7d31d8d8b697",
+                "url": "https://api.github.com/repos/boundwize/structarmed/zipball/e3b038b0675e0b1e3c056dc8e4ffcbab15b39bf8",
+                "reference": "e3b038b0675e0b1e3c056dc8e4ffcbab15b39bf8",
                 "shasum": ""
             },
             "require": {
@@ -4032,7 +4032,7 @@
             ],
             "support": {
                 "issues": "https://github.com/boundwize/structarmed/issues",
-                "source": "https://github.com/boundwize/structarmed/tree/0.11.3"
+                "source": "https://github.com/boundwize/structarmed/tree/0.12.0"
             },
             "funding": [
                 {
@@ -4040,7 +4040,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-06-04T16:05:09+00:00"
+            "time": "2026-06-05T02:51:34+00:00"
         },
         {
             "name": "ghostwriter/case-converter",
@@ -4737,16 +4737,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "14.1.10",
+            "version": "14.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "3719c5b6c045761798238ebacfee1fe06e4ce5be"
+                "reference": "ab8a36c9bd98c51f6cfe665a732bfadf72e18e8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/3719c5b6c045761798238ebacfee1fe06e4ce5be",
-                "reference": "3719c5b6c045761798238ebacfee1fe06e4ce5be",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/ab8a36c9bd98c51f6cfe665a732bfadf72e18e8d",
+                "reference": "ab8a36c9bd98c51f6cfe665a732bfadf72e18e8d",
                 "shasum": ""
             },
             "require": {
@@ -4765,7 +4765,7 @@
                 "theseer/tokenizer": "^2.0.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^13.1.13"
+                "phpunit/phpunit": "^13.1.14"
             },
             "suggest": {
                 "ext-pcov": "PHP extension that provides line coverage",
@@ -4774,7 +4774,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "14.1.x-dev"
+                    "dev-main": "14.2.x-dev"
                 }
             },
             "autoload": {
@@ -4803,7 +4803,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
                 "security": "https://github.com/sebastianbergmann/php-code-coverage/security/policy",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/14.1.10"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/14.2.0"
             },
             "funding": [
                 {
@@ -4823,7 +4823,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-06-01T13:26:42+00:00"
+            "time": "2026-06-05T02:59:08+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
