@@ -1,3 +1,0 @@
-# Psalm plugin
-
-here be dragons...
