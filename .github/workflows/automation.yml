@@ -16,4 +16,4 @@ permissions: {}
 
 jobs:
   automation:
-    uses: ghostwriter/compliance/.github/workflows/automation.yml@fc78ae3c9e89a9948f34e15d341c10507167b1ad # v1
+    uses: ghostwriter/compliance/.github/workflows/automation.yml@7521c754bd48a74252d55ba4fbb3b474fcd1d99e # v1
